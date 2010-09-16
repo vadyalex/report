@@ -22,12 +22,6 @@
 		\textcolor{red}{#1}
 	\end{LARGE}
 }
-
-\newcommand{\codefile}[3]{
-	\begin{center}
-		\lstinputlisting[language=xml, tabsize=2, caption={#1}, label={#2}]{#3}
-	\end{center}
-}
  
 \begin{document}
 
@@ -83,7 +77,16 @@ School of Mathematics and System Engineering
 \subsection{Problem Statement}
 
 \subsection{Dataset description}
-GO data and cluster analysis results correspond a graph and are stored in GML files. GO graph is directed acyclic graph. \todo{set detail information on graph} Cluster graph is directed binary  tree. \todo{set detail information on cluster graph} Both of two graphs are independent from each other: they have different node id and edge ids. But they are corresponded by graph node labels -- both of this graphs have same label for terminal graph nodes. This property is used in the subgraph extracting algorithm. 
+Gene Ontology data and cluster analysis results presented as directed graphs. They are stored in separate files in special format -- GML files. GML file format covered in the next section.
+
+
+GO graph is directed acyclic graph has 10042 verticies and  24155 edges. It has 1 root, 2729 nodes and 7312 leafs (terminal nodes).
+
+
+Cluster graph is directed binary  tree has 14623 nodes and 14622. Cluster graph as a tree has 1 root, 7310 nodes and 7312 leafs.
+
+
+Both of two graphs are independent from each other from developer point of view: they have different node ids and edge ids. But they are corresponded by graph node labels -- both of this graphs have same label for terminal graph nodes. This property is used in the subgraph extracting algorithm. 
 
 \todo{add connections between graphs}
 
@@ -94,10 +97,12 @@ GO data and cluster analysis results correspond a graph and are stored in GML fi
 GML format is platform independent, and easy to implement. Furthermore, it has the capability to represent arbitrary data structures, since advanced programs have the need to attach their specific data to nodes and edges. GML is flexible enough that a specific order of declarations is not needed, and that any non-essential data may be omitted. Simple graph is showed in the Listing~\ref{sample_graph_gml}
 
 
-\codefile{GML description of sample graph}{sample_graph_gml}{SampleGraph.gml}
+\begin{center}
+	\lstinputlisting[language=xml, tabsize=2, caption={GML description of sample graph}, label={sample_graph_gml}]{SampleGraph.gml}
+\end{center}
 
 
-In the Figure~\ref{sample_graph_yed_vis} showed manual visualization of the graph using yEd~\cite{yed}
+In the Figure~\ref{sample_graph_yed_vis} showed manual visualization of the graph using yEd~\cite{yEd}
 
 
 \begin{center}
@@ -112,7 +117,9 @@ In the Figure~\ref{sample_graph_yed_vis} showed manual visualization of the grap
 More complex graph with additional properties and its visualization produced by yEd graph editor is in the Listing~\ref{yed_graph} and showed on the Figure~\ref{yed_graph_vis}
 
 
-\codefile{GML graph with additional properties}{yed_graph}{YedGraph.gml}
+\begin{center}
+	\lstinputlisting[language=xml, tabsize=2, caption={GML graph with additional properties}, label={yed_graph}]{YedGraph.gml}
+\end{center}
 
 
 \begin{center}
@@ -124,8 +131,17 @@ More complex graph with additional properties and its visualization produced by 
 \end{center}
 
 
+Applications supporting GML~\cite{GML_wiki}
 
-
+\begin{enumerate}
+\item Clairlib~\cite{clairlib}, a suite of open-source Perl modules intended to simplify a number of generic tasks in natural language processing (NLP), information retrieval (IR), and network analysis (NA).
+\item Cytoscape~\cite{Cytoscape}, an open source bioinformatics software platform for visualizing molecular interaction networks, loads and save previously-constructed interaction networks in GML.
+\item NetworkX~\cite{NetworkX}, an open source Python library for studying complex graphs.
+\item ocamlgraph\cite{ocamlgraph}, a graph library for OCaml.
+\item OGDF\cite{OGDF}, the Open Graph Drawing Framework, an open source C++ library containing implementations of various graph drawing algorithms. The library is self contained; optionally, additional packages like LP-solvers are required for some implementations.
+\item Tulip~\cite{Tulip} (software) is a free software in the domain of information visualisation capable of manipulating huge graphs (with more than 1.000.000 elements).
+\item yEd~\cite{yEd}, a free Java-based graph editor, supports import from and export to GML.
+\end{enumerate}
 
 \section{Solution}
 
@@ -134,7 +150,7 @@ More complex graph with additional properties and its visualization produced by 
 \subsection{Gene Ontology Visualization}
 
 \section{Implementation}
-\section{IO layer}
+\subsection{IO layer}
 \subsection{Gene Ontology Visualization Implementation}
 \subsection{Cluster Visualization Implementation}
 	
@@ -162,7 +178,16 @@ GML -- Graph Modelling Language
 
 \mywebref{GML}{GML}{http://www.infosun.fim.uni-passau.de/Graphlet/GML/gml-tr.html}
 
-\mywebref{yed}{yEd}{http://www.yworks.com/en/products_yed_about.html}
+\mywebref{GML_wiki}{GML supported programs}{http://en.wikipedia.org/wiki/Graph_Modelling_Language}
+
+\mywebref{yEd}{yEd}{http://www.yworks.com/en/products_yed_about.html}
+\mywebref{clairlib}{Clairlib}{http://www.clairlib.org/}
+\mywebref{Cytoscape}{Cytoscape}{http://en.wikipedia.org/wiki/Cytoscape}
+\mywebref{NetworkX}{NetworkX}{http://en.wikipedia.org/wiki/NetworkX}
+\mywebref{ocamlgraph}{ocamlgraph}{http://ocamlgraph.lri.fr/}
+\mywebref{OGDF}{OGDF}{http://www.ogdf.net/}
+\mywebref{Tulip}{Tulip}{http://tulip.labri.fr/TulipDrupal/}
+
 
 \mywebref{GDC}{Graph Drawing Conference '95}{www.informatik.uni-trier.de/~ley/db/conf/gd/gd95.html}
 
