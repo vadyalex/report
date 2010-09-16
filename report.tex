@@ -1,0 +1,200 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%		Master thesis proposal
+% 	Visualisation of Gene Ontology and Cluster Analysis Results
+%	Author: Vladyslav Aleksakhin
+
+\documentclass[a4paper,oneside]{article}
+
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{color}
+\usepackage{listings}
+
+
+\newcommand*{\mywebref}[3]{
+	\bibitem{#1} #2 is available on the web \url{#3}. Last access in September 2010.
+}
+
+\newcommand*{\todo}[1]{
+	\begin{LARGE}
+		\textcolor{red}{#1}
+	\end{LARGE}
+}
+
+\newcommand{\codefile}[3]{
+	\begin{center}
+		\lstinputlisting[language=xml, tabsize=2, caption={#1}, label={#2}]{#3}
+	\end{center}
+}
+ 
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+
+\Huge{Visualisation of Gene Ontology and Cluster Analysis Results}
+
+\vfill
+
+\begin{Large}
+Master's Thesis Report (30 credit points)
+
+\vfill
+
+Superviser: Prof. Dr. Andreas Kerren\\
+Student: Vladyslav Aleksakhin
+
+\vfill
+
+Linneuniversitetet\\
+School of Mathematics and System Engineering
+
+\end{Large}
+
+
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Abstract}
+
+\newpage
+
+\section{Abstract}
+
+\section{Acknowledgments}
+
+\section{Introduction}
+
+\subsection{Bioinformatic}
+
+\subsection{Information Visualization}
+
+\subsection{Gene Ontology}
+
+\subsection{Clustering}
+
+\section{Problem Statements and Goals}
+
+\subsection{Problem Statement}
+
+\subsection{Dataset description}
+GO data and cluster analysis results correspond a graph and are stored in GML files. GO graph is directed acyclic graph. \todo{set detail information on graph} Cluster graph is directed binary  tree. \todo{set detail information on cluster graph} Both of two graphs are independent from each other: they have different node id and edge ids. But they are corresponded by graph node labels -- both of this graphs have same label for terminal graph nodes. This property is used in the subgraph extracting algorithm. 
+
+\todo{add connections between graphs}
+
+\subsection{GML}
+ "GML, the Graph Modelling Language, is our proposal for a portable file format for graphs. GML's key features are portability, simple syntax, extensibility and flexibility. A GML file consists of a hierarchical key-value lists. Graphs can be annotated with arbitrary data structures. The idea for a common file format was born at the GD'95; this proposal is the outcome of many discussions. GML is the standard file format in the Graphlet~cite{Graphlet} graph editor system. It has been overtaken and adapted by several other systems for drawing graphs."~\cite{GML}
+ 
+ 
+GML format is platform independent, and easy to implement. Furthermore, it has the capability to represent arbitrary data structures, since advanced programs have the need to attach their specific data to nodes and edges. GML is flexible enough that a specific order of declarations is not needed, and that any non-essential data may be omitted. Simple graph is showed in the Listing~\ref{sample_graph_gml}
+
+
+\codefile{GML description of sample graph}{sample_graph_gml}{SampleGraph.gml}
+
+
+In the Figure~\ref{sample_graph_yed_vis} showed manual visualization of the graph using yEd~\cite{yed}
+
+
+\begin{center}
+\begin{figure}
+	\includegraphics[scale=0.5]{SampleGraph.png}
+	\caption{Manual visualization of the sample graph}
+	\label{sample_graph_yed_vis}
+\end{figure}
+\end{center}
+
+
+More complex graph with additional properties and its visualization produced by yEd graph editor is in the Listing~\ref{yed_graph} and showed on the Figure~\ref{yed_graph_vis}
+
+
+\codefile{GML graph with additional properties}{yed_graph}{YedGraph.gml}
+
+
+\begin{center}
+\begin{figure}
+	\includegraphics[scale=0.5]{YedGraph.png}
+	\caption{Manual visualization of the sample graph}
+	\label{yed_graph_vis}
+\end{figure}
+\end{center}
+
+
+
+
+
+\section{Solution}
+
+\subsection{Cluster Analysis Results Visualization}
+
+\subsection{Gene Ontology Visualization}
+
+\section{Implementation}
+\section{IO layer}
+\subsection{Gene Ontology Visualization Implementation}
+\subsection{Cluster Visualization Implementation}
+	
+\section{Conclusions}
+\section{Results}
+
+\section{Glossary}
+GO -- Gene Ontology\\
+XML -- eXtensible Markup Language
+GML -- Graph Modelling Language
+
+\begin{thebibliography}{99}
+
+\mywebref{Biology}{Biotech}{biotech.icmb.utexas.edu/pages/bioinfo.html}
+
+\mywebref{Bioinformatic}{Information about Bioinformatics}{www.absoluteastronomy.com/topics/Bioinformatics}
+
+\mywebref{GO_website}{Gene Ontology}{www.geneontology.org/}
+
+\mywebref{OBO}{The Open Biomedical Ontologies}{www.obofoundry.org/}
+
+\mywebref{IPK}{Network Analysis Group (at IPK)}{nwg.bic-gh.de/}
+
+\mywebref{Graphlet}{Graphlet}{http://www.fmi.uni-passau.de/Graphlet/}
+
+\mywebref{GML}{GML}{http://www.infosun.fim.uni-passau.de/Graphlet/GML/gml-tr.html}
+
+\mywebref{yed}{yEd}{http://www.yworks.com/en/products_yed_about.html}
+
+\mywebref{GDC}{Graph Drawing Conference '95}{www.informatik.uni-trier.de/~ley/db/conf/gd/gd95.html}
+
+\mywebref{Radial_dendrogram}{Radial Dendrogram}{cs.sunysb.edu/~vislab/papers}
+
+\mywebref{Dendrogram}{Introduction into Dengrograms}{en.wikipedia.org/wiki/Dendrogram}
+
+\bibitem{Barlow_Neville}
+T. Barlow and P. Neville, A comparison of 2D visualization of hierarchies, Information Visualization pp 131-138, 2001.
+
+\bibitem{Kreussler_Schumann}
+M. Kreussler and H. Schumann, A flexible approach for visual data mining, IEEE Trans. VisualGraphics, vol. 8, no. 1, pp. 39-51, 2002.
+
+\bibitem{Yang_Ward}
+J. Yang, M. Ward, and E. Rundensteiner, InterRing: An interactive tool for visually navigating and manipulatiung hierarchical structures, IEEE 2002 Symposium on Information Visualization, pp. 77-92, 2002.
+
+\mywebref{GEF}{Java Graph Editing Framework}{gef.tigris.org/}
+
+\mywebref{ILOG_Jview}{ILOG Jview}{www.ilog.com/products/jviews/}
+
+\mywebref{JUNG}{Java Universal Network / Graph Framework (JUNG)}{jung.sourceforge.net/}
+
+\mywebref{JGraphT}{JGraphT)}{jgrapht.sourceforge.net/}
+
+\mywebref{Piccolo}{Piccolo)}{www.cs.umd.edu/hcil/jazz/}
+
+\mywebref{VTK}{Visualisation Toolkit)}{www.vtk.org/}
+
+\mywebref{InfoVis_Toolkit}{InfoVis Toolkit)}{ivtk.sourceforge.net/}
+
+\mywebref{Improvise}{Improvise project homepage}{www.cs.ou.edu/~weaver/improvise/index.html}
+
+\end{thebibliography}
+
+\end{document}
