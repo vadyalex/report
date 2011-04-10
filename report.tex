@@ -126,7 +126,7 @@ Here is program algorithm explanation using sample graphs:
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.5]{subgraph_extraction_algorithm_step_1.png}
+		\includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_1.png}
 	\end{center}
 	\caption{Selected node in the Gene Ontology}
 	\label{step_1}
@@ -136,7 +136,7 @@ Here is program algorithm explanation using sample graphs:
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.5]{subgraph_extraction_algorithm_step_2.png}
+		\includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_2.png}
 	\end{center}
 	\caption{Corresponded successors of the selected node}
 	\label{step_2}
@@ -147,7 +147,7 @@ Here is program algorithm explanation using sample graphs:
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.5]{subgraph_extraction_algorithm_step_3.png}
+		\includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_3.png}
 	\end{center}
 	\caption{Extract leafs}
 	\label{step_3}
@@ -158,7 +158,7 @@ Here is program algorithm explanation using sample graphs:
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.5]{subgraph_extraction_algorithm_step_4.png}
+		\includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_4.png}
 	\end{center}
 	\caption{Corresponded leaves in the cluster tree}
 	\label{step_4}
@@ -168,7 +168,7 @@ Here is program algorithm explanation using sample graphs:
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.5]{subgraph_extraction_algorithm_step_5.png}
+		\includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_5.png}
 	\end{center}
 	\caption{Build sub tree}
 	\label{step_5}
@@ -206,7 +206,7 @@ GO graph is directed acyclic graph has 10042 vertices and  24155 edges. It has 1
 
 \begin{figure}[h]
 \begin{center}
-	\includegraphics[scale=0.3]{yEd_GO.png}
+	\includegraphics[scale=0.3]{pictures/yEd_GO.png}
 	\label{yEd_GO}
 	\caption{Gene Ontology yEd visualization}
 \end{center}
@@ -217,7 +217,7 @@ Cluster graph is directed binary  tree has 14623 nodes and 14622. Cluster graph 
 
 \begin{figure}[h]
 \begin{center}
-	\includegraphics[scale=0.3]{Cytoscape_cluster_graph_1.png}
+	\includegraphics[scale=0.3]{pictures/Cytoscape_cluster_graph_1.png}
 	\label{Cytoscape_Cluster_1}
 	\caption{Cluster analysis result tree Cytoscape visualization tool}
 \end{center}
@@ -225,7 +225,7 @@ Cluster graph is directed binary  tree has 14623 nodes and 14622. Cluster graph 
 
 \begin{figure}[h]
 \begin{center}
-	\includegraphics[scale=0.3]{Cytoscape_cluster_graph_2.png}
+	\includegraphics[scale=0.3]{pictures/Cytoscape_cluster_graph_2.png}
 	\label{Cytoscape_Cluster_2}
 	\caption{Zoomed cluster analysis result tree}
 \end{center}
@@ -243,14 +243,14 @@ The application should work with large quantity of data over tens of thousands t
 GML format is platform independent, and easy to implement. Furthermore, it has the capability to represent arbitrary data structures, since advanced programs have the need to attach their specific data to nodes and edges. GML is flexible enough that a specific order of declarations is not needed, and that any non-essential data may be omitted. Simple graph is showed in the Listing~\ref{sample_graph_gml}
 
 \begin{center}
-	\lstinputlisting[language=xml, tabsize=2, caption={GML description of sample graph}, label={sample_graph_gml}]{SampleGraph.gml}
+	\lstinputlisting[language=xml, tabsize=2, caption={GML description of sample graph}, label={sample_graph_gml}]{graphs/SampleGraph.gml}
 \end{center}
 
 In the Figure~\ref{sample_graph_yed_vis} showed manual visualization of the graph using yEd~\cite{yEd}
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale=0.5]{SampleGraph.png}
+	\includegraphics[scale=0.5]{pictures/SampleGraph.png}
 	\caption{Manual visualization of the sample graph}
 	\label{sample_graph_yed_vis}
 \end{center}
@@ -260,7 +260,7 @@ More complex graph with additional properties and its visualization produced by 
 
 \begin{center}
 \begin{figure}
-	\includegraphics[scale=0.5]{YedGraph.png}
+	\includegraphics[scale=0.5]{pictures/YedGraph.png}
 	\caption{Manual visualization of the sample graph}
 	\label{yed_graph_vis}
 \end{figure}
@@ -296,7 +296,7 @@ The GraphML document consists of a graphml element and a variety of sub elements
 
 \begin{center}
 \begin{figure}
-	\includegraphics[scale=1.0]{simple.png}
+	\includegraphics[scale=1.0]{pictures/simple.png}
 	\caption{A simple graph}
 	\label{simple_graphml}
 \end{figure}
@@ -367,7 +367,7 @@ Visual representation of both graphs showed in the Figure~\ref{dot_graphs} below
 
 \begin{figure}
 \begin{center}
-    \includegraphics[scale=0.3]{dot_graph.png}
+    \includegraphics[scale=0.3]{pictures/dot_graph.png}
 	\caption{Directed and undirected graphs}
 	\label{dot_graphs}
 \end{center}
@@ -444,7 +444,7 @@ As was discussed before in the Section~\ref{dataset_description} cluster analysi
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale=1.0]{simple_binary_tree.png}
+	\includegraphics[scale=1.0]{pictures/simple_binary_tree.png}
 	\caption{A simple binary tree graph}
 	\label{simple_binary_tree}
 \end{center}
@@ -455,7 +455,7 @@ There several visualization methods for binary trees and more specific methods f
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale=1.0]{dendrogram.png}
+	\includegraphics[scale=1.0]{pictures/dendrogram.png}
 	\caption{Dendrogram}
 	\label{dendrogram_1}
 \end{center}
@@ -466,7 +466,7 @@ The Figure~\cite{polardendrogram} shows polar dendrogram visualization algorithm
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale=1.0]{polardendrogram.png}
+	\includegraphics[scale=1.0]{pictures/polardendrogram.png}
 	\caption{Polar Dendrogram}
 	\label{polardendrogram}
 \end{center}
@@ -477,7 +477,7 @@ One of the main ideas was to use polar dendrogram algorithm for cluster visualiz
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale=0.3]{using_JUNG_radial.png}
+	\includegraphics[scale=0.3]{pictures/using_JUNG_radial.png}
 	\caption{Cluster visualization using JUNG radial layout}
 	\label{JUNG_radial_layout}
 \end{center}
@@ -503,7 +503,7 @@ The Figure~\ref{cluster_jogl_impl} shows improved JUNG radial algorithm and own 
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale=0.3]{cluster_jogl_impl.png}
+	\includegraphics[scale=0.3]{pictures/cluster_jogl_impl.png}
 	\caption{Cluster visualization using JOGL and improved JUNG radial layout}
 	\label{cluster_jogl_impl}
 \end{center}
@@ -514,7 +514,7 @@ The Figure~\ref{cluster_jogl_impl_with_subgraph_1} and Figure~\ref{cluster_jogl_
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale=0.3]{cluster_jogl_impl_with_subgraph_1.png}
+	\includegraphics[scale=0.3]{pictures/cluster_jogl_impl_with_subgraph_1.png}
 	\caption{Cluster graph and highlighted subgraph}
 	\label{cluster_jogl_impl_with_subgraph_1}
 \end{center}
@@ -522,7 +522,7 @@ The Figure~\ref{cluster_jogl_impl_with_subgraph_1} and Figure~\ref{cluster_jogl_
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale=0.3]{cluster_jogl_impl_with_subgraph_2.png}
+	\includegraphics[scale=0.3]{pictures/cluster_jogl_impl_with_subgraph_2.png}
 	\caption{Cluster graph and highlighted subgraph}
 	\label{cluster_jogl_impl_with_subgraph_2}
 \end{center}
@@ -590,7 +590,7 @@ Cluster graph and Gene Ontology graphs stored in the "data" folder.
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale=0.6]{thesis_folder_structure.png}
+	\includegraphics[scale=0.6]{pictures/thesis_folder_structure.png}
 	\caption{Thesis folder structure}
 	\label{THESIS_FOLDER_STRUCTURE}
 \end{center}
@@ -604,7 +604,7 @@ Torvalds wanted a distributed system that he could use like BitKeeper, but none 
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale=0.6]{commit_graph_gitk.png}
+	\includegraphics[scale=0.6]{pictures/commit_graph_gitk.png}
 	\caption{Commit graph of the local repository made by gitk tool}
 \end{center}
 \end{figure}
@@ -918,7 +918,7 @@ Dave Shreiner, Mason Woo, Jackie Neider, Tom Davis, OpenGL(R) Programming Guide:
 \addcontentsline{toc}{section}{Appendix A: Listing of the complex gml file}
 
 \begin{center}
-	\lstinputlisting[language=xml, tabsize=2, basicstyle=\footnotesize, numberstyle=\footnotesizefr]{YedGraph.gml}
+	\lstinputlisting[language=xml, tabsize=2, basicstyle=\footnotesize, numberstyle=\footnotesizefr]{graphs/YedGraph.gml}
 \end{center}
 
 \end{document}
