@@ -1,0 +1,35 @@
+\contentsline {section}{Abstract}{2}
+\contentsline {section}{Acknowledgements}{3}
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {subsection}{\numberline {1.1}Motivation}{3}
+\contentsline {subsection}{\numberline {1.2}Purpose}{3}
+\contentsline {subsection}{\numberline {1.3}Report structure}{3}
+\contentsline {subsection}{\numberline {1.4}Information Visualization}{3}
+\contentsline {subsection}{\numberline {1.5}Bioinformatic}{3}
+\contentsline {subsection}{\numberline {1.6}Gene Ontology}{4}
+\contentsline {subsection}{\numberline {1.7}Clustering}{5}
+\contentsline {section}{\numberline {2}Problem Statement and Goals}{5}
+\contentsline {subsection}{\numberline {2.1}Thesis Collaboration}{11}
+\contentsline {subsection}{\numberline {2.2}Dataset Description}{12}
+\contentsline {subsection}{\numberline {2.3}GML Graph File Format}{12}
+\contentsline {subsection}{\numberline {2.4}Other Graph File Formats}{17}
+\contentsline {subsubsection}{\numberline {2.4.1}GraphML}{17}
+\contentsline {subsubsection}{\numberline {2.4.2}DOT graph file format}{19}
+\contentsline {subsubsection}{\numberline {2.4.3}DGML}{19}
+\contentsline {subsubsection}{\numberline {2.4.4}GXL}{20}
+\contentsline {subsubsection}{\numberline {2.4.5}SVG}{21}
+\contentsline {section}{\numberline {3}Solution}{22}
+\contentsline {subsection}{\numberline {3.1}Cluster Analysis Results Visualization}{22}
+\contentsline {subsection}{\numberline {3.2}Gene Ontology Visualization}{26}
+\contentsline {section}{\numberline {4}Implementation}{26}
+\contentsline {subsection}{\numberline {4.1}Java Graph Libraries Overview}{31}
+\contentsline {subsection}{\numberline {4.2}OpenGL visualization standart}{35}
+\contentsline {subsection}{\numberline {4.3}IO layer Implementation}{37}
+\contentsline {subsection}{\numberline {4.4}Gene Ontology Visualization Implementation}{37}
+\contentsline {subsection}{\numberline {4.5}Cluster Visualization Implementation}{37}
+\contentsline {section}{\numberline {5}Conclusions}{37}
+\contentsline {subsection}{\numberline {5.1}Future work}{37}
+\contentsline {subsection}{\numberline {5.2}Problems during thesis work}{37}
+\contentsline {section}{Glossary}{37}
+\contentsline {section}{References}{37}
+\contentsline {section}{Appendix A: Listing of the complex gml file}{42}
