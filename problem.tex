@@ -3,56 +3,56 @@
 The aim of the tool is to discover relations in separated datasets (Gene Ontology graph and cluster analysis result tree), visualize and allow interactive selection relations selection.
 
 
-First step in the program work is loading data and to compute connected components. Data is stored in GML file format. More detailed information about this format and other graph file formats is in the section~\ref{dataset_description}.
+First step in the program work is loading data and to compute connected components. Data is stored in GML file format. More detailed information about this format and other graph file formats is in the section~\ref{sec:dataset_description}.
 
 Here is program algorithm explanation using sample graphs:
 \begin{enumerate}
 \item The program visualizes Gene Ontology and cluster analysis result tree. Visualization technic is discussed in the section~\ref{sec:solution}.
-\item Interactively select node in the Gene Ontology graph (Figure~\ref{step_1}).
+\item Interactively select node in the Gene Ontology graph (Figure~\ref{fig:step_1}).
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_1.png}
 \caption{Selected node in the Gene Ontology}
-\label{step_1}
+\label{fig:step_1}
 \end{figure}
 
-\item When node is selected in the Gene Ontology program computes all successors (Figure~\ref{step_2}).
+\item When node is selected in the Gene Ontology program computes all successors (Figure~\ref{fig:step_2}).
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_2.png}
 \caption{Corresponded successors of the selected node}
-\label{step_2}
+\label{fig:step_2}
 \end{figure}
 
 
-\item Extract leafs from successors (Figure~\ref{step_3}).
+\item Extract leafs from successors (Figure~\ref{fig:step_3}).
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_3.png}
 \caption{Extract leafs}
-\label{step_3}
+\label{fig:step_3}
 \end{figure}
 
 
-\item Then the program searches corresponded leaves in cluster analysis result tree by label as seen on the Figure~\ref{step_4}.
+\item Then the program searches corresponded leaves in cluster analysis result tree by label as seen on the Figure~\ref{fig:step_4}.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_4.png}
 \caption{Corresponded leaves in the cluster tree}
-\label{step_4}
+\label{fig:step_4}
 \end{figure}
 
-\item For this leaves the program founds root connected to all leaves and extract corresponding sub trees (Figure~\ref{step_5}).
+\item For this leaves the program founds root connected to all leaves and extract corresponding sub trees (Figure~\ref{fig:step_5}).
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_5.png}
 \caption{Build sub tree}
-\label{step_5}
+\label{fig:step_5}
 \end{figure}
 
 
@@ -78,34 +78,34 @@ lite patterns with metabolic and regulatory networks. The data and complex conne
 
 
 \subsection{Dataset Description}
-\label{dataset_description}
+\label{sec:dataset_description}
 Gene Ontology data and cluster analysis results presented as directed graphs. They are stored in separate files in special format -- GML files. GML file format covered in the next section.
 
 
-GO graph is directed acyclic graph has 10042 vertices and  24155 edges. It has 1 root, 2729 nodes and 7312 leafs (terminal nodes). In the Figure~\ref{yEd_GO} showed visualization of the Gene Ontology graph using yEd~\cite{yed} graph editor using Hierarchical layout. It is obviously shows imperfectness of classic visualization of the graphs.
+GO graph is directed acyclic graph has 10042 vertices and  24155 edges. It has 1 root, 2729 nodes and 7312 leafs (terminal nodes). In the Figure~\ref{fig:yEd_GO} showed visualization of the Gene Ontology graph using yEd~\cite{yed} graph editor using Hierarchical layout. It is obviously shows imperfectness of classic visualization of the graphs.
 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{pictures/yEd_GO.png}
-\label{yEd_GO}
+\label{fig:yEd_GO}
 \caption{Gene Ontology yEd visualization}
 \end{figure}
 
 
-Cluster graph is directed binary  tree has 14623 nodes and 14622. Cluster graph as a tree has 1 root, 7310 nodes and 7312 leafs. To get an impression of the graph on the Figure~\ref{Cytoscape_Cluster_1} is visualization of the cluster tree using Cytoscape~\cite{Cytoscape} visualization tool.
+Cluster graph is directed binary  tree has 14623 nodes and 14622. Cluster graph as a tree has 1 root, 7310 nodes and 7312 leafs. To get an impression of the graph on the Figure~\ref{fig:Cytoscape_Cluster_1} is visualization of the cluster tree using Cytoscape~\cite{Cytoscape} visualization tool.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{pictures/Cytoscape_cluster_graph_1.png}
-\label{Cytoscape_Cluster_1}
+\label{fig:Cytoscape_Cluster_1}
 \caption{Cluster analysis result tree Cytoscape visualization tool}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{pictures/Cytoscape_cluster_graph_2.png}
-\label{Cytoscape_Cluster_2}
+\label{fig:Cytoscape_Cluster_2}
 \caption{Zoomed cluster analysis result tree}
 \end{figure}
 
@@ -124,22 +124,22 @@ GML format is platform independent, and easy to implement. Furthermore, it has t
 	\lstinputlisting[language=xml, tabsize=2, caption={GML description of sample graph}, label={sample_graph_gml}]{graphs/SampleGraph.gml}
 \end{center}
 
-In the Figure~\ref{sample_graph_yed_vis} showed manual visualization of the graph using yEd~\cite{yEd}
+In the Figure~\ref{fig:sample_graph_yed_vis} showed manual visualization of the graph using yEd~\cite{yEd}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{pictures/SampleGraph.png}
 \caption{Manual visualization of the sample graph}
-\label{sample_graph_yed_vis}
+\label{fig:sample_graph_yed_vis}
 \end{figure}
 
-More complex graph with additional properties and its visualization produced by yEd graph editor is in the~\ref{sec:appendix_A} and the visualization of this graph showed on the Figure~\ref{yed_graph_vis}
+More complex graph with additional properties and its visualization produced by yEd graph editor is in the~\ref{sec:appendix_A} and the visualization of this graph showed on the Figure~\ref{fig:yed_graph_vis}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{pictures/YedGraph.png}
 \caption{Manual visualization of the sample graph}
-\label{yed_graph_vis}
+\label{fig:yed_graph_vis}
 \end{figure}
 
 Applications supporting GML~\cite{GML_wiki}
@@ -151,7 +151,7 @@ Applications supporting GML~\cite{GML_wiki}
 \item ocamlgraph\cite{ocamlgraph}, a graph library for OCaml.
 \item OGDF\cite{OGDF}, the Open Graph Drawing Framework, an open source C++ library containing implementations of various graph drawing algorithms. The library is self contained; optionally, additional packages like LP-solvers are required for some implementations.
 \item Tulip~\cite{Tulip} (software) is a free software in the domain of information visualisation capable of manipulating huge graphs (with more than 1.000.000 elements).
-\item yEd~\cite{yEd}, a free Java-based graph editor, supports import from and export to GML.
+\item yEd~\cite{yed}, a free Java-based graph editor, supports import from and export to GML.
 \end{itemize}
 
 \subsection{Other Graph File Formats}
@@ -168,13 +168,13 @@ GraphML is a comprehensive and easy-to-use file format for graphs. It consists o
 \item light-weight parsers;
 \end{itemize}
 
-The GraphML document consists of a graphml element and a variety of sub elements: graph, node, edge. In the Figure~\ref{simple_graphml} below is a simple graph. It contains 11 nodes and 12 undirected edges.
+The GraphML document consists of a graphml element and a variety of sub elements: graph, node, edge. In the Figure~\ref{fig:simple_graphml} below is a simple graph. It contains 11 nodes and 12 undirected edges.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=1.0]{pictures/simple.png}
 \caption{A simple graph}
-\label{simple_graphml}
+\label{fig:simple_graphml}
 \end{figure}
 
 
@@ -238,13 +238,13 @@ graph graphname {
 \end{lstlisting}
 \end{center}
 
-Visual representation of both graphs showed in the Figure~\ref{dot_graphs} below.
+Visual representation of both graphs showed in the Figure~\ref{fig:dot_graphs} below.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{pictures/dot_graph.png}
 \caption{Directed and undirected graphs}
-\label{dot_graphs}
+\label{fig:dot_graphs}
 \end{figure}
 
 \subsubsection{DGML}

@@ -3,44 +3,44 @@
 
 \subsection{Cluster Analysis Results Visualization}
 
-As was discussed before in the Section~\ref{dataset_description} cluster analysis result graph is binary tree.
+As was discussed before in the Section~\ref{sec:dataset_description} cluster analysis result graph is binary tree.
 
-"A binary tree is a connected acyclic graph such that the degree of each vertex is no more than 3. A rooted binary tree is such a graph that has one of its vertices of degree no more than 2 singled out as the root. With the root thus chosen, each vertex will have a uniquely defined parent, and up to two children; however, so far there is insufficient information to distinguish a left or right child. If we drop the connectedness requirement, allowing multiple connected component in the graph, we call such a structure a forest"~\cite{BINARY_TREE} Simple binary tree showed on the Figure~\ref{simple_binary_tree}
+"A binary tree is a connected acyclic graph such that the degree of each vertex is no more than 3. A rooted binary tree is such a graph that has one of its vertices of degree no more than 2 singled out as the root. With the root thus chosen, each vertex will have a uniquely defined parent, and up to two children; however, so far there is insufficient information to distinguish a left or right child. If we drop the connectedness requirement, allowing multiple connected component in the graph, we call such a structure a forest"~\cite{BINARY_TREE} Simple binary tree showed on the Figure~\ref{fig:simple_binary_tree}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=1.0]{pictures/simple_binary_tree.png}
 \caption{A simple binary tree graph}
-\label{simple_binary_tree}
+\label{fig:simple_binary_tree}
 \end{figure}
 
-There several visualization methods for binary trees and more specific methods for cluster result. The main method for visualizing clusters is - dendrogram. Here is sample dendrogram visualization on the Figure~\ref{dendrogram_1} produced by MATLAB 7.2.
+There several visualization methods for binary trees and more specific methods for cluster result. The main method for visualizing clusters is - dendrogram. Here is sample dendrogram visualization on the Figure~\ref{fig:dendrogram_1} produced by MATLAB 7.2.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=1.0]{pictures/dendrogram.png}
 \caption{Dendrogram}
-\label{dendrogram_1}
+\label{fig:dendrogram_1}
 \end{figure}
 
 
-The Figure~\cite{polardendrogram} shows polar dendrogram visualization algorithm of the same cluster tree produced by MATLAB.
+The Figure~\ref{fig:polardendrogram} shows polar dendrogram visualization algorithm of the same cluster tree produced by MATLAB.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=1.0]{pictures/polardendrogram.png}
 \caption{Polar Dendrogram}
-\label{polardendrogram}
+\label{fig:polardendrogram}
 \end{figure}
 
-One of the main ideas was to use polar dendrogram algorithm for cluster visualization. The Figure~\cite{JUNG_radial_layout} shows visualization of the Cluster using native JUNG radial layout algorithm. Red are nodes and white is edges, black is background. As picture shows algorithm doesn't count nature of the cluster - very deep binary tree not wide as it is common for cluster analysis results, that's why it has many edge everlappings.
+One of the main ideas was to use polar dendrogram algorithm for cluster visualization. The Figure~\ref{fig:JUNG_radial_layout} shows visualization of the Cluster using native JUNG radial layout algorithm. Red are nodes and white is edges, black is background. As picture shows algorithm doesn't count nature of the cluster - very deep binary tree not wide as it is common for cluster analysis results, that's why it has many edge everlappings.
 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{pictures/using_JUNG_radial.png}
 \caption{Cluster visualization using JUNG radial layout}
-\label{JUNG_radial_layout}
+\label{fig:JUNG_radial_layout}
 \end{figure}
 
 
@@ -58,31 +58,31 @@ Swing was developed to provide a more sophisticated set of GUI components than t
 By contrast, Swing components are often described as lightweight because they do not require allocation of native resources in the operating system's windowing toolkit. The AWT components are referred to as heavyweight components."~\cite{JAVA_SWING} More detail comparison can be found here.~\cite{AWT_VS_SWING}
 
 
-The Figure~\ref{cluster_jogl_impl} shows improved JUNG radial algorithm and own visualization implementation using JOGL. JOGL will be discussed in the Section~\ref{opengl}.
+The Figure~\ref{fig:cluster_jogl_impl} shows improved JUNG radial algorithm and own visualization implementation using JOGL. JOGL will be discussed in the Section~\ref{sec:opengl}.
 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{pictures/cluster_jogl_impl.png}
 \caption{Cluster visualization using JOGL and improved JUNG radial layout}
-\label{cluster_jogl_impl}
+\label{fig:cluster_jogl_impl}
 \end{figure}
 
 
-The Figure~\ref{cluster_jogl_impl_with_subgraph_1} and Figure~\ref{cluster_jogl_impl_with_subgraph_2} shows cluster visualization and highlighted subgraph using algorithm that was discussed in the Section~\ref{problem_statement_and_goal}. This pictures show the nature of the dataset. Improved version has good performance and better visualization but still has issues. Too many elements are in the scene, it is impossible to identify separate gene and trace highlighted graph genes.
+The Figure~\ref{fig:cluster_jogl_impl_with_subgraph_1} and Figure~\ref{fig:cluster_jogl_impl_with_subgraph_2} shows cluster visualization and highlighted subgraph using algorithm that was discussed in the Section~\ref{sec:problem_statement_and_goal}. This pictures show the nature of the dataset. Improved version has good performance and better visualization but still has issues. Too many elements are in the scene, it is impossible to identify separate gene and trace highlighted graph genes.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{pictures/cluster_jogl_impl_with_subgraph_1.png}
 \caption{Cluster graph and highlighted subgraph}
-\label{cluster_jogl_impl_with_subgraph_1}
+\label{fig:cluster_jogl_impl_with_subgraph_1}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{pictures/cluster_jogl_impl_with_subgraph_2.png}
 \caption{Cluster graph and highlighted subgraph}
-\label{cluster_jogl_impl_with_subgraph_2}
+\label{fig:cluster_jogl_impl_with_subgraph_2}
 \end{figure}
 
 
