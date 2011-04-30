@@ -1,0 +1,49 @@
+\section{Introduction}
+\label{sec:introduction}
+\subsection{Motivation}
+
+\subsection{Purpose}
+
+\subsection{Report structure}
+Section~\ref{sec:introduction} presents the results of the literature review, where been exploring relevant research efforts in the fields of Bioinformatic, Information and Bio Visualization, in connection to the work. In Section~\ref{sec:problem} explains the problem and purpose of this work. Section is split in several parts which covers topics: thesis purpose and collaboration, visualisation complexity and goals, description of the input data, data format overview, overview of different graph file formats. In this section, Problem Statement and Goals, have determined the requirements, use cases, and proposed the architecture for thesis application. In Section~\ref{},
+
+
+we describe possible scenarios to identify the features of the envisioned system.  Chapter 6 consists of the initial ideas and interactions we had for our GUI. Chapter 7 is about the technical approach of our application. In that chapter, we describe the visualization techniques, the tag clouds, the clustering algorithm that we have chosen, and the interaction techniques that we have used for having a robust and flexible geovisualization system for visualizing notes and their content. In Chapter 8, we give some explanation about technologies that we have used, and explained the classes that we implemented. In the next chapter (Case Study), we used the first imagined scenario based on what we presented in Chapter 4 and tested it with the application we have implemented. Finally, in Chapter 10 we give our conclusions and we present future work that can help our system to deliver better results.
+
+\subsection{Information Visualization}
+
+\subsection{Bioinformatic}
+\label{bioinformatic}
+
+"In the last few decades, advances in molecular biology and the equipment available for research in this field have allowed the increasingly rapid sequencing of large portions of the genomes of several species. In fact, to date, several bacterial genomes, as well as those of some simple eukaryotes (e.g., Saccharomyces cerevisiae, or baker's yeast) have been sequenced in full. The Human Genome Project, designed to sequence all 24 of the human chromosomes, is also progressing. Popular sequence databases, such as GenBank and EMBL, have been growing at exponential rates. This deluge of information has necessitated the careful storage, organization and indexing of sequence information. Information science has been applied to biology to produce the field called Bioinformatics.
+
+
+The simplest tasks used in bioinformatics concern the creation and maintenance of databases of biological information. Nucleic acid sequences (and the protein sequences derived from them) comprise the majority of such databases. While the storage and or organization of millions of nucleotides is far from trivial, designing a database and developing an interface whereby researchers can both access existing information and submit new entries is only the beginning. The most pressing tasks in bioinformatics involve the analysis of sequence information"~\cite{Biology}
+
+
+Here we can find short introduction and history of Bioinformatics: "Bioinformatics is the application of information technology to the field of molecular biology. The term bioinformatics was coined by Paulien Hogeweg in 1978 for the study of informatic processes in biotic systems. Bioinformatics now entails the creation and advancement of databases, algorithms, computational and statistical techniques, and theory to solve formal and practical problems arising from the management and analysis of biological data. Over the past few decades rapid developments in genomic and other molecular research technologies and developments in information technologies have combined to produce a tremendous amount of information related to molecular biology. It is the name given to these mathematical and computing approaches used to glean understanding of biological processes. Common activities in bioinformatics include mapping and analysing DNA and protein sequences, aligning different DNA and protein sequences to compare them and creating and viewing 3-D models of protein structures."~\cite{Bioinformatic}
+The primary goal of bioinformatics is to increase our understanding of biological processes. What sets it apart from other approaches, however, is its focus on developing and applying computationally intensive techniques (e.g., data mining, machine learning algorithms, and visualization) to achieve this goal. Major research efforts in the field include sequence alignment, gene finding, genome assembly, protein structure alignment, protein structure prediction, prediction of gene expression and protein-protein interactions, genome-wide association studies and the modelling of evolution.
+
+\subsection{Gene Ontology}
+\label{gene_ontology}
+
+As stated above, there are different knowledge databases for biologic information storage. Gene Ontology~\cite{GO_website} project is one of the first-rate international projects. The Gene Ontology, or GO, is a major bioinformatics initiative to unify the representation of gene and gene product attributes across all species. The aims of the Gene Ontology project are threefold; firstly, to maintain and further develop its controlled vocabulary of gene and gene product attributes; secondly, to annotate genes and gene products, and assimilate and disseminate annotation data; and thirdly, to provide tools to facilitate access to all aspects of the data provided by the Gene Ontology project. The GO is part of a larger classification effort, the Open Biomedical Ontologies (OBO)~\cite{OBO}. The Gene Ontology project provides an ontology of defined terms representing gene product properties. The ontology covers three domains; cellular component, the parts of a cell or its extracellular environment; molecular function, the elemental activities of a gene product at the molecular level, such as binding or catalysis; and biological process, operations or sets of molecular events with a defined beginning and end, pertinent to the functioning of integrated living units: cells, tissues, organs, and organisms. Each GO term within the ontology has a term name, which may be a word or string of words; a unique alphanumeric identifier; a definition with cited sources; and a name space indicating the domain to which it belongs. Terms may also have synonyms, which are classed as being exactly equivalent to the term name, broader, narrower, or related; references to equivalent concepts in other databases; and comments on term meaning or usage. The GO ontology is structured as a directed acyclic graph, and each term has defined relationships to one or more other terms in the same domain, and sometimes to other domains. The GO vocabulary is designed to be species-neutral, and includes terms applicable to prokaryotes and eukaryotes, single and multicellular organisms. The GO ontology is not static, and additions, corrections and alterations are suggested by, and solicited from, members of the research and annotation communities, as well as by those directly involved in the GO project. For example, an annotator may request a specific term to represent a metabolic pathway, or a section of the ontology may be revised with the help of community experts. Suggested edits are reviewed by the ontology editors, and implemented where appropriate.
+
+
+\subsection{Clustering}
+\label{clustering}
+
+"Data clustering (or just clustering), also called cluster analysis, segmentation analysis, taxonomy analysis, or unsupervised classification, is a method of creating groups of objects, or clusters, in such a way that objects in one cluster are very similar and objects in different clusters are quite distinct. Data clustering is often confused with classification, in which objects are assigned to predefined classes. In data clustering, the classes are also to be defined."~\cite{data_clustering_book}
+
+
+Clustering algorithms can be applied in many fields, for instance:
+
+\begin{itemize}
+\item Marketing: finding groups of customers with similar behaviour given a large database of customer data containing their properties and past buying records;
+\item Biology: classification of plants and animals given their features;
+\item Libraries: book ordering;
+\item Insurance: identifying groups of motor insurance policy holders with a high average claim cost; identifying frauds;
+\item City-planning: identifying groups of houses according to their house type, value and geographical location;
+\item Earthquake studies: clustering observed earthquake epicentres to identify dangerous zones;
+\item WWW: document classification; clustering web log data to discover groups of similar access patterns.
+\end{itemize}
