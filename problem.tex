@@ -8,35 +8,37 @@ First step in the program work is loading data and to compute connected componen
 Here is program algorithm explanation using sample graphs:
 \begin{enumerate}
 \item The program visualizes Gene Ontology and cluster analysis result tree. Visualization technic is discussed in the section~\ref{sec:solution}.
+
 \item Interactively select node in the Gene Ontology graph (Figure~\ref{fig:step_1}).
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_1.png}
+\includegraphics[scale=0.6]{pictures/subgraph_extraction_algorithm_step_1.png}
 \caption{Selected node in the Gene Ontology}
 \label{fig:step_1}
 \end{figure}
 
+\newpage
 \item When node is selected in the Gene Ontology program computes all successors (Figure~\ref{fig:step_2}).
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_2.png}
+\includegraphics[scale=0.6]{pictures/subgraph_extraction_algorithm_step_2.png}
 \caption{Corresponded successors of the selected node}
 \label{fig:step_2}
 \end{figure}
 
-
+\newpage
 \item Extract leafs from successors (Figure~\ref{fig:step_3}).
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.5]{pictures/subgraph_extraction_algorithm_step_3.png}
+\includegraphics[scale=0.6]{pictures/subgraph_extraction_algorithm_step_3.png}
 \caption{Extract leafs}
 \label{fig:step_3}
 \end{figure}
 
-
+\newpage
 \item Then the program searches corresponded leaves in cluster analysis result tree by label as seen on the Figure~\ref{fig:step_4}.
 
 \begin{figure}[h!]
@@ -46,6 +48,7 @@ Here is program algorithm explanation using sample graphs:
 \label{fig:step_4}
 \end{figure}
 
+\newpage
 \item For this leaves the program founds root connected to all leaves and extract corresponding sub trees (Figure~\ref{fig:step_5}).
 
 \begin{figure}[h!]
@@ -133,7 +136,7 @@ In the Figure~\ref{fig:sample_graph_yed_vis} showed manual visualization of the 
 \label{fig:sample_graph_yed_vis}
 \end{figure}
 
-More complex graph with additional properties and its visualization produced by yEd graph editor is in the~\ref{sec:appendix_A} and the visualization of this graph showed on the Figure~\ref{fig:yed_graph_vis}
+More complex graph with additional properties and its visualization produced by yEd graph editor is in the Appendix~A and the visualization of this graph showed on the Figure~\ref{fig:yed_graph_vis}
 
 \begin{figure}[h!]
 \centering

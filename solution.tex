@@ -2,6 +2,7 @@
 \label{sec:solution}
 
 \subsection{Cluster Analysis Results Visualization}
+\label{sec:cluster}
 
 As was discussed before in the Section~\ref{sec:dataset_description} cluster analysis result graph is binary tree.
 
@@ -18,27 +19,27 @@ There several visualization methods for binary trees and more specific methods f
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=1.0]{pictures/dendrogram.png}
-\caption{Dendrogram}
-\label{fig:dendrogram_1}
+\subfloat[Dendrogram]{
+    \label{fig:dendrogram_1}
+    \includegraphics[scale=0.45]{pictures/dendrogram.png}
+}
+\subfloat[Polar Dendrogram]{
+    \label{fig:polardendrogram}
+    \includegraphics[scale=0.45]{pictures/polardendrogram.png}
+}
+\label{fig:dendrograms}
+\caption{Cluster visualisations}
 \end{figure}
 
 
 The Figure~\ref{fig:polardendrogram} shows polar dendrogram visualization algorithm of the same cluster tree produced by MATLAB.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=1.0]{pictures/polardendrogram.png}
-\caption{Polar Dendrogram}
-\label{fig:polardendrogram}
-\end{figure}
 
 One of the main ideas was to use polar dendrogram algorithm for cluster visualization. The Figure~\ref{fig:JUNG_radial_layout} shows visualization of the Cluster using native JUNG radial layout algorithm. Red are nodes and white is edges, black is background. As picture shows algorithm doesn't count nature of the cluster - very deep binary tree not wide as it is common for cluster analysis results, that's why it has many edge everlappings.
 
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.3]{pictures/using_JUNG_radial.png}
+\includegraphics[scale=0.4]{pictures/using_JUNG_radial.png}
 \caption{Cluster visualization using JUNG radial layout}
 \label{fig:JUNG_radial_layout}
 \end{figure}
@@ -63,27 +64,80 @@ The Figure~\ref{fig:cluster_jogl_impl} shows improved JUNG radial algorithm and 
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.3]{pictures/cluster_jogl_impl.png}
+\includegraphics[scale=0.4]{pictures/cluster_jogl_impl.png}
 \caption{Cluster visualization using JOGL and improved JUNG radial layout}
 \label{fig:cluster_jogl_impl}
 \end{figure}
 
 
-The Figure~\ref{fig:cluster_jogl_impl_with_subgraph_1} and Figure~\ref{fig:cluster_jogl_impl_with_subgraph_2} shows cluster visualization and highlighted subgraph using algorithm that was discussed in the Section~\ref{sec:problem_statement_and_goal}. This pictures show the nature of the dataset. Improved version has good performance and better visualization but still has issues. Too many elements are in the scene, it is impossible to identify separate gene and trace highlighted graph genes.
+The Figure~\ref{fig:cluster_jogl_impl_with_subgraph_1} and Figure~\ref{fig:cluster_jogl_impl_with_subgraph_2} shows cluster visualization and highlighted subgraph using algorithm that was discussed in the Section~\ref{sec:problem}. This pictures show the nature of the dataset. Improved version has good performance and better visualization but still has issues - there are too many elements in the scene, it is impossible to identify separate gene or trace highlighted graph genes.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.3]{pictures/cluster_jogl_impl_with_subgraph_1.png}
-\caption{Cluster graph and highlighted subgraph}
-\label{fig:cluster_jogl_impl_with_subgraph_1}
+\subfloat[Cluster graph and highlighted subgraph]{
+    \includegraphics[scale=0.2]{pictures/cluster_jogl_impl_with_subgraph_1.png}
+    \label{fig:cluster_jogl_impl_with_subgraph_1}
+}
+\subfloat[Cluster graph and highlighted subgraph]{
+    \includegraphics[scale=0.2]{pictures/cluster_jogl_impl_with_subgraph_2.png}
+    \label{fig:cluster_jogl_impl_with_subgraph_2}
+}
+\caption{Cluster graph visualisation using improved JUNG polar dendrogram layout}
 \end{figure}
 
+As was showed before in the Figure~\ref{fig:Cytoscape_Cluster_2} cluster graph structure is specific it is very high and unbalanced with not so deep sub-parts. It is possible to use this disadvantage as advantage and abstract sub-parts to reduce drawing area. Extract those nodes and edges that form the longest path of the cluster graph - ,,backbone''. Backbone vertices are filled with yellow and showed on the Figure~\ref{fig:cluster_visualisation}. Next step is to abstract branches as a for our Spiral Tree Layout implementation. We represent this backbone as a spiral, thus preserving space and giving us a possibility to show the complete tree in one view The sub-parts are drawn as rectangles, the rectangle size represents amount of vertices inside. Figure~\ref{fig:cluster_visualisation_algorithm} shows how this approach works.
+
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.3]{pictures/cluster_jogl_impl_with_subgraph_2.png}
-\caption{Cluster graph and highlighted subgraph}
-\label{fig:cluster_jogl_impl_with_subgraph_2}
+\includegraphics[scale=0.25]{pictures/cluster_visualisation_algorithm.png}
+\caption{Cluster graph sub-parts abstraction}
+\label{fig:cluster_visualisation_algorithm}
+\end{figure}
+
+Then backbone formed as rectangular spiral with a root in the center and moving in clockwise direction. Figure~\ref{fig:cluster_visualisation} shows complete visualisation result. This will have to reuse space as much as possible and still gives overview of location of the highlighted vertices in cluster hierarchy -- how far from a root.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{pictures/cluster_visualisation.png}
+\caption{Rectangular spiral Cluster graph visualisation}
+\label{fig:cluster_visualisation}
+\end{figure}
+
+It is possible to explore sub-part (rectangles) of the Cluster graph using lens. User can interactively choose any sub-part and lens with inned content will appear. There are two different lens layouts: polar~\ref{fig:lens_polar} and HV-tree~\ref{fig:lens_tree}. Both implementations are own made and are not depend of any external library.
+
+\begin{figure}[h!]
+\centering
+\subfloat[Polar lens layout]{
+    \includegraphics[scale=0.5]{pictures/lens_polar.png}
+    \label{fig:lens_polar}
+}
+\\
+\subfloat[HV-tree lens layout]{
+    \includegraphics[scale=0.5]{pictures/lens_tree.png}
+    \label{fig:lens_tree}
+}
+\caption{Lens layouts}
 \end{figure}
 
 
 \subsection{Gene Ontology Visualization}
+\label{sec:go}
+
+There are two visualisation implementations for Gene Ontology. The first layering approach is called Levels Layout and places the leaves (red pixels) and nodes (white pixels) into their corresponding layer depending on their graph-theoretic distance from the root. Moreover, leaf nodes are distributed in the left part of their assigned layer; all other nodes are arranged on the right. This feature gives us further insight into the topology of a specific layer by gaining information about the distribution of leaf nodes and non-terminal nodes on a particular layer. Figure~\ref{fig:go_levels_layout_selected} shows an example of this layout strategy in the GO view on the left hand side, whereas Figure~\ref{fig:go_zoom} displays the situation if the user zooms in the view. Although the resulting visualization looks to mimic bar charts, the number of leaves cannot be precisely compared between different layers, as the area the red node pixels (leaves) cover is not proportional to the total number of leaves in each layer. But, it is proportional to the sum of nodes in that particular layer. In other words, the covered area depends on the specific layer density. There are unconnected components in the Gene Ontology graph. Unconnected nodes are placed in the top layer number -- zero. There is an option to show-hide unconnected components from the main menu. The spatial arrangement of the node pixels within a layer, except the placing of leaves and nodes in specific regions, is random.
+
+Second layering approach Bottom Layout is similar to the first one in terms of placing the nodes into corresponding layers based on the distance from the source node and random distribution of the node pixels within each layer. However, all leaves are placed into one single layer together with unconnected nodes at the bottom of the GO view, i. e., in the layer with the highest number. Unconnected nodes can be filtered out if necessary. This approach gives insight into the distribution of nodes among different layers without the distraction of the leaves, thus enriching the perception of the graph topology. More screenshots can be found in the Appendix~C.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.45]{pictures/go_levels_layout_selected.png}
+\caption{Levels Layout visualisation with sub-graph edges}
+\label{fig:go_levels_layout_selected}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.45]{pictures/go_zoom.png}
+\caption{Zoomed view}
+\label{fig:go_zoom}
+\end{figure}
+

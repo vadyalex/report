@@ -1,0 +1,57 @@
+\section*{Appendix B: Subgraph extraction algorithm}
+\addcontentsline{toc}{section}{Appendix B: Subgraph extraction algorithm}
+\label{sec:appendix_B}
+
+\begin{center}
+\small
+\begin{lstlisting}[language=Java]
+// selected vertex in the Gene Ontology by user
+GO_vertex;
+
+if GO_vertex is in cache {
+  // already computed, load from cache
+  load from cache GO_subgraph and Cluster_subgraph;
+  return;
+}
+
+// extract subgraph using non-recursive DFS
+// starting from vertex GO_vertex as root
+GO_subgraph = extractSubgraph(GO_graph, GO_vertex);
+save GO_subgraph to cache with key GO_vertex
+
+// create empty subgraph
+Cluster_subtree = new Graph;
+
+for each vertex in GO_subgraph {
+  if vertex is leaf {
+    // leaf labels are the same for both graphs,
+    // but vertex objects are different
+    l_label = GO_graph.getLabel(vertex);
+    leaf = Cluster_graph.getVertexByLabel(l_label);
+    // get all connected vertices
+    // from current leaf up to the Cluster root
+    connectedVertices = invertDFS(Cluster_graph, leaf);
+
+    // add connected vertices to cluster subtree
+    // create edges
+    for (int i=0; i<=connectedVertices.size()-1; i++) {
+      node1, node2 = null;
+      node1 = connectedNodes.get(i);
+      Cluster_subtree.addVertex(node1);
+
+      if (i+1<=connectedNodes.size()-1) {
+      node2 = connectedNodes.get(i+1);
+
+      Cluster_subtree.addVertex(node2);
+      Cluster_subtree.addEdge(node2,node1);
+    }
+  }
+
+  // find lowest common root for subgraph
+  // and remove vertices from the root to common root
+  removeRootChain(Cluster_graph, Cluster_subtree);
+}
+
+save Cluster_subtree to cache with key GO_vertex
+\end{lstlisting}
+\end{center}
