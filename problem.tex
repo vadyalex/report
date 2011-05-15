@@ -85,14 +85,14 @@ lite patterns with metabolic and regulatory networks. The data and complex conne
 Gene Ontology data and cluster analysis results presented as directed graphs. They are stored in separate files in special format -- GML files. GML file format covered in the next section.
 
 
-GO graph is directed acyclic graph has 10042 vertices and  24155 edges. It has 1 root, 2729 nodes and 7312 leafs (terminal nodes). In the Figure~\ref{fig:yEd_GO} showed visualization of the Gene Ontology graph using yEd~\cite{yed} graph editor using Hierarchical layout. It is obviously shows imperfectness of classic visualization of the graphs.
+GO graph is directed acyclic graph has 10042 vertices and  24155 edges. It has 1 root, 2729 nodes and 7312 leafs (terminal nodes). In the Figure~\ref{fig:yed_GO_vis} showed visualization of the Gene Ontology graph using yEd~\cite{yed} graph editor using Hierarchical layout. It is obviously shows imperfectness of classic visualization of the graphs.
 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{pictures/yEd_GO.png}
-\label{fig:yEd_GO}
 \caption{Gene Ontology yEd visualization}
+\label{fig:yed_GO_vis}
 \end{figure}
 
 
@@ -101,15 +101,15 @@ Cluster graph is directed binary  tree has 14623 nodes and 14622. Cluster graph 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{pictures/Cytoscape_cluster_graph_1.png}
-\label{fig:Cytoscape_Cluster_1}
 \caption{Cluster analysis result tree Cytoscape visualization tool}
+\label{fig:Cytoscape_Cluster_1}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{pictures/Cytoscape_cluster_graph_2.png}
-\label{fig:Cytoscape_Cluster_2}
 \caption{Zoomed cluster analysis result tree}
+\label{fig:Cytoscape_Cluster_2}
 \end{figure}
 
 Both of two graphs are independent from each other from developer point of view: they have different node ids and edge ids. But they are corresponded by graph node labels -- both of this graphs have same label for terminal (leaf) graph nodes. This property is used in the sub graph extracting algorithm.
