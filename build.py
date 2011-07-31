@@ -10,5 +10,3 @@ process.wait()
 OPEN_COMMAND = "open report.pdf"
 
 subprocess.Popen(OPEN_COMMAND, shell=True, stdout=subprocess.PIPE).wait()
-
-  
