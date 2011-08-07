@@ -47,3 +47,23 @@ Second layering approach ,,Leaves Bottom Layout'' (Figure~\ref{fig:go_leaves_bot
 \caption{Leaves bottom layout}
 \label{fig:go_leaves_bottom_layout}
 \end{figure}
+
+All provided features help to improve visualization and decrees amount element in the scene. But even with hided edges visualized sub-tree could be complicated. The result of sub-graph highlighting is showed on the Figure~\ref{fig:go_no_edge_bundling}.
+
+\begin{figure}[h!]
+\centering
+\subfloat[Straight edges]{
+    \includegraphics[scale=0.2]{pictures/go_no_edge_bundling.png}
+    \label{fig:go_no_edge_bundling}
+}
+\subfloat[Edge bungling]{
+    \includegraphics[scale=0.2]{pictures/go_edge_bundling.png}
+    \label{fig:go_edge_bundling}
+}
+\caption{Gene Ontology sub-graph edge highlighting}
+\label{fig:go_subgraph_highlighting}
+\end{figure}
+
+Improved edge visualization for the same selected vertex ,,multicellular organismal process'' is on the Figure~\ref{fig:go_edge_bundling}. Newer solution is simple edge bundling. Edge bundling technique and usage example well described in the~\cite{EDGE_BUNDLING_1} and~\cite{EDGE_BUNDLING_2}.
+
+For all edges which go into same level compute ,,dummy node'' located on the top of the target level and in the middle of outlined vertices, draw single line from source to ,,dummy node'' as first part. Second part is to draw ,,Bezier line'' from ,,dummy node'' to target vertex. This solution helps to follow connection and use space for useful. 
