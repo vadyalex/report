@@ -1,5 +1,5 @@
 Creator	"yFiles"
-Version	"2.7"
+Version	"2.8"
 graph
 [
 	hierarchic	1
@@ -93,50 +93,6 @@ graph
 			anchor	"c"
 		]
 	]
-	node
-	[
-		id	4
-		label	"5"
-		graphics
-		[
-			x	540.0
-			y	270.0
-			w	30.0
-			h	30.0
-			type	"rectangle"
-			fill	"#FFCC00"
-			outline	"#000000"
-		]
-		LabelGraphics
-		[
-			text	"5"
-			fontSize	13
-			fontName	"Dialog"
-			anchor	"c"
-		]
-	]
-	node
-	[
-		id	5
-		label	"6"
-		graphics
-		[
-			x	540.0
-			y	67.0
-			w	30.0
-			h	30.0
-			type	"rectangle"
-			fill	"#FFCC00"
-			outline	"#000000"
-		]
-		LabelGraphics
-		[
-			text	"6"
-			fontSize	13
-			fontName	"Dialog"
-			anchor	"c"
-		]
-	]
 	edge
 	[
 		source	0
@@ -160,37 +116,7 @@ graph
 	edge
 	[
 		source	2
-		target	5
-		graphics
-		[
-			fill	"#000000"
-			targetArrow	"standard"
-		]
-	]
-	edge
-	[
-		source	2
 		target	3
-		graphics
-		[
-			fill	"#000000"
-			targetArrow	"standard"
-		]
-	]
-	edge
-	[
-		source	2
-		target	4
-		graphics
-		[
-			fill	"#000000"
-			targetArrow	"standard"
-		]
-	]
-	edge
-	[
-		source	5
-		target	4
 		graphics
 		[
 			fill	"#000000"

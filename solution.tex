@@ -6,7 +6,7 @@
 
 As was discussed before in the Section~\ref{sec:dataset_description} cluster analysis result graph is binary tree.
 
-,,A binary tree is a connected acyclic graph such that the degree of each vertex is no more than 3. A rooted binary tree is such a graph that has one of its vertices of degree no more than 2 singled out as the root. With the root thus chosen, each vertex will have a uniquely defined parent, and up to two children; however, so far there is insufficient information to distinguish a left or right child. If we drop the connectedness requirement, allowing multiple connected component in the graph, we call such a structure a forest"~\cite{BINARY_TREE} Simple binary tree showed on the Figure~\ref{fig:simple_binary_tree}
+,,A binary tree is a connected acyclic graph such that the degree of each vertex is no more than 3. A rooted binary tree is such a graph that has one of its vertices of degree no more than 2 singled out as the root. With the root thus chosen, each vertex will have a uniquely defined parent, and up to two children; however, so far there is insufficient information to distinguish a left or right child. If we drop the connectedness requirement, allowing multiple connected component in the graph, we call such a structure a forest"~\cite{BINARY_TREE} Simple binary tree showed in Figure~\ref{fig:simple_binary_tree}
 
 \begin{figure}[h!]
 \centering
@@ -15,7 +15,7 @@ As was discussed before in the Section~\ref{sec:dataset_description} cluster ana
 \label{fig:simple_binary_tree}
 \end{figure}
 
-There are several visualization methods for binary trees and more specific methods for cluster results. The main method for visualizing clusters is a -- dendrogram. Here is sample dendrogram visualization on the Figure~\ref{fig:dendrogram_1} produced by MATLAB 7.2.
+There are several visualization methods for binary trees and more specific methods for cluster results. The main method for visualizing clusters is a dendrogram. Here is sample dendrogram visualization in Figure~\ref{fig:dendrogram_1} produced by MATLAB 7.2.
 
 \begin{figure}[h!]
 \centering
@@ -34,7 +34,7 @@ There are several visualization methods for binary trees and more specific metho
 
 Figure~\ref{fig:polardendrogram} shows a polar dendrogram visualization algorithm of the same cluster tree produced by MATLAB.
 
-One of the main ideas was to use polar dendrogram algorithm for cluster visualization. The Figure~\ref{fig:JUNG_radial_layout} shows visualization of the Cluster using native JUNG radial layout algorithm. Red are nodes and white is edges, black is background. As picture shows algorithm doesn't count nature of the cluster: very deep binary tree not wide as it is common for cluster analysis results, that's why it has many edge overlapping.
+One of the main ideas was to use polar dendrogram algorithm for cluster visualization. Figure~\ref{fig:JUNG_radial_layout} shows visualization of the Cluster using native JUNG radial layout algorithm. Red are nodes and white is edges, black is background. As picture shows algorithm doesn't count nature of the cluster: very deep binary tree not wide as it is common for cluster analysis results, that's why it has many edge overlapping.
 
 
 \begin{figure}[h!]
@@ -59,7 +59,11 @@ Swing was developed to provide a more sophisticated set of GUI components than t
 By contrast, Swing components are often described as lightweight because they do not require allocation of native resources in the operating system's windowing toolkit. The AWT components are referred to as heavyweight components."~\cite{JAVA_SWING} More detail comparison can be found here.~\cite{AWT_VS_SWING}
 
 
-The Figure~\ref{fig:cluster_jogl_impl} shows improved JUNG radial algorithm and own visualization implementation using JOGL. JOGL will be discussed in the Section~\ref{sec:opengl}.
+Figure~\ref{fig:cluster_jogl_impl} shows improved JUNG radial algorithm and own visualization implementation using JOGL.
+
+Root has fixed position in the center of the ring. The layout places all leafs evenly on the outer ring based on the distance from root. Each node is placed on the concentric ring corresponding to its distance to the root node -- level. Each node is radially centered over children. The number of concentric rings is exactly equal to the number of levels of the graph.
+
+JOGL will be discussed in the Section~\ref{sec:opengl}.
 
 
 \begin{figure}[h!]
@@ -70,7 +74,7 @@ The Figure~\ref{fig:cluster_jogl_impl} shows improved JUNG radial algorithm and 
 \end{figure}
 
 
-The Figure~\ref{fig:cluster_jogl_impl_with_subgraph_1} and Figure~\ref{fig:cluster_jogl_impl_with_subgraph_2} shows cluster visualization and highlighted subgraph (subgraph extraction algorithm was discussed in the Section~\ref{sec:problem}). This pictures show the nature of the dataset. Improved version has good performance and better visualization but still has issues: there are too many elements in the scene, it is impossible to identify separate gene or trace highlighted graph genes.
+Figure~\ref{fig:cluster_jogl_impl_with_subgraph_1} and Figure~\ref{fig:cluster_jogl_impl_with_subgraph_2} shows cluster visualization and highlighted subgraph (subgraph extraction algorithm was discussed in the Section~\ref{sec:algorithm}). This pictures show the nature of the dataset. Improved version has good performance and better visualization but still has issues: there are too many elements in the scene, it is impossible to identify separate gene or trace highlighted graph genes.
 
 \begin{figure}[h!]
 \centering
@@ -82,7 +86,7 @@ The Figure~\ref{fig:cluster_jogl_impl_with_subgraph_1} and Figure~\ref{fig:clust
     \includegraphics[scale=0.2]{pictures/cluster_jogl_impl_with_subgraph_2.png}
     \label{fig:cluster_jogl_impl_with_subgraph_2}
 }
-\caption{Cluster graph visualisation using improved JUNG polar dendrogram layout}
+\caption{Cluster graph visualization using improved JUNG polar dendrogram layout}
 \end{figure}
 
 

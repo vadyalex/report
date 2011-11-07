@@ -6,7 +6,7 @@ Graph Ontology graph is directed acyclic and highly connected: 24,153 edges and 
 \begin{figure}
 \centering
 \includegraphics[scale=0.2]{pictures/yEd_GO_2.png}
-\caption{Gene Ontology graph visualisation using yEd}
+\caption{Gene Ontology graph visualization using yEd}
 \label{fig:go_connections_yEd}
 \end{figure}
 
@@ -21,7 +21,7 @@ Last but not least goal is to explicitly show nodes and leaves. Each level is di
 
 There are two layouts implemented based on the goals discussed before.
 
-First GO layout is ,,Levels Layout'' is showed in the Figure~\ref{fig:go_levels_layout}. Genes are ordered by layers depending on their graph-theoretic distance from the root.
+First GO layout is ,,Levels Layout'' is showed in Figure~\ref{fig:go_levels_layout}. Genes are ordered by layers depending on their graph-theoretic distance from the root.
 
 \begin{figure}[h!]
 \centering
@@ -39,7 +39,7 @@ Figure~\ref{fig:go_levels_layout_zoomed} displays the situation if the user zoom
 \label{fig:go_levels_layout_zoomed}
 \end{figure}
 
-Second layering approach ,,Leaves Bottom Layout'' (Figure~\ref{fig:go_leaves_bottom_layout}) is similar to the first one in terms of placing the nodes into corresponding layers based on the distance from the source node and random distribution of the node pixels within each layer. However, all leaves are placed into one single layer together with unconnected nodes at the bottom of the GO view, i. e., in the layer with the highest number. Unconnected nodes can be filtered out if necessary. This approach gives insight into the distribution of nodes among different layers without the distraction of the leaves, thus enriching the perception of the graph topology. More screenshots can be found in the Appendix~D.
+Second layering approach ,,Leaves Bottom Layout'' (Figure~\ref{fig:go_leaves_bottom_layout}) is similar to the first one in terms of placing the nodes into corresponding layers based on the distance from the source node and random distribution of the node pixels within each layer. However, all leaves are placed into one single layer together with unconnected nodes at the bottom of the GO view, i. e., in the layer with the highest number. Unconnected nodes can be filtered out if necessary. This approach gives insight into the distribution of nodes among different layers without the distraction of the leaves, thus enriching the perception of the graph topology. More screen shots can be found in the Appendix~D.
 
 \begin{figure}[h!]
 \centering
@@ -48,7 +48,7 @@ Second layering approach ,,Leaves Bottom Layout'' (Figure~\ref{fig:go_leaves_bot
 \label{fig:go_leaves_bottom_layout}
 \end{figure}
 
-All provided features help to improve visualization and decrees amount element in the scene. But even with hided edges visualized sub-tree could be complicated. The result of sub-graph highlighting is showed on the Figure~\ref{fig:go_no_edge_bundling}.
+All provided features help to improve visualization and decrees amount element in the scene. But even with hided edges visualized sub-tree could be complicated. The result of sub-graph highlighting is showed in Figure~\ref{fig:go_no_edge_bundling}.
 
 \begin{figure}[h!]
 \centering
@@ -64,6 +64,6 @@ All provided features help to improve visualization and decrees amount element i
 \label{fig:go_subgraph_highlighting}
 \end{figure}
 
-Improved edge visualization for the same selected vertex ,,multicellular organismal process'' is on the Figure~\ref{fig:go_edge_bundling}. Newer solution is simple edge bundling. Edge bundling technique and usage example well described in the~\cite{EDGE_BUNDLING_1} and~\cite{EDGE_BUNDLING_2}.
+Improved edge visualization for the same selected vertex ,,multicellular organismal process'' is showed in Figure~\ref{fig:go_edge_bundling}. A newer solution is simple edge bundling. Edge bundling technique and usage example well described in the~\cite{EDGE_BUNDLING_1} and~\cite{EDGE_BUNDLING_2}.
 
 For all edges which go into same level compute ,,dummy node'' located on the top of the target level and in the middle of outlined vertices, draw single line from source to ,,dummy node'' as first part. Second part is to draw ,,Bezier line'' from ,,dummy node'' to target vertex. This solution helps to follow connection and use space for useful. 

@@ -4,8 +4,9 @@
 % 	Visualisation of Gene Ontology and Cluster Analysis Results
 %	Author: Vladyslav Aleksakhin
 
-\documentclass[a4paper,oneside]{article}
+\documentclass[11pt]{article}
 
+\usepackage{geometry}
 \usepackage{tabularx}
 \usepackage{graphicx}
 \usepackage{subfig}
@@ -13,6 +14,18 @@
 \usepackage{color}
 \usepackage{listings}
 
+\geometry{
+  twoside,
+  a4paper,
+  left=3cm,
+  right=3cm,
+  top=2cm,
+  bottom=2.5cm,
+  hcentering,
+  bindingoffset=0pt,
+  footskip=10mm,
+  nohead
+}
 
 \newcommand*{\mywebref}[3]{
 	\bibitem{#1} #2 is available on the web \url{#3}. Last access in August 2011.
@@ -23,6 +36,20 @@
 		\textcolor{red}{#1}
 	\end{LARGE}
 }
+
+\newcommand*{\myappendix}[1]{	
+	\addtocounter{section}{1}
+
+	\section*{Appendix \Alph{section}: #1}	
+	\addcontentsline{toc}{section}{Appendix \Alph{section}: #1}
+
+	\renewcommand{\thesection}{\Alph{section}}
+	\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+	\setcounter{figure}{1}
+}
+
+
  
 \begin{document}
 
@@ -42,7 +69,7 @@
 \newpage
 \input{introduction}
 
-\input{problem.tex}
+\input{algorithm.tex}
 
 \input{solution.tex}
 
@@ -52,6 +79,8 @@
 
 \newpage
 \input{bibliography.tex}
+
+\setcounter{section}{0}
 
 \newpage
 \input{appendix_A.tex}

@@ -9,26 +9,7 @@ Java is flexible platform which has big amount of different libraries. It helps 
 Maven~\cite{MAVEN_HOME_PAGE} is free, open-source and de-facto project management standard on the Java platform, is part of Apache software project developed and supported by ASF (Apache Software Foundation)~\cite{APACHE_FOUNDATION_HOME_PAGE}. ,,Maven provides a comprehensive approach to managing software projects. From compilation, to distribution, to documentation, to team collaboration, Maven provides the necessary abstractions that encourage reuse and take much of the work out of project builds."~\cite{MAVEN_BOOK_1}
 
 
-"Maven is a project management framework, but this doesn't tell you much about Maven. It's the most obvious three-word definition of Maven the authors could come up with, but the term project management framework is a meaningless abstraction that doesn't do justice to the richness and complexity of Maven. Too often technologists rely on abstract phrases to capture complex topics in three or four words, and with repetition phrases such as project management and enterprise software start to lose concrete meaning.
-
-
-When someone wants to know what Maven is, they will usually ask ÒWhat exactly is Maven, and they expect a short, sound-bite answer. ÒWell it is a build tool or a scripting framework Maven is more than three boring, uninspiring words. It is a combination of ideas, standards, and software, and it is impossible to distill the definition of Maven to simply digested sound-bites. Revolutionary ideas are often difficult to convey with words. If you are interested in a fuller, richer definition of Maven read this introduction; it will prime you for the concepts that are to follow.
-
-
-If Maven isn't a project management framework. what is it? Here's one attempt at a description: Maven is a set of standards, a repository format, and a piece of software used to manage and describe projects. It defines a standard life cycle for building, testing, and deploying project artifacts. It provides a framework that enables easy reuse of common build logic for all projects following Maven's standards. The Maven project at the Apache Software Foundation is an open source community which produces software tools that understand a common declarative Project Object Model (POM). This book focuses on the core tool produced by the Maven project, Maven 2, a framework that greatly simplifies the process of managing a software project.
-
-
-You may have been expecting a more straightforward answer. Perhaps you picked up this book because someone told you that Maven is a build tool. Don't worry, Maven can be the build tool you are looking for, and many developers who have approached Maven as another build tool have come away with a finely tuned build system. While you are free to use Maven as just another build tool, to view it in such limited terms is akin to saying that a web browser is nothing more than a tool that reads hypertext.
-
-
-Maven and the technologies related to the Maven project are beginning to have a transformation effect on the Java community.
-In addition to solving straightforward, first-order problems such as simplifying builds, documentation, distribution, and the deployment process, Maven also brings with it some compelling second-order benefits.
-
-
-As more and more projects and products adopt Maven as a foundation for project management, it becomes easier to build relationships between projects and to build systems that navigate and report on these relationships. Maven's standard formats enable a sort of ,,Semantic Web" for programming projects. Maven's standards and central repository have defined a new naming system for projects. Using Maven has made it easier to add external dependencies and publish your own components.
-
-
-So to answer the original question: Maven is many things to many people. It is a set of standards and an approach as much as it is a piece of software. It is a way of approaching a set of software as a collection of interdependent components which can be described in a common format. It is the next step in the evolution of how individuals and organizations collaborate to create software systems. Once you get up to speed on the fundamentals of Maven, you will wonder how you ever developed without it."~\cite{MAVEN_BOOK_2}
+,,Maven is a set of standards, a repository format, and a piece of software used to manage and describe projects. It defines a standard life cycle for building, testing, and deploying project artifacts. It provides a framework that enables easy reuse of common build logic for all projects following Maven's standards. The Maven project at the Apache Software Foundation is an open source community which produces software tools that understand a common declarative Project Object Model (POM).''~\cite{MAVEN_BOOK_2}
 
 
 Maven's primary goal is to allow a developer to comprehend the complete state of a development effort in the shortest period of time. In order to attain this goal there are several areas of concern that Maven attempts to deal with:
@@ -41,7 +22,7 @@ Maven's primary goal is to allow a developer to comprehend the complete state of
 \end{itemize}
 
 
-On the Figure~\ref{fig:THESIS_FOLDER_STRUCTURE} showed structure of thesis project folder. Project uses standard Maven project folder format.
+In Figure~\ref{fig:THESIS_FOLDER_STRUCTURE} showed structure of thesis project folder. Project uses standard Maven project folder format.
 
 
 Here is overview of key parts: java source code stored in the ,,src/main/java" folder, tests source code stored in the ,,src/test/java". Necessary resources such as log4j configuration file stored in the ,,src/main/resources", in the same folder thesis properties file is stored. During ,,package" phase all resources are copied by Maven.
@@ -53,7 +34,7 @@ Here is overview of key parts: java source code stored in the ,,src/main/java" f
 Complete builds are stored in the ,,build" folder. Latest build stored in the ,,build/latest" folder, other builds stored in the folder that has such name pattern:\texttt{GoClusterViz-\%version\%-\%build date\%-\%build time\%}. Each build folder contains corresponded native build for each of three platforms Linux, Windows and Mac OS X.
 
 
-Cluster graph and Gene Ontology graphs stored in the ,,data" folder.
+Cluster graph and Gene Ontology graphs are stored in the ,,data" folder.
 
 \begin{figure}[h!]
 \centering
@@ -65,8 +46,10 @@ Cluster graph and Gene Ontology graphs stored in the ,,data" folder.
 Second necessary part of the normal development process is revision control. ,,Revision control, also known as version control or source control (and an aspect of software configuration management or SCM), is the management of changes to documents, programs, and other information stored as computer files. It is most commonly used in software development, where a team of people may change the same files. Changes are usually identified by a number or letter code, termed the `revision number', `revision level', or simply `revision'. For example, an initial set of files is `revision 1'. When the first change is made, the resulting set is `revision 2', and so on. Each revision is associated with a time stamp and the person making the change. Revisions can be compared, restored, and with some types of files, merged."~\cite{REVISION_CONTROL}
 
 
-During thesis development was used Git version control system. "Git is a distributed revision control system with an emphasis on speed. Git was initially designed and developed by Linus Torvalds for Linux kernel development. Every Git working directory is a full-fledged repository with complete history and full revision tracking capabilities, not dependent on network access or a central server. Git's current software maintenance is overseen by Junio Hamano. Git is free software distributed under the terms of the GNU General Public License version 2. after he claimed that Andrew Tridgell had reverse-engineered the BitKeeper protocols.)
-Torvalds wanted a distributed system that he could use like BitKeeper, but none of the available free systems met his needs, particularly his performance needs."~\cite{GIT} Git allows to store and work local on machine but for more safety reasons all source code stored on GitHub. GitHub is a web-based hosting service for software development projects that use the Git revision control system. GitHub provides free hosting open-source project. Thesis project home page on GitHub is \url{http://github.com/vadyalex/thesis} and source code URL is \url{git://github.com/vadyalex/thesis.git}
+During thesis development was used Git version control system. ,,Git is a distributed revision control system with an emphasis on speed. Git was initially designed and developed by Linus Torvalds for Linux kernel development. Every Git working directory is a full-fledged repository with complete history and full revision tracking capabilities, not dependent on network access or a central server. Git is free software distributed under the terms of the GNU General Public License version 2."~\cite{GIT} 
+
+
+Git allows to store and work locally on the machine but for safety reasons all source code stored on GitHub. GitHub is a web-based hosting service for software development projects that use the Git revision control system. GitHub provides free hosting for open-source project. Thesis project home page on GitHub~\cite{GitHub_homepage} and Git repository URL~\cite{GitHub_repository}.
 
 \begin{figure}[h!]
 \centering
@@ -101,22 +84,12 @@ ILOG JViews gives (grants) components, aimed for using in custom applications, a
 \item
 JGraphT~\cite{JGraphT}
 
-JGraphT is open source library, which provides with mathematical tool of graphs theory. JGraphT supports different kinds of graphs, including: oriented and unoriented graphs, graphs with weighted/non weighted/nominate (named) or anything else arc format, appointed 	by user, non upgradeable graphs - supported access to internal graphs in "Read Only" mode. Listenable graphs: allows outer listener to trace events appearance; sub graphs: graphs which are a view about other graphs. Being a powerful feature, JGraphT has been 	developed as easy and type-safe (with Java code generators use) feature for working with 	graphs. For example, any object can be node of a graph. You can build graphics on basis of: line, URL, XML documents and so forth, you can even build graphs of graphs.
+JGraphT is open source library, which provides with mathematical tool of graphs theory. JGraphT supports different kinds of graphs, including: oriented and unoriented graphs, graphs with weighted/non weighted/nominate (named) or anything else arc format, appointed 	by user, non upgradeable graphs - supported access to internal graphs in ,,Read Only" mode. Listenable graphs: allows outer listener to trace events appearance; sub graphs: graphs which are a view about other graphs. Being a powerful feature, JGraphT has been 	developed as easy and type-safe (with Java code generators use) feature for working with 	graphs. For example, any object can be node of a graph. You can build graphics on basis of: line, URL, XML documents and so forth, you can even build graphs of graphs.
 
 \item
 Java Universal Network / Graph Framework (JUNG)~\cite{JUNG}
 
-,,JUNG the Java Universal Network/Graph Framework -- is a software library that provides a common and extensible language for the modeling, analysis, and visualization of data that can be represented as a graph or network. It is written in Java, which allows JUNG-based applications to make use of the extensive built-in capabilities of the Java API, as well as those of other existing third-party Java libraries.
-
-
-The JUNG architecture is designed to support a variety of representations of entities and their relations, such as directed and undirected graphs, multi-modal graphs, graphs with parallel edges, and hyper-graphs. It provides a mechanism for annotating graphs, entities, and relations with meta data. This facilitates the creation of analytic tools for complex data sets that can examine the relations between entities as well as the meta data attached to each entity and relation.
-The current distribution of JUNG includes implementations of a number of algorithms from graph theory, data mining, and social network analysis, such as routines for clustering, decomposition, optimization, random graph generation, statistical analysis, and calculation of network distances, flows, and importance measures (centrality, PageRank, HITS, etc.).
-
-
-JUNG also provides a visualization framework that makes it easy to construct tools for the interactive exploration of network data. Users can use one of the layout algorithms provided, or use the framework to create their own custom layouts. In addition, filtering mechanisms are provided which allow users to focus their attention, or their algorithms, on specific portions of the graph.
-
-
-As an open-source library, JUNG provides a common framework for graph/network analysis and visualization. We hope that JUNG will make it easier for those who work with relational data to make use of one another's development efforts, and thus avoid continually re-inventing the wheel."~\cite{JUNG_OVERVIEW}
+JUNG (Java Universal Network/Graph Framework) -- is a software library that provides a common utilities for the modeling, analysis, and visualization of data that can be represented as a graph or network. It is written in Java, which allows JUNG-based applications to make use of the extensive built-in capabilities of the Java API, as well as those of other existing third-party Java libraries. ,,The JUNG architecture is designed to support a variety of representations of entities and their relations, such as directed and undirected graphs, multi-modal graphs, graphs with parallel edges, and hyper-graphs. It provides a mechanism for annotating graphs, entities, and relations with meta data. The current distribution of JUNG includes implementations of a number of algorithms from graph theory, data mining, and social network analysis, such as routines for clustering, decomposition, optimization, random graph generation, statistical analysis, and calculation of network distances, flows, and importance measures (centrality, PageRank, HITS, etc.)."~\cite{JUNG_OVERVIEW}
 
 
 JUNG library is widely used in differ amount of projects. Here is a list of projects using JUNG:
@@ -180,34 +153,27 @@ In the scope of current thesis work was used JUNG graph library to store graph s
 
 \subsection{OpenGL Visualization Standard}
 \label{sec:opengl}
-,,OpenGL is a software interface to graphics hardware. This interface consists of about 120 distinct commands, which you use to specify the objects and operations needed to produce interactive three-dimensional applications.
+OpenGL is a software interface to graphics hardware. This interface consists of about 120 distinct commands, which you use to specify the objects and operations needed to produce interactive three-dimensional applications. OpenGL is designed to work efficiently even if the computer that displays the graphics you create isn't the computer that runs your graphics program. 
 
 
-OpenGL is designed to work efficiently even if the computer that displays the graphics you create isn't the computer that runs your graphics program. This might be the case if you work in a networked computer environment where many computers are connected to one another by wires capable of carrying digital data. In this situation, the computer on which your program runs and issues OpenGL drawing commands is called the client, and the computer that receives those commands and performs the drawing is called the server. The format for transmitting OpenGL commands (called the protocol) from the client to the server is always the same, so OpenGL programs can work across a network even if the client and server are different kinds of computers. If an OpenGL program isn't running across a network, then there's only one computer, and it is both the client and the server.
+,,OpenGL is designed as a streamlined, hardware-independent interface to be implemented on many different hardware platforms. To achieve these qualities, no commands for performing windowing tasks or obtaining user input are included in OpenGL; instead, you must work through whatever windowing system controls the particular hardware you're using. Similarly, OpenGL doesn't provide high-level commands for describing models of three-dimensional objects. Such commands might allow you to specify relatively complicated shapes such as automobiles, parts of the body, airplanes, or molecules. With OpenGL, you must build up your desired model from a small set of geometric primitive - points, lines, and polygons."~\cite{THE_RED_BOOK}
 
 
-OpenGL is designed as a streamlined, hardware-independent interface to be implemented on many different hardware platforms. To achieve these qualities, no commands for performing windowing tasks or obtaining user input are included in OpenGL; instead, you must work through whatever windowing system controls the particular hardware you're using. Similarly, OpenGL doesn't provide high-level commands for describing models of three-dimensional objects. Such commands might allow you to specify relatively complicated shapes such as automobiles, parts of the body, airplanes, or molecules. With OpenGL, you must build up your desired model from a small set of geometric primitive - points, lines, and polygons."~\cite{THE_RED_BOOK}
+There are many wrappers over OpenGL for developing on different programming languages. One of the favorite in the Java community are JOGL and LWJGL.
 
 
-There are many wrappers over OpenGL for developing on different programming languages. One of the favorite are JOGL and LWJGL.
-
-
-,,The Lightweight Java Game Library (LWJGL) is a solution aimed directly at professional and amateur Java programmers alike to enable commercial quality games to be written in Java. LWJGL provides developers access to high performance cross platform libraries such as OpenGL (Open Graphics Library) and OpenAL (Open Audio Library) allowing for state of the art 3D games and 3D sound. Additionally LWJGL provides access to controllers such as Gamepads, Steering wheel and Joysticks. All in a simple and straight forward API.
-
-
-LWJGL is not meant to make writing games particularly easy; it is primarily an enabling technology which allows developers to get at resources that are simply otherwise unavailable or poorly implemented on the existing Java platform. We anticipate that the LWJGL will, through evolution and extension, become the foundation for more complete game libraries and `game engines' as they have popularly become known, and hide some of the new evils we have had to expose in the APIs.
-
+,,The Lightweight Java Game Library (LWJGL) is a solution aimed directly at professional and amateur Java programmers alike to enable commercial quality games to be written in Java. LWJGL provides developers access to high performance cross platform libraries such as OpenGL and OpenAL (Open Audio Library) allowing for state of the art 3D games and 3D sound. Additionally LWJGL provides access to controllers such as Gamepads, Steering wheel and Joysticks. All in a simple and straight forward API.
 
 LWJGL is available under a BSD license, which means it's open source and freely available at no charge."~\cite{LWJGL}
 
 
-In the thesis used JOGL wrapper library over OpenGL. ,,Java OpenGL (JOGL) is a wrapper library that allows OpenGL to be used in the Java programming language. It was originally developed by Kenneth Bradley Russell and Christopher John Kline, and was further developed by the Sun Microsystems Game Technology Group. As of 2010, it is an independent open source project under a BSD license. It is the reference implementation for Java Bindings for OpenGL (JSR-231).
+In the thesis used JOGL wrapper library over OpenGL. Java OpenGL (JOGL) is a wrapper library that allows OpenGL to be used in the Java programming.
 
 
-The base OpenGL C API and associated operation system API, are accessed in JOGL via Java Native Interface (JNI) calls. As such, the underlying system must support OpenGL for JOGL to work. JOGL differs from some other Java OpenGL wrapper libraries in that it merely exposes the procedural OpenGL API via methods on a few classes, rather than trying to map OpenGL functionality onto the object-oriented programming paradigm. Indeed, most of the JOGL code is auto generated from the OpenGL C header files via a conversion tool named GlueGen, which was programmed specifically to facilitate the creation of JOGL.
+,,The base OpenGL C API and associated operation system API, are accessed in JOGL via Java Native Interface (JNI) calls. As such, the underlying system must support OpenGL for JOGL to work. JOGL differs from some other Java OpenGL wrapper libraries in that it merely exposes the procedural OpenGL API via methods on a few classes, rather than trying to map OpenGL functionality onto the object-oriented programming paradigm. Indeed, most of the JOGL code is auto generated from the OpenGL C header files via a conversion tool named GlueGen, which was programmed specifically to facilitate the creation of JOGL.
 
 
-This design decision has both its advantages and disadvantages. The procedural and state machine nature of OpenGL is inconsistent with the typical method of programming under Java, which is bothersome to many programmers. However, the straightforward mapping of the OpenGL C API to Java methods makes conversion of existing C applications and example code much simpler. The thin layer of abstraction provided by JOGL makes runtime execution quite efficient, but accordingly is more difficult to code compared to higher-level abstraction libraries like Java3D. Because most of the code is auto generated, changes to OpenGL can be rapidly added to JOGL."~\cite{JOGL}
+This design decision has both its advantages and disadvantages. The procedural and state machine nature of OpenGL is inconsistent with the typical method of programming under Java, which is bothersome to many programmers. However, the straightforward mapping of the OpenGL C API to Java methods makes conversion of existing C applications and example code much simpler. The thin layer of abstraction provided by JOGL makes runtime execution quite efficient, but accordingly is more difficult to code compared to higher-level abstraction libraries like Java3D. Because most of the code is auto generated."~\cite{JOGL}
 
 
 \subsection{Program architecture}
@@ -221,7 +187,7 @@ An overview on the tool's architecture is given in Figure~\ref{fig:modules}. The
 \label{fig:modules}
 \end{figure}
 
-One of the main module in the program is \textsf{Subgraph Extraction} module. Extraction algorithm was explained in the Section~\ref{sec:problem} and in the Appendix~B is pseudo-code, implementation is in the class \textsf{se.lnu.thesis.algorithm.Extractor}.
+One of the main module in the program is \textsf{Subgraph Extraction} module. Extraction algorithm was explained in the Section~\ref{sec:algorithm} and in the Appendix~A is pseudo-code, implementation is in the class \textsf{se.lnu.thesis.algorithm.Extractor}.
 
 Complete UML class diagram of the GoClusterViz can be found in the Appendix~C. Here is a brief overview of the package content.
 
@@ -229,7 +195,7 @@ Main class and program entry point is class -- \textsf{GoClusterViz}.
 
 Package \textsf{se.lnu.thesis.gui} contains all interface abstractions and Swing implementations for main window, menus and event handling.
 
-\textsf{se.lnu.thesis.element} is hierarchy for graph visualisation. It is implementation of the Composite pattern: ,,In software engineering, the composite pattern is a partitioning design pattern. The composite pattern describes that a group of objects are to be treated in the same way as a single instance of an object. The intent of a composite is to `compose' objects into tree structures to represent part-whole hierarchies. Implementing the composite pattern lets clients treat individual objects and compositions uniformly."~\cite{COMPOSITE_GAMMA}
+\textsf{se.lnu.thesis.element} is hierarchy for graph visualization. It is implementation of the Composite pattern: ,,In software engineering, the composite pattern is a partitioning design pattern. The composite pattern describes that a group of objects are to be treated in the same way as a single instance of an object. The intent of a composite is to `compose' objects into tree structures to represent part-whole hierarchies. Implementing the composite pattern lets clients treat individual objects and compositions uniformly."~\cite{COMPOSITE_GAMMA}
 
 \begin{figure}[h!]
 \centering
@@ -239,23 +205,24 @@ Package \textsf{se.lnu.thesis.gui} contains all interface abstractions and Swing
 \end{figure}
 
 Package \textsf{se.lnu.thesis.paint} contains all drawing implementations.
-Graph elements do not implement visualization shape, for that purpose there is \textsf{ElementVisualizer} abstraction. Diagram on the Figure~\ref{fig:uml_visualizers} shows complete UML diagram of the package \textsf{se.lnu.thesis.paint.visualizer}, there are several different shape visualizer. To reduce memory usage all visualizers are stored in the \textsf{ElementVisualizerFactory} -- Flyweight design pattern.
+Graph elements do not implement visualization shape, for that purpose there is \textsf{ElementVisualizer} abstraction. Diagram in Figure~\ref{fig:uml_visualizers} shows complete UML diagram of the package \textsf{se.lnu.thesis.paint.visualizer}, there are several different shape visualizer. To reduce memory usage all visualizers are stored in the \textsf{ElementVisualizerFactory} -- Flyweight design pattern.
 
-"Flyweight is a software design pattern. A flyweight is an object that minimizes memory use by sharing as much data as possible with other similar objects; it is a way to use objects in large numbers when a simple repeated representation would use an unacceptable amount of memory. The term is named after the boxing weight class. Often some parts of the object state can be shared and it's common to put them in external data structures and pass them to the flyweight objects temporarily when they are used.
+,,Flyweight is a software design pattern. A flyweight is an object that minimizes memory use by sharing as much data as possible with other similar objects; it is a way to use objects in large numbers when a simple repeated representation would use an unacceptable amount of memory. The term is named after the boxing weight class. Often some parts of the object state can be shared and it's common to put them in external data structures and pass them to the flyweight objects temporarily when they are used.''~\cite{FLYWEIGHT}
 
-A classic example usage of the flyweight pattern is the data structures for graphical representation of characters in a word processor. It might be desirable to have, for each character in a document, a glyph object containing its font outline, font metrics, and other formatting data, but this would amount to hundreds or thousands of bytes for each character. Instead, for every character there might be a reference to a flyweight glyph object shared by every instance of the same character in the document; only the position of each character (in the document and/or the page) would need to be stored internally.
-
-In other contexts the idea of sharing identical data structures is called hash consing."~\cite{FLYWEIGHT}
+Flyweight pattern is used to store different kind of visualizers for graph elements. It means for each element of the graph there is a reference to visualizer object containing its shape, metrics, and other formatting data, which reduce amount of data to hundreds or thousands of bytes for each character. For every element of the graph there is a reference to a flyweight visualizer object shared by every instance of the same graph element in the graph; only the position of each element and current state (selected, highlighted, focused) is stored internally.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.35]{pictures/uml_visualizers.png}
-\caption{Elements visualizers}
+\caption{Flyweight element visualizers}
 \label{fig:uml_visualizers}
 \end{figure}
 
-User interaction state machine is implementation of the State software development pattern located in the package \textsf{se.lnu.thesis.paint.state}. ,,A monolithic objects behavior is a function of its state, and it must change its behavior at run-time depending on that state. Or, an application is characterized by large and numerous case statements that vector flow of control based on the state of the application. The State pattern does not specify where the state transitions will be defined. The choices are two: the context object, or each individual State derived class. The advantage of the latter option is ease of adding new State derived classes. The disadvantage is each State derived class has knowledge of (coupling to) its siblings, which introduces dependencies between subclasses. A table-driven approach to designing finite state machines does a good job of specifying state transitions, but it is difficult to add actions to accompany the state transitions. The pattern-based approach uses code (instead of data structures) to specify state transitions, but it does a good job of accommodating state transition actions."~\cite{STATE}
+User interaction state machine is implementation of the State software development pattern located in the package \textsf{se.lnu.thesis.paint.state}. 
 
+,,A monolithic objects behavior is a function of its state, and it must change its behavior at run-time depending on that state. Or, an application is characterized by large and numerous case statements that vector flow of control based on the state of the application. The State pattern does not specify where the state transitions will be defined. The choices are two: the context object, or each individual State derived class. The advantage of the latter option is ease of adding new State derived classes. The disadvantage is each State derived class has knowledge of (coupling to) its siblings, which introduces dependencies between subclasses. A table-driven approach to designing finite state machines does a good job of specifying state transitions, but it is difficult to add actions to accompany the state transitions. The pattern-based approach uses code (instead of data structures) to specify state transitions, but it does a good job of accommodating state transition actions."~\cite{STATE}
+
+It means that graph has several states: normal view, zoomed view, lens is on the scene, etc. It releases the code from the long ,,switch'' statements  and determines logic into different classes.  
 
 Layout implementations are in the \textsf{se.lnu.thesis.layout} package~\ref{fig:uml_layouts}.
 
