@@ -1,12 +1,12 @@
 \section{Implementation}
 \label{sec:implementation}
-Main language and platform for developing thesis is Java. ,,Java is a programming language and computing platform first released by Sun Microsystems in 1995. It is the underlying technology that powers state-of-the-art programs including utilities, games, and business applications. Java runs on more than 850 million personal computers worldwide, and on billions of devices worldwide, including mobile and TV devices."~\cite{java_com} Also, there are a lot of different libraries in Java. Every `common' part of the system could be replaceable. In the future sections would be detailed overview libraries for graphs, graph visualizations and graphic libraries.
+Main language and platform for developing thesis is Java. ,,Java is a programming language and computing platform first released by Sun Microsystems in 1995. It is the underlying technology that powers state-of-the-art programs including utilities, games, and business applications. Java runs on more than 850 million personal computers worldwide, and on billions of devices worldwide, including mobile and TV devices.''~\cite{java_com} Also, there are a lot of different libraries in Java. Every `common' part of the system could be replaceable. In the future sections would be detailed overview libraries for graphs, graph visualizations and graphic libraries.
 
 
 Java is flexible platform which has big amount of different libraries. It helps not to write twice things already made but flexibility cause project structure complexity and library management. On the early stage there are no problems to control project throw sophisticated IDE (integrated development environment) but as project complexity grows more powerful building tool need appears. Maven is used during thesis work.
 
 
-Maven~\cite{MAVEN_HOME_PAGE} is free, open-source and de-facto project management standard on the Java platform, is part of Apache software project developed and supported by ASF (Apache Software Foundation)~\cite{APACHE_FOUNDATION_HOME_PAGE}. ,,Maven provides a comprehensive approach to managing software projects. From compilation, to distribution, to documentation, to team collaboration, Maven provides the necessary abstractions that encourage reuse and take much of the work out of project builds."~\cite{MAVEN_BOOK_1}
+Maven~\cite{MAVEN_HOME_PAGE} is free, open-source and de-facto project management standard on the Java platform, is part of Apache software project developed and supported by ASF (Apache Software Foundation)~\cite{APACHE_FOUNDATION_HOME_PAGE}. ,,Maven provides a comprehensive approach to managing software projects. From compilation, to distribution, to documentation, to team collaboration, Maven provides the necessary abstractions that encourage reuse and take much of the work out of project builds.''~\cite{MAVEN_BOOK_1}
 
 
 ,,Maven is a set of standards, a repository format, and a piece of software used to manage and describe projects. It defines a standard life cycle for building, testing, and deploying project artifacts. It provides a framework that enables easy reuse of common build logic for all projects following Maven's standards. The Maven project at the Apache Software Foundation is an open source community which produces software tools that understand a common declarative Project Object Model (POM).''~\cite{MAVEN_BOOK_2}
@@ -22,19 +22,19 @@ Maven's primary goal is to allow a developer to comprehend the complete state of
 \end{itemize}
 
 
-In Figure~\ref{fig:THESIS_FOLDER_STRUCTURE} showed structure of thesis project folder. Project uses standard Maven project folder format.
+In Figure~\ref{fig:THESIS_FOLDER_STRUCTURE} is the structure of the project folder. Thesis project uses standard Maven project folder format. Here is overview of key parts: java source code stored in the ,,src/main/java'' folder, tests source code stored in the ,,src/test/java''. Necessary resources such as log4j configuration file stored in the ,,src/main/resources'', in the same folder thesis properties file is stored. During ,,package'' phase all resources are copied by Maven.
 
 
-Here is overview of key parts: java source code stored in the ,,src/main/java" folder, tests source code stored in the ,,src/test/java". Necessary resources such as log4j configuration file stored in the ,,src/main/resources", in the same folder thesis properties file is stored. During ,,package" phase all resources are copied by Maven.
+,,Native'' directory stores JOGL native libraries to different platform such as Linux, Windows and Mac OS X. In the ,,lib.zip'' stored jars for JUNG library which should be manually placed in the local Maven repository because they do not  exist in central Maven repository. All other dependencies are exist in Maven repositories and handled by default dependency process.
 
 
-,,Native" directory stores JOGL native libraries to different platform such as Linux, Windows and Mac OS X. In the ,,lib.zip" stored jars for JUNG library which should be manually placed in the local Maven repository because they do not  exist in central Maven repository. All other dependencies are exist in Maven repositories and handled by default dependency process.
+Complete builds are stored in the ,,build'' folder. Latest build stored in the ,,build/latest'' folder, other builds stored in the folder that has such name pattern:
 
 
-Complete builds are stored in the ,,build" folder. Latest build stored in the ,,build/latest" folder, other builds stored in the folder that has such name pattern:\texttt{GoClusterViz-\%version\%-\%build date\%-\%build time\%}. Each build folder contains corresponded native build for each of three platforms Linux, Windows and Mac OS X.
+\texttt{GoClusterViz-\%version\%-\%build date\%-\%build time\%}
 
 
-Cluster graph and Gene Ontology graphs are stored in the ,,data" folder.
+Each build folder contains corresponded native build for each of three platforms Linux, Windows and Mac OS X. Cluster graph and Gene Ontology graphs are stored in the ,,data'' folder.
 
 \begin{figure}[h!]
 \centering
@@ -43,10 +43,10 @@ Cluster graph and Gene Ontology graphs are stored in the ,,data" folder.
 \label{fig:THESIS_FOLDER_STRUCTURE}
 \end{figure}
 
-Second necessary part of the normal development process is revision control. ,,Revision control, also known as version control or source control (and an aspect of software configuration management or SCM), is the management of changes to documents, programs, and other information stored as computer files. It is most commonly used in software development, where a team of people may change the same files. Changes are usually identified by a number or letter code, termed the `revision number', `revision level', or simply `revision'. For example, an initial set of files is `revision 1'. When the first change is made, the resulting set is `revision 2', and so on. Each revision is associated with a time stamp and the person making the change. Revisions can be compared, restored, and with some types of files, merged."~\cite{REVISION_CONTROL}
+Second necessary part of the normal development process is revision control. ,,Revision control, also known as version control or source control (and an aspect of software configuration management or SCM), is the management of changes to documents, programs, and other information stored as computer files. It is most commonly used in software development, where a team of people may change the same files. Changes are usually identified by a number or letter code, termed the `revision number', `revision level', or simply `revision'. For example, an initial set of files is `revision 1'. When the first change is made, the resulting set is `revision 2', and so on. Each revision is associated with a time stamp and the person making the change. Revisions can be compared, restored, and with some types of files, merged.''~\cite{REVISION_CONTROL}
 
 
-During thesis development was used Git version control system. ,,Git is a distributed revision control system with an emphasis on speed. Git was initially designed and developed by Linus Torvalds for Linux kernel development. Every Git working directory is a full-fledged repository with complete history and full revision tracking capabilities, not dependent on network access or a central server. Git is free software distributed under the terms of the GNU General Public License version 2."~\cite{GIT} 
+During thesis development was used Git version control system. ,,Git is a distributed revision control system with an emphasis on speed. Git was initially designed and developed by Linus Torvalds for Linux kernel development. Every Git working directory is a full-fledged repository with complete history and full revision tracking capabilities, not dependent on network access or a central server. Git is free software distributed under the terms of the GNU General Public License version 2.''~\cite{GIT}
 
 
 Git allows to store and work locally on the machine but for safety reasons all source code stored on GitHub. GitHub is a web-based hosting service for software development projects that use the Git revision control system. GitHub provides free hosting for open-source project. Thesis project home page on GitHub~\cite{GitHub_homepage} and Git repository URL~\cite{GitHub_repository}.
@@ -84,12 +84,12 @@ ILOG JViews gives (grants) components, aimed for using in custom applications, a
 \item
 JGraphT~\cite{JGraphT}
 
-JGraphT is open source library, which provides with mathematical tool of graphs theory. JGraphT supports different kinds of graphs, including: oriented and unoriented graphs, graphs with weighted/non weighted/nominate (named) or anything else arc format, appointed 	by user, non upgradeable graphs - supported access to internal graphs in ,,Read Only" mode. Listenable graphs: allows outer listener to trace events appearance; sub graphs: graphs which are a view about other graphs. Being a powerful feature, JGraphT has been 	developed as easy and type-safe (with Java code generators use) feature for working with 	graphs. For example, any object can be node of a graph. You can build graphics on basis of: line, URL, XML documents and so forth, you can even build graphs of graphs.
+JGraphT is open source library, which provides with mathematical tool of graphs theory. JGraphT supports different kinds of graphs, including: oriented and unoriented graphs, graphs with weighted/non weighted/nominate (named) or anything else arc format, appointed 	by user, non upgradeable graphs - supported access to internal graphs in ,,Read Only'' mode. Listenable graphs: allows outer listener to trace events appearance; sub-graphs: graphs which are a view about other graphs. Being a powerful feature, JGraphT has been 	developed as easy and type-safe (with Java code generators use) feature for working with 	graphs. For example, any object can be node of a graph. You can build graphics on basis of: line, URL, XML documents and so forth, you can even build graphs of graphs.
 
 \item
 Java Universal Network / Graph Framework (JUNG)~\cite{JUNG}
 
-JUNG (Java Universal Network/Graph Framework) -- is a software library that provides a common utilities for the modeling, analysis, and visualization of data that can be represented as a graph or network. It is written in Java, which allows JUNG-based applications to make use of the extensive built-in capabilities of the Java API, as well as those of other existing third-party Java libraries. ,,The JUNG architecture is designed to support a variety of representations of entities and their relations, such as directed and undirected graphs, multi-modal graphs, graphs with parallel edges, and hyper-graphs. It provides a mechanism for annotating graphs, entities, and relations with meta data. The current distribution of JUNG includes implementations of a number of algorithms from graph theory, data mining, and social network analysis, such as routines for clustering, decomposition, optimization, random graph generation, statistical analysis, and calculation of network distances, flows, and importance measures (centrality, PageRank, HITS, etc.)."~\cite{JUNG_OVERVIEW}
+JUNG (Java Universal Network/Graph Framework) -- is a software library that provides a common utilities for the modeling, analysis, and visualization of data that can be represented as a graph or network. It is written in Java, which allows JUNG-based applications to make use of the extensive built-in capabilities of the Java API, as well as those of other existing third-party Java libraries. ,,The JUNG architecture is designed to support a variety of representations of entities and their relations, such as directed and undirected graphs, multi-modal graphs, graphs with parallel edges, and hyper-graphs. It provides a mechanism for annotating graphs, entities, and relations with meta data. The current distribution of JUNG includes implementations of a number of algorithms from graph theory, data mining, and social network analysis, such as routines for clustering, decomposition, optimization, random graph generation, statistical analysis, and calculation of network distances, flows, and importance measures (centrality, PageRank, HITS, etc.).''~\cite{JUNG_OVERVIEW}
 
 
 JUNG library is widely used in differ amount of projects. Here is a list of projects using JUNG:
@@ -126,7 +126,7 @@ JUNG library is widely used in differ amount of projects. Here is a list of proj
 
 \item TOTEM (TOolbox for Traffic Engineering Methods) provides a framework where researchers can integrate their traffic engineering algorithms. These algorithms can therefore be applied on models of real networks. The TOTEM toolbox also gives network operators the opportunity to experiment the currently developed traffic engineering algorithms on their own network. Today, the TOTEM toolbox already federates a large set of traffic engineering algorithms published in the scientific literature. This project uses JUNG for the graphical representation of the network topology. (S. Balon, O. Delcourt, J. Lepropre and F. Skivee)~\cite{TOTEM}
 
-\item D2K ("Data to Knowledge") is a visual programming environment for building complicated data mining applications; T2K is a library of D2K modules that implements sophisticated algorithms for text analysis. Each of these uses JUNG for network visualization.~\cite{D2K}
+\item D2K (''Data to Knowledge'') is a visual programming environment for building complicated data mining applications; T2K is a library of D2K modules that implements sophisticated algorithms for text analysis. Each of these uses JUNG for network visualization.~\cite{D2K}
 
 \item graphBuilder is an application that allows users to build network representations of relational databases and data files. It has been designed as a tool for exploring online scientific data repositories. (Ben Raymond)~\cite{GRAPHBUILDER}
 
@@ -140,7 +140,7 @@ JUNG library is widely used in differ amount of projects. Here is a list of proj
 
 \item Simple C-K Editor is a visualisation tool built on the C-K Design Theory. Its main purpose is to provide an easy tool to create, manipulate, edit and print C-K diagrams.~\cite{SIMPLE_C_K_EDITOR}
 
-\item PCOPGene is web-based application to analise microarray data with large sample-series. The user can identify several kinds of non-linear expression relationships inside the gene network, study the expression dependence fluctuations in detail, and crossing the results with external biomedical data-servers.~\cite{PCOPGENE}
+\item PCOPGene is web-based application to analyze microarray data with large sample-series. The user can identify several kinds of non-linear expression relationships inside the gene network, study the expression dependence fluctuations in detail, and crossing the results with external biomedical data-servers.~\cite{PCOPGENE}
 
 \end{itemize}
 
@@ -149,14 +149,193 @@ JUNG library is widely used in differ amount of projects. Here is a list of proj
 There are a lot more graph visualization frameworks for Java: Piccolo~\cite{Piccolo}, The Visualization Toolkit (VTK)~\cite{VTK}, The InfoVis Toolkit~\cite{InfoVis_Toolkit}, Improvise~\cite{Improvise}. All of them can be used as for storing and visualizing graphs and networks.
 
 
-In the scope of current thesis work was used JUNG graph library to store graph structures.
+In the scope of current thesis JUNG graph library was used to store graph structures.
+
+\subsection{GML Graph File Format}
+ ,,GML, the Graph Modeling Language, is our proposal for a portable file format for graphs. GML's key features are portability, simple syntax, extensibility and flexibility. A GML file consists of a hierarchical key-value lists. Graphs can be annotated with arbitrary data structures. The idea for a common file format was born at the GD'95; this proposal is the outcome of many discussions. GML is the standard file format in the Graphlet~cite{Graphlet} graph editor system. It has been overtaken and adapted by several other systems for drawing graphs.''~\cite{GML}
+
+
+GML format is platform independent, and easy to implement. Furthermore, it has the capability to represent arbitrary data structures, since advanced programs have the need to attach their specific data to nodes and edges. GML is flexible enough that a specific order of declarations is not needed, and that any non-essential data may be omitted. Simple graph is shown in the Listing~\ref{sample_graph_gml}
+
+\begin{center}
+	\lstinputlisting[language=xml, tabsize=2, caption={GML description of sample graph}, label={sample_graph_gml}]{graphs/SampleGraph.gml}
+\end{center}
+
+Figure~\ref{fig:sample_graph_yed_vis} shows manual visualization of the sample graph using yEd~\cite{yed} graph visualization tool.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{pictures/SampleGraph.png}
+\caption{Manual visualization of the sample graph}
+\label{fig:sample_graph_yed_vis}
+\end{figure}
+
+Listing of the more complex graph with additional properties and is in the Appendix~A and the visualization of this graph shown in Figure~\ref{fig:yed_graph_vis}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{pictures/YedGraph.png}
+\caption{Manual visualization of the sample graph}
+\label{fig:yed_graph_vis}
+\end{figure}
+
+Applications supporting GML~\cite{GML_wiki}
+
+\begin{itemize}
+\item Clairlib~\cite{clairlib}, a suite of open-source Perl modules intended to simplify a number of generic tasks in natural language processing (NLP), information retrieval (IR), and network analysis (NA).
+\item Cytoscape~\cite{Cytoscape}, an open source bioinformatics software platform for visualizing molecular interaction networks, loads and save previously-constructed interaction networks in GML.
+\item NetworkX~\cite{NetworkX}, an open source Python library for studying complex graphs.
+\item ocamlgraph\cite{ocamlgraph}, a graph library for OCaml.
+\item OGDF\cite{OGDF}, the Open Graph Drawing Framework, an open source C++ library containing implementations of various graph drawing algorithms. The library is self contained; optionally, additional packages like LP-solvers are required for some implementations.
+\item Tulip~\cite{Tulip} (software) is a free software in the domain of information visualization capable of manipulating huge graphs (with more than 1.000.000 elements).
+\item yEd~\cite{yed}, a free Java-based graph editor, supports import from and export to GML.
+\end{itemize}
+
+\subsection{Other Graph File Formats}
+
+\subsubsection{GraphML}
+GraphML is a comprehensive and easy-to-use file format for graphs. It consists of a language core to describe the structural properties of a graph and a flexible extension mechanism to add application-specific data.~\cite{GraphML} Its main features include support of:
+\begin{itemize}
+\item directed, undirected, and mixed graphs;
+\item hyper graphs;
+\item hierarchical graphs;
+\item graphical representations;
+\item references to external data;
+\item application-specific attribute data;
+\item light-weight parsers;
+\end{itemize}
+
+The GraphML document consists of a graphml element and a variety of sub elements: graph, node, edge. Figure~\ref{fig:simple_graphml} below is a simple graph. It contains 11 nodes and 12 undirected edges.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=1.0]{pictures/simple.png}
+\caption{A simple graph}
+\label{fig:simple_graphml}
+\end{figure}
+
+
+And a corresponded graphml file is shown in Listing~\ref{simple_graphml_file}
+
+\begin{center}
+\begin{lstlisting} [language=xml, tabsize=2, caption={Simple graphml file},label=simple_graphml_file]
+<graphml>
+  <graph id=''G'' edgedefault=''undirected''>
+    <node id=''n0''/>
+    <node id=''n1''/>
+    <node id=''n2''/>
+    <node id=''n3''/>
+    <node id=''n4''/>
+    <node id=''n5''/>
+    <node id=''n6''/>
+    <node id=''n7''/>
+    <node id=''n8''/>
+    <node id=''n9''/>
+    <node id=''n10''/>
+    <edge source=''n0'' target=''n2''/>
+    <edge source=''n1'' target=''n2''/>
+    <edge source=''n2'' target=''n3''/>
+    <edge source=''n3'' target=''n5''/>
+    <edge source=''n3'' target=''n4''/>
+    <edge source=''n4'' target=''n6''/>
+    <edge source=''n6'' target=''n5''/>
+    <edge source=''n5'' target=''n7''/>
+    <edge source=''n6'' target=''n8''/>
+    <edge source=''n8'' target=''n7''/>
+    <edge source=''n8'' target=''n9''/>
+    <edge source=''n8'' target=''n10''/>
+  </graph>
+</graphml>
+\end{lstlisting}
+\end{center}
+
+\subsubsection{DOT Graph File Format}
+DOT is a plain text graph description language. It is a simple way of describing graphs in human readable form.
+
+,,DOT graphs are typically files that end with the .gv (or .dot) extension. At its simplest, DOT can be used to describe an undirected graph. An undirected graph shows simple relations between objects, such as friendship between people. The graph keyword is used to begin a new graph, and nodes are described within curly braces. A double-hyphen (-\ -) is used to show relations between the nodes.''~\cite{DOT}
+
+\begin{center}
+\begin{lstlisting} [language=C, tabsize=2, caption={DOT file format: undirected graph}]
+graph graphname {
+     a - - b - - c;
+     b - - d;
+}
+\end{lstlisting}
+\end{center}
+
+,,Similar to undirected graphs, DOT can describe directed graphs, such as flowcharts and dependency trees. The syntax is the same as for undirected graphs, except the digraph keyword is used to begin the graph, and an arrow ($->$) is used to show relationships between nodes.''~\cite{DOT}
+
+\begin{center}
+\begin{lstlisting} [language=C, tabsize=2, caption={DOT file format: directed graph}]
+graph graphname {
+     a -> b -> c;
+     b -> d;
+}
+\end{lstlisting}
+\end{center}
+
+Visual representation of both graphs shown Figure~\ref{fig:dot_graphs} below.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{pictures/dot_graph.png}
+\caption{Directed and undirected graphs}
+\label{fig:dot_graphs}
+\end{figure}
+
+\subsubsection{DGML}
+DGML is an XML-based file format for directed graphs. Here is what a simple directed graph with three nodes and two links between them looks like
+
+\begin{center}
+\begin{lstlisting} [language=XML, tabsize=2, caption={DGML file format}]
+<?xml version='1.0' encoding='utf-8'?>
+<DirectedGraph xmlns=''http://schemas.microsoft.com/vs/2009/dgml''>
+  <Nodes>
+    <Node Id=''a'' Label=''a'' Size=''10'' />
+    <Node Id=''b'' Background=''#FF008080'' Label=''b'' />
+    <Node Id=''c'' Label=''c'' Start=''2010-06-10'' />
+  </Nodes>
+  <Links>
+    <Link Source=''a'' Target=''b'' />
+    <Link Source=''a'' Target=''c'' />
+  </Links>
+  <Properties>
+    <Property Id=''Background'' Label=''Background'' DataType=''Brush'' />
+    <Property Id=''Label'' Label=''Label'' DataType=''String'' />
+    <Property Id=''Size'' DataType=''String'' />
+    <Property Id=''Start'' DataType=''DateTime'' />
+  </Properties>
+</DirectedGraph>
+\end{lstlisting}
+\end{center}
+
+The complete XSD schema for DGML is available at~\url{http://schemas.microsoft.com/vs/2009/dgml/}. DGML not only allows describing nodes and links in a graph, but also annotating those nodes and links with any user defined property and/or category.
+
+\subsubsection{GXL}
+GXL (Graph eXchange Language) is an XML based exchange format for several kinds of graph information. GXL provides a standardized notation for exchanging instance data (graph) including their structure (graph schema).
+
+,,GXL was created to fulfill the need to exchange data between re-engineering tools. Previously, interoperability between tools relied on converters between local formats. This approach requires case-by-case negotiation of exchange semantics. As the research area matured, it became apparent that a standard exchange format was needed and that this format should provide a mechanism to help articulate semantics.''~\cite{GXL}.
+
+\subsubsection{SVG}
+SVG is open graphical data storage format. Has been in development since 1999 by a group of companies within the W3C. SVG drew on experience from the designs of two older formats: Precision Graphics Markup Language (PGML) developed from Adobe's PostScript and Vector Markup Language (VML) developed from Microsoft's RTF. Which were submitted to W3C in 1998.
+
+
+SVG allows three types of graphic objects:
+\begin{itemize}
+\item Vector graphics
+\item Raster graphics
+\item Text
+\end{itemize}
+
+,,Graphical objects, including PNG and JPEG raster images, can be grouped, styled, transformed, and composited into previously rendered objects. SVG does not directly support z-indices that separate drawing order from document order for overlapping objects, unlike some other vector mark up languages like VML. Text can be in any XML name space suitable to the application, which enhances search ability and accessibility of the SVG graphics. The feature set includes nested transformations, clipping paths, alpha masks, filter effects, template objects and extensibility..''~\cite{SVG}
+
 
 \subsection{OpenGL Visualization Standard}
 \label{sec:opengl}
 OpenGL is a software interface to graphics hardware. This interface consists of about 120 distinct commands, which you use to specify the objects and operations needed to produce interactive three-dimensional applications. OpenGL is designed to work efficiently even if the computer that displays the graphics you create isn't the computer that runs your graphics program. 
 
 
-,,OpenGL is designed as a streamlined, hardware-independent interface to be implemented on many different hardware platforms. To achieve these qualities, no commands for performing windowing tasks or obtaining user input are included in OpenGL; instead, you must work through whatever windowing system controls the particular hardware you're using. Similarly, OpenGL doesn't provide high-level commands for describing models of three-dimensional objects. Such commands might allow you to specify relatively complicated shapes such as automobiles, parts of the body, airplanes, or molecules. With OpenGL, you must build up your desired model from a small set of geometric primitive - points, lines, and polygons."~\cite{THE_RED_BOOK}
+,,OpenGL is designed as a streamlined, hardware-independent interface to be implemented on many different hardware platforms. To achieve these qualities, no commands for performing windowing tasks or obtaining user input are included in OpenGL; instead, you must work through whatever windowing system controls the particular hardware you're using. Similarly, OpenGL doesn't provide high-level commands for describing models of three-dimensional objects. Such commands might allow you to specify relatively complicated shapes such as automobiles, parts of the body, airplanes, or molecules. With OpenGL, you must build up your desired model from a small set of geometric primitive - points, lines, and polygons.''~\cite{THE_RED_BOOK}
 
 
 There are many wrappers over OpenGL for developing on different programming languages. One of the favorite in the Java community are JOGL and LWJGL.
@@ -164,7 +343,7 @@ There are many wrappers over OpenGL for developing on different programming lang
 
 ,,The Lightweight Java Game Library (LWJGL) is a solution aimed directly at professional and amateur Java programmers alike to enable commercial quality games to be written in Java. LWJGL provides developers access to high performance cross platform libraries such as OpenGL and OpenAL (Open Audio Library) allowing for state of the art 3D games and 3D sound. Additionally LWJGL provides access to controllers such as Gamepads, Steering wheel and Joysticks. All in a simple and straight forward API.
 
-LWJGL is available under a BSD license, which means it's open source and freely available at no charge."~\cite{LWJGL}
+LWJGL is available under a BSD license, which means it's open source and freely available at no charge.''~\cite{LWJGL}
 
 
 In the thesis used JOGL wrapper library over OpenGL. Java OpenGL (JOGL) is a wrapper library that allows OpenGL to be used in the Java programming.
@@ -173,10 +352,10 @@ In the thesis used JOGL wrapper library over OpenGL. Java OpenGL (JOGL) is a wra
 ,,The base OpenGL C API and associated operation system API, are accessed in JOGL via Java Native Interface (JNI) calls. As such, the underlying system must support OpenGL for JOGL to work. JOGL differs from some other Java OpenGL wrapper libraries in that it merely exposes the procedural OpenGL API via methods on a few classes, rather than trying to map OpenGL functionality onto the object-oriented programming paradigm. Indeed, most of the JOGL code is auto generated from the OpenGL C header files via a conversion tool named GlueGen, which was programmed specifically to facilitate the creation of JOGL.
 
 
-This design decision has both its advantages and disadvantages. The procedural and state machine nature of OpenGL is inconsistent with the typical method of programming under Java, which is bothersome to many programmers. However, the straightforward mapping of the OpenGL C API to Java methods makes conversion of existing C applications and example code much simpler. The thin layer of abstraction provided by JOGL makes runtime execution quite efficient, but accordingly is more difficult to code compared to higher-level abstraction libraries like Java3D. Because most of the code is auto generated."~\cite{JOGL}
+This design decision has both its advantages and disadvantages. The procedural and state machine nature of OpenGL is inconsistent with the typical method of programming under Java, which is bothersome to many programmers. However, the straightforward mapping of the OpenGL C API to Java methods makes conversion of existing C applications and example code much simpler. The thin layer of abstraction provided by JOGL makes runtime execution quite efficient, but accordingly is more difficult to code compared to higher-level abstraction libraries like Java3D. Because most of the code is auto generated.''~\cite{JOGL}
 
 
-\subsection{Program architecture}
+\subsection{Program Architecture}
 
 An overview on the tool's architecture is given in Figure~\ref{fig:modules}. The implementation is divided into several modules specialized for various tasks. The \textsf{IO} module implements data loading from gml files. The data is stored in extended gml file format, which contains additional properties for nodes, such as the node label. The \textsf{Graph Core} module extends the JUNG graph model~\cite{JUNG} in order to fit it to our requirements. The implementation of Swing GUI and OpenGL user interactions is realized by the \textsf{User Interaction} module. The \textsf{Graph Visualization} module and its submodules contain all code for the whole visualization process, including our own layout implementation, primitive drawing abstraction, and program state machine. One of the most important modules of \tool\ is of course \textsf{Subgraph Extraction} that contains the implementation of the subtree calculation algorithm.
 
@@ -187,7 +366,7 @@ An overview on the tool's architecture is given in Figure~\ref{fig:modules}. The
 \label{fig:modules}
 \end{figure}
 
-One of the main module in the program is \textsf{Subgraph Extraction} module. Extraction algorithm was explained in the Section~\ref{sec:algorithm} and in the Appendix~A is pseudo-code, implementation is in the class \textsf{se.lnu.thesis.algorithm.Extractor}.
+One of the main module in the program is \textsf{Subgraph Extraction} module. Extraction algorithm was explained in Section~\ref{sec:algorithm} and in the Appendix~A is pseudo-code, implementation is in the class \textsf{se.lnu.thesis.algorithm.Extractor}.
 
 Complete UML class diagram of the GoClusterViz can be found in the Appendix~C. Here is a brief overview of the package content.
 
@@ -195,7 +374,7 @@ Main class and program entry point is class -- \textsf{GoClusterViz}.
 
 Package \textsf{se.lnu.thesis.gui} contains all interface abstractions and Swing implementations for main window, menus and event handling.
 
-\textsf{se.lnu.thesis.element} is hierarchy for graph visualization. It is implementation of the Composite pattern: ,,In software engineering, the composite pattern is a partitioning design pattern. The composite pattern describes that a group of objects are to be treated in the same way as a single instance of an object. The intent of a composite is to `compose' objects into tree structures to represent part-whole hierarchies. Implementing the composite pattern lets clients treat individual objects and compositions uniformly."~\cite{COMPOSITE_GAMMA}
+\textsf{se.lnu.thesis.element} is hierarchy for graph visualization. It is implementation of the Composite pattern: ,,In software engineering, the composite pattern is a partitioning design pattern. The composite pattern describes that a group of objects are to be treated in the same way as a single instance of an object. The intent of a composite is to `compose' objects into tree structures to represent part-whole hierarchies. Implementing the composite pattern lets clients treat individual objects and compositions uniformly.''~\cite{COMPOSITE_GAMMA}
 
 \begin{figure}[h!]
 \centering
@@ -220,11 +399,9 @@ Flyweight pattern is used to store different kind of visualizers for graph eleme
 
 User interaction state machine is implementation of the State software development pattern located in the package \textsf{se.lnu.thesis.paint.state}. 
 
-,,A monolithic objects behavior is a function of its state, and it must change its behavior at run-time depending on that state. Or, an application is characterized by large and numerous case statements that vector flow of control based on the state of the application. The State pattern does not specify where the state transitions will be defined. The choices are two: the context object, or each individual State derived class. The advantage of the latter option is ease of adding new State derived classes. The disadvantage is each State derived class has knowledge of (coupling to) its siblings, which introduces dependencies between subclasses. A table-driven approach to designing finite state machines does a good job of specifying state transitions, but it is difficult to add actions to accompany the state transitions. The pattern-based approach uses code (instead of data structures) to specify state transitions, but it does a good job of accommodating state transition actions."~\cite{STATE}
+,,A monolithic objects behavior is a function of its state, and it must change its behavior at run-time depending on that state. Or, an application is characterized by large and numerous case statements that vector flow of control based on the state of the application. The State pattern does not specify where the state transitions will be defined. The choices are two: the context object, or each individual State derived class. The advantage of the latter option is ease of adding new State derived classes. The disadvantage is each State derived class has knowledge of (coupling to) its siblings, which introduces dependencies between subclasses. A table-driven approach to designing finite state machines does a good job of specifying state transitions, but it is difficult to add actions to accompany the state transitions. The pattern-based approach uses code (instead of data structures) to specify state transitions, but it does a good job of accommodating state transition actions.''~\cite{STATE}
 
-It means that graph has several states: normal view, zoomed view, lens is on the scene, etc. It releases the code from the long ,,switch'' statements  and determines logic into different classes.  
-
-Layout implementations are in the \textsf{se.lnu.thesis.layout} package~\ref{fig:uml_layouts}.
+It means that graph has several states: normal view, zoomed view, lens is on the scene, etc. It releases the code from the long ,,switch'' statements  and determines logic into different classes. Layout implementations are in the \textsf{se.lnu.thesis.layout} package~\ref{fig:uml_layouts}.
 
 \begin{figure}[h!]
 \centering

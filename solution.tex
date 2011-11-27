@@ -1,12 +1,12 @@
 \section{Visualization Approach}
 \label{sec:solution}
 
-\subsection{Probe Clustering Visualization}
+\subsection{Clustering Visualization -- First Try}
 \label{sec:probe}
 
-As was discussed before in the Section~\ref{sec:dataset_description} cluster analysis result graph is binary tree.
+As was discussed before in Section~\ref{sec:dataset_description} cluster analysis result graph is binary tree.
 
-,,A binary tree is a connected acyclic graph such that the degree of each vertex is no more than 3. A rooted binary tree is such a graph that has one of its vertices of degree no more than 2 singled out as the root. With the root thus chosen, each vertex will have a uniquely defined parent, and up to two children; however, so far there is insufficient information to distinguish a left or right child. If we drop the connectedness requirement, allowing multiple connected component in the graph, we call such a structure a forest"~\cite{BINARY_TREE} Simple binary tree showed in Figure~\ref{fig:simple_binary_tree}
+,,A binary tree is a connected acyclic graph such that the degree of each vertex is no more than 3. A rooted binary tree is such a graph that has one of its vertices of degree no more than 2 singled out as the root. With the root thus chosen, each vertex will have a uniquely defined parent, and up to two children; however, so far there is insufficient information to distinguish a left or right child. If we drop the connectedness requirement, allowing multiple connected component in the graph, we call such a structure a forest''~\cite{BINARY_TREE} A simple binary tree is shown in Figure~\ref{fig:simple_binary_tree}
 
 \begin{figure}[h!]
 \centering
@@ -34,7 +34,7 @@ There are several visualization methods for binary trees and more specific metho
 
 Figure~\ref{fig:polardendrogram} shows a polar dendrogram visualization algorithm of the same cluster tree produced by MATLAB.
 
-One of the main ideas was to use polar dendrogram algorithm for cluster visualization. Figure~\ref{fig:JUNG_radial_layout} shows visualization of the Cluster using native JUNG radial layout algorithm. Red are nodes and white is edges, black is background. As picture shows algorithm doesn't count nature of the cluster: very deep binary tree not wide as it is common for cluster analysis results, that's why it has many edge overlapping.
+One of the main ideas was to use a polar dendrogram algorithm for cluster visualization. Figure~\ref{fig:JUNG_radial_layout} shows visualization of the Cluster using native JUNG radial layout algorithm. Red are nodes and white is edges, black is background. As picture shows algorithm doesn't count nature of the cluster: very deep binary tree not wide as it is common for cluster analysis results, that's why it has many edge overlapping.
 
 
 \begin{figure}[h!]
@@ -48,22 +48,20 @@ One of the main ideas was to use polar dendrogram algorithm for cluster visualiz
 Also to visualization issue it has performance issue -- without any measurement was seen for an eye that program does not allow smooth interaction. Low performance issue was in nature of the visualization in the JUNG: it uses very complex hierarchical structure with many utility classes per visualized object and the cost is big memory usage. Also JUNG uses Java 2D~\cite{JAVA_2D} which by itself is `heavyweight' because it's part of the Java AWT -- Abstract Windows Toolkit.
 
 
-,,The Abstract Window Toolkit (AWT) is Java's original platform-independent windowing, graphics, and user-interface widget toolkit. The AWT is now part of the Java Foundation Classes (JFC) the standard API for providing a graphical user interface (GUI) for a Java program. When Sun Microsystems first released Java in 1995, AWT widgets provided a thin level of abstraction over the underlying native user interface. For example, creating an AWT check box would cause AWT directly to call the underlying native subroutine that created a check box."~\cite{JAVA_AWT} This technology is outdated and replaced by Swing.
+,,The Abstract Window Toolkit (AWT) is Java's original platform-independent windowing, graphics, and user-interface widget toolkit. The AWT is now part of the Java Foundation Classes (JFC) the standard API for providing a graphical user interface (GUI) for a Java program. When Sun Microsystems first released Java in 1995, AWT widgets provided a thin level of abstraction over the underlying native user interface. For example, creating an AWT check box would cause AWT directly to call the underlying native subroutine that created a check box.''~\cite{JAVA_AWT} This technology is outdated and replaced by Swing.
 
 
 ,,Swing is the primary Java GUI widget toolkit. It is part of Sun Microsystems' Java Foundation Classes (JFC) an API for providing a graphical user interface (GUI) for Java programs.
-Swing was developed to provide a more sophisticated set of GUI components than the earlier Abstract Window Toolkit. Swing provides a native look and feel that emulates the look and feel of several platforms, and also supports a pluggable look and feel that allows applications to have a look and feel unrelated to the underlying platform."~\cite{JAVA_SWING}
+Swing was developed to provide a more sophisticated set of GUI components than the earlier Abstract Window Toolkit. Swing provides a native look and feel that emulates the look and feel of several platforms, and also supports a pluggable look and feel that allows applications to have a look and feel unrelated to the underlying platform.''~\cite{JAVA_SWING}
 
 
 ,,Since early versions of Java, a portion of the Abstract Window Toolkit (AWT) has provided platform-independent APIs for user interface components. In AWT, each component is rendered and controlled by a native peer component specific to the underlying windowing system.
-By contrast, Swing components are often described as lightweight because they do not require allocation of native resources in the operating system's windowing toolkit. The AWT components are referred to as heavyweight components."~\cite{JAVA_SWING} More detail comparison can be found here.~\cite{AWT_VS_SWING}
+By contrast, Swing components are often described as lightweight because they do not require allocation of native resources in the operating system's windowing toolkit. The AWT components are referred to as heavyweight components.''~\cite{JAVA_SWING} More detail comparison can be found here.~\cite{AWT_VS_SWING}
 
 
-Figure~\ref{fig:cluster_jogl_impl} shows improved JUNG radial algorithm and own visualization implementation using JOGL.
+Figure~\ref{fig:cluster_jogl_impl} shows improved JUNG radial algorithm and own visualization implementation using JOGL will be discussed in Section~\ref{sec:opengl}..
 
 Root has fixed position in the center of the ring. The layout places all leafs evenly on the outer ring based on the distance from root. Each node is placed on the concentric ring corresponding to its distance to the root node -- level. Each node is radially centered over children. The number of concentric rings is exactly equal to the number of levels of the graph.
-
-JOGL will be discussed in the Section~\ref{sec:opengl}.
 
 
 \begin{figure}[h!]
@@ -74,7 +72,7 @@ JOGL will be discussed in the Section~\ref{sec:opengl}.
 \end{figure}
 
 
-Figure~\ref{fig:cluster_jogl_impl_with_subgraph_1} and Figure~\ref{fig:cluster_jogl_impl_with_subgraph_2} shows cluster visualization and highlighted subgraph (subgraph extraction algorithm was discussed in the Section~\ref{sec:algorithm}). This pictures show the nature of the dataset. Improved version has good performance and better visualization but still has issues: there are too many elements in the scene, it is impossible to identify separate gene or trace highlighted graph genes.
+Figure~\ref{fig:cluster_jogl_impl_with_subgraph_1} and Figure~\ref{fig:cluster_jogl_impl_with_subgraph_2} show cluster visualization and highlighted subgraph (subgraph extraction algorithm was discussed in Section~\ref{sec:algorithm}). This pictures show the nature of the dataset. Improved version has good performance and better visualization but still has issues: there are too many elements in the scene, it is impossible to identify separate gene or trace highlighted graph genes.
 
 \begin{figure}[h!]
 \centering
@@ -100,3 +98,15 @@ Figure~\ref{fig:cluster_jogl_impl_with_subgraph_1} and Figure~\ref{fig:cluster_j
 % gene ontology visualization explanation
 \input{go.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Complete Solution Overview}
+\label{sec:complete_solution_overview}
+
+Biologists usually browse the data set randomly, or have a specific GO term in mind. For that purpose it is possible either search for specific gene in a list that is shown in the dialog box called from the menu, or directly click on a particular node in the GO view. A mouse-over action on a node will display the name of that node with the help of a tool-tip. This helps the user to browse the GO and to select a node for further exploration. The GO view displays the nodes as single pixels as already explained earlier. It is pretty hard to perceive a single selected pixel by using color coding only. To make this task easier there is a green circle around the selected node in the GO view, as seen in the third layer of the GO view in Figure~\ref{fig:complete_solution_overview}. This feature makes it also easier to identify the layer the currently selected node belongs to. After the node has been selected by clicking, the sub-graph consisting of all reachable nodes will be calculated. These related nodes, as explained in Subsection~\ref{sec:go}, will be highlighted in yellow in the both views. Optionally, the edges of the sub-graph will be shown too. At the same time, the corresponding cluster sub-tree will be highlighted with the same color in the Cluster Tree view reflecting the selection made in the GO view. In this way, the user can easily identify the mapping between both views by comparing the highlighted elements. Note that the closer the selected node is to the GO root, the larger the number of nodes can be accessed from that particular node. For example, the root node of the GO DAG has access to all nodes of the DAG, this means that if the root node pixel is clicked, the complete DAG is selected. In such cases, clutter cannot be avoided. Therefore, users can choose the option to disable the visualization of edges if needed to reduce information overloading. More screen shots can be found in the Appendix~D.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.33, angle=90]{pictures/complete_solution_overview.png}
+\caption{The result of the complete visualization solution with interaction technique}
+\label{fig:complete_solution_overview}
+\end{figure}
