@@ -1,13 +1,14 @@
 \section{Data Extraction}
 \label{sec:algorithm}
-First step in the program work is to load data and to compute connected components. Data is stored in GML file format. More detail information about this format and other common graph file formats is explained in Section~\ref{sec:algorithm}.
+First step that program supposed to do is to load data and to compute connected components. Data is stored in GML file format. More detail information about this format and other common graph file formats is given in Section~\ref{sec:algorithm}.
 
 \subsection{Dataset Description}
 \label{sec:dataset_description}
 Gene Ontology data and cluster analysis results presented as directed graphs. They are stored in separate files in special format -- GML files.
 
 
-GO graph is directed acyclic graph has 10,042 vertices and  24,155 edges. It has 1 root, 2,729 nodes and 7,312 leafs (terminal nodes). Figure~\ref{fig:yed_GO_vis} shows visualization of the Gene Ontology graph using Hierarchical layout by yEd~\cite{yed} graph editing tool. It obviously shows imperfectness of classic visualization of the graphs.
+GO graph is directed acyclic graph that has 10,042 vertices and  24,155 edges. Also it has 1 root, 2,729 nodes and 7,312 leafs (terminal nodes).
+Figure~\ref{fig:yed_GO_vis} shows visualization of the Gene Ontology graph using Hierarchical layout by yEd~\cite{yed} graph editing tool. It obviously shows imperfectness of classic visualization of graphs.
 
 
 \begin{figure}[h!]
@@ -18,7 +19,8 @@ GO graph is directed acyclic graph has 10,042 vertices and  24,155 edges. It has
 \end{figure}
 
 
-Cluster graph is a directed binary tree has 14,623 nodes and 14,622 edges. The Cluster graph as a tree has a single root, 7,310 nodes and 7,312 leafs. To get an impression of the graph, Figure~\ref{fig:Cytoscape_Cluster_1} shows a cluster tree using the Cytoscape~\cite{Cytoscape} visualization tool.
+Cluster tree is a directed binary graph that has 14,623 nodes and 14,622 edges. The Cluster graph as a tree has a single root, 7,310 nodes and 7,312 leafs.
+To get an impression of the graph, Figure~\ref{fig:Cytoscape_Cluster_1} shows the cluster tree that uses the Cytoscape~\cite{Cytoscape} visualization tool.
 
 \begin{figure}[h!]
 \centering
@@ -34,18 +36,19 @@ Cluster graph is a directed binary tree has 14,623 nodes and 14,622 edges. The C
 \label{fig:Cytoscape_Cluster_2}
 \end{figure}
 
-Both graphs are independent from each other from developer point of view: they have different node ids and edge ids. But they are corresponded by graph node labels -- both of this graphs have same label for terminal (leaf) graph nodes. This property is used in the sub-graph extracting algorithm.
+Both graphs are independent from each other based on developer point of view: they have different node ids and edge ids. More over, they are connected by vertex labels --
+both graphs have same labels for terminal (leaf) vertices. This property is used in the sub-graph extracting algorithm.
 
 
-The application should work with large quantity of data over tens of thousands that is why performance is one of the main requirements. It is important to give a consideration on optimization.
+Performance is one of the main requirements since the application should work with large quantity of data that has over tens of thousands vertices. It is very important to give a consideration on optimization.
 
 
 \subsection{Mapping Algorithm}
 \label{sec:mapping_algorithm}
-Here is program algorithm explanation using sample graphs:
+Here is the explanation of that program algorithm uses sample graphs:
 \begin{enumerate}
 
-\item The program visualizes Gene Ontology and cluster analysis result tree. The visualization technique is discussed in Section~\ref{sec:solution}.
+\item The program visualizes Gene Ontology and cluster analysis result tree. This visualization technique is discussed in Section~\ref{sec:solution}.
 
 \begin{figure}[h!]
 \centering
@@ -62,7 +65,7 @@ Here is program algorithm explanation using sample graphs:
 
 \item Interactively select node in the Gene Ontology graph (Figure~\ref{fig:step_1}).
 
-\item When node is selected in the Gene Ontology program computes all successors (Figure~\ref{fig:step_2}).
+\item When node is selected the program computes all successors (Figure~\ref{fig:step_2}).
 
 \item Extract leafs from successors (Figure~\ref{fig:step_3}).
 
@@ -73,11 +76,11 @@ Here is program algorithm explanation using sample graphs:
 \label{fig:step_3}
 \end{figure}
 
-\item Founded sub tree cached. This sub tree is highlighted in cluster analysis tree.
+\item On this step program finds sub tree and caches. This sub tree is highlighted in cluster analysis tree.
 
-\item Then the program searches corresponded leaves in cluster analysis result tree by label as seen in Figure~\ref{fig:step_4}.
+\item The program searches corresponded leaves in cluster analysis result tree by label, as showed in Figure~\ref{fig:step_4}.
 
-\item For this leaves the program founds root connected to all leaves and extract corresponding sub trees (Figure~\ref{fig:step_5}).
+\item For any item the program finds root connected to all leaves and extracts corresponding sub trees (Figure~\ref{fig:step_5}).
 \end{enumerate}
 
 \begin{figure}[h!]
@@ -95,8 +98,13 @@ Here is program algorithm explanation using sample graphs:
 \end{figure}
 
 
-The aim of the work is to provide flexible tool specially made for biology scientists to deal with huge data sets. Trace relations, as was discussed earlier, in the two separated datasets (Gene Ontology graph and cluster analysis result tree): both graphs are stored separately in the different files. Also during program design we should consider that cluster analysis results graph was produced from Gene Ontology graph using separate tool and clustering algorithm specific to the purpose, that means there are various cluster graphs for the same Gene Ontology.
+As was mentioned before, the aim of the work is to provide flexible tool specially made for biology scientists to deal with huge data sets.
+To trace relations in the two separated datasets (Gene Ontology graph and cluster analysis result tree): both graphs are stored separately in the different files.
+Also during program design we had to consider that cluster analysis results graph was produced from Gene Ontology graph using separate tool and clustering algorithm specific to the purpose.
+This means that there are various cluster graphs for the same Gene Ontology.
 
-Provide effective space filling visualization method and allow interactive relations highlighting. The tool also provides ability to track throw graphs discovering: focused or selected vertices labels for both graphs separately, Gene Ontology levels. 
+The tools provides effective space filling visualization method and allows interactive relations highlighting.
+The tool also provides ability to track graphs discovering: focused or selected vertex and label are showed for both graphs separately.
 
-Considering end-user requirements there is use case specific for biology scientist -- interest in the concrete gene in the Gene Ontology; provide search mechanism to find specific gene by name and view it.
+Considering end-user requirements there is a use case specification for biology scientist --
+interest in the concrete gene in the Gene Ontology. Also scientists are interested in the search mechanism to find specific gene by name and view it immediately on the graph.
