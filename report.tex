@@ -4,7 +4,7 @@
 % 	Visualisation of Gene Ontology and Cluster Analysis Results
 %	Author: Vladyslav Aleksakhin
 
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 
 \usepackage{geometry}
 \usepackage{tabularx}
@@ -15,20 +15,18 @@
 \usepackage{listings}
 
 \geometry{
-  twoside,
+  oneside,
   a4paper,
   left=3cm,
   right=3cm,
   top=2cm,
   bottom=2.5cm,
   hcentering,
-  bindingoffset=0pt,
-  footskip=10mm,
   nohead
 }
 
 \newcommand*{\mywebref}[3]{
-	\bibitem{#1} #2 is available on the web \url{#3}. Last access in August 2011.
+	\bibitem{#1} #2 is available on the web \url{#3}. Last access in December 2011.
 }
 
 \newcommand*{\todo}[1]{
@@ -49,13 +47,13 @@
 	\setcounter{figure}{1}
 }
 
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
 
- 
 \begin{document}
 
-\input{title.tex}
+\pagenumbering{roman}
 
-\tableofcontents
+\input{title.tex}
 
 \newpage
 \input{abstract.tex}
@@ -64,15 +62,21 @@
 \input{acknowledgements.tex}
 
 \newpage
+\tableofcontents
+
+\newpage
 \input{glossary.tex}
 
 \newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
 \input{introduction}
 
 \input{algorithm.tex}
 
 \input{solution.tex}
 
+\newpage
 \input{implementation.tex}
 
 \input{conclusion.tex}

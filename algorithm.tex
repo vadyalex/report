@@ -1,10 +1,11 @@
+\newpage
 \section{Data Extraction}
 \label{sec:algorithm}
 First step that program supposed to do is to load data and to compute connected components. Data is stored in GML file format. More detail information about this format and other common graph file formats is given in Section~\ref{sec:algorithm}.
 
 \subsection{Dataset Description}
 \label{sec:dataset_description}
-Gene Ontology data and cluster analysis results presented as directed graphs. They are stored in separate files in special format -- GML files.
+Gene Ontology data and cluster analysis results presented as directed graphs. They are stored in separate files in special format --- GML files.
 
 
 GO graph is directed acyclic graph that has 10,042 vertices and  24,155 edges. Also it has 1 root, 2,729 nodes and 7,312 leafs (terminal nodes).
@@ -36,7 +37,7 @@ To get an impression of the graph, Figure~\ref{fig:Cytoscape_Cluster_1} shows th
 \label{fig:Cytoscape_Cluster_2}
 \end{figure}
 
-Both graphs are independent from each other based on developer point of view: they have different node ids and edge ids. More over, they are connected by vertex labels --
+Both graphs are independent from each other based on developer point of view: they have different node ids and edge ids. More over, they are connected by vertex labels ---
 both graphs have same labels for terminal (leaf) vertices. This property is used in the sub-graph extracting algorithm.
 
 
@@ -106,5 +107,5 @@ This means that there are various cluster graphs for the same Gene Ontology.
 The tools provides effective space filling visualization method and allows interactive relations highlighting.
 The tool also provides ability to track graphs discovering: focused or selected vertex and label are showed for both graphs separately.
 
-Considering end-user requirements there is a use case specification for biology scientist --
+Considering end-user requirements there is a use case specification for biology scientist ---
 interest in the concrete gene in the Gene Ontology. Also scientists are interested in the search mechanism to find specific gene by name and view it immediately on the graph.

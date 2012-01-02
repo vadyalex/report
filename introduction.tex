@@ -10,7 +10,7 @@ There are many datasets for analysis in biology. This thesis is intended to make
 
 To help analyzing this data the following approaches are desired: visualizing the data set in the context of a ontology (such as the Gene Ontology) and in the context of data clustering. There is no solutions that deals with combined visualization of ontology (DAG) and an hierarchical clustering (tree) of one data set. The aim of this work is creation of a new visualization approach and is implementation in order to provide a useful tool for biologists in their everyday research work.
 
-The result of this work is a base of the research paper -- \textsf{Ilir Jusufi, Andreas Kerren, Vladyslav Aleksakhin, and Falk Schreiber. Visualization of Mappings between the Gene Ontology and Cluster Trees. Conference on Visualization and Data Analysis 2012 (EI-107) Part of IS&T/SPIE Electronic Imaging 2012 (Jan 22-26, 2012) VDA 2012 Dates: January 23-25, 2012.}
+The result of this work is a base of the research paper --- \textsf{Ilir Jusufi, Andreas Kerren, Vladyslav Aleksakhin, and Falk Schreiber. Visualization of Mappings between the Gene Ontology and Cluster Trees. Conference on Visualization and Data Analysis 2012 (EI-107) Part of IS&T/SPIE Electronic Imaging 2012 (Jan 22-26, 2012) VDA 2012 Dates: January 23-25, 2012.}
 
 \subsection{Thesis Collaboration}
 This project is the result of collaboration between ISOVIS research group (Head: Prof. Dr. Andreas Kerren~\cite{Kerren}) of Linn\ae us University at V\"axj\"o, Sweden, and Plant Bioinformatics Group (Head: Prof. Dr. Falk Schreiber~\cite{Schreiber}) of Leibniz Institute of Plant Genetics and Crop Plant Research (IPK), Germany.
@@ -19,8 +19,15 @@ This project is the result of collaboration between ISOVIS research group (Head:
 ISOVIS research group is focused on the exploration analysis and visualization of large information data in Software Engineering, Geography, or Biology. There are several different techniques for information visualization, one of them is widely used in the research is Human-Centered Visualization. This kind of visualization combines different research areas: Information Visualization, Scientific Visualization, Human-Computer Interaction, Data Mining, Information Design, Graph Drawing, and Computer Graphics.
 
 
-As said on official page of Plant Bioinformatic Group: ,,The research group focuses on modeling, analysis, simulation and visualization of biological networks in the context of plant biological problems. Our aim is the development of methods and software tools for the analysis of complex biological networks. Therefore we integrate, process and analyze data from different areas of genome, proteome and
-metabolome research and present the results in a user-friendly way. The emphasis is on the linkage of experimental data about expression profiles and metabolite patterns with metabolic and regulatory networks. The data and complex connections are modeled using graphs. We are developing graph (network) analysis and interactive visualization methods to discover network properties and to make the data easily accessible to the user. A subsequent step is to use the data for the simulation of metabolic and regulatory networks.''~\cite{PBG}
+As said on official page of Plant Bioinformatic Group:
+\begin{quotation}
+``The research group focuses on modeling, analysis, simulation and visualization of biological networks in the context of plant biological problems.
+Our aim is the development of methods and software tools for the analysis of complex biological networks.
+Therefore we integrate, process and analyze data from different areas of genome, proteome and metabolome research and present the results in a user-friendly way.
+The emphasis is on the linkage of experimental data about expression profiles and metabolite patterns with metabolic and regulatory networks.
+The data and complex connections are modeled using graphs. We are developing graph (network) analysis and interactive visualization methods to discover network properties and to make the data easily accessible to the user.
+A subsequent step is to use the data for the simulation of metabolic and regulatory networks.''~\cite{PBG}
+\end{quotation}
 
 
 \subsection{Thesis Outline}
@@ -29,6 +36,7 @@ metabolome research and present the results in a user-friendly way. The emphasis
 Section~\ref{sec:introduction} explains the problem, thesis purpose and collaboration. Section~\ref{sec:background} presents the results of the related work, where relevant research efforts in the fields of Bioinformatic, Information Visualization and Bio Visualization were explored in connection to the thesis work. Section~\ref{sec:algorithm} covers the following topics: visualization complexity and describes the goals, description of the input data and mapping between graphs. Section~\ref{sec:solution} describes attempt to the visualization solution, the solution for Cluster Ananlysis tree and the visualization solution for Gene Ontology visualization technique. One of the biggest section in the report is Section~\ref{sec:implementation} that determines the requirements, use cases, and proposes the architecture for thesis application.
 Additionally in Section~\ref{sec:solution} describes the input data format overview, overview of the different graph file formats, implementation details, architecture of the system, used libraries, project management tools. Technical details of the visualization algorithms are explained in Sections~\ref{sec:cluster} and~\ref{sec:go}. Last part of the report is Section~\ref{sec:conclusion} that describes problems and future work.
 
+\newpage
 \section{Background}
 \label{sec:background}
 
@@ -61,11 +69,13 @@ whereas scientific visualization uses a spatial layout that is implicit in the d
 \label{fig:tree_graph_example}
 \end{figure}
 
-,,Graph drawing or Graph layout, as a branch of graph theory, applies topology and geometry to derive two-dimensional representations of graphs.
+\begin{quotation}
+``Graph drawing or Graph layout, as a branch of graph theory, applies topology and geometry to derive two-dimensional representations of graphs.
 A drawing of a graph is basically a pictorial representation of an embedding of the graph in the plane (generally, with edge intersections allowed),
 usually aimed at a convenient visualization of certain properties of the graph in question or of the object modeled by the graph.
 Graph drawing is motivated by applications such as Very-large-scale (VLSI)~\cite{VLSI} integration circuit design, social network analysis,
 cartography, and bioinformatics, many of which make use of information visualization.''~\cite{Graph_drawing}
+\end{quotation}
 
 There are many methods and approaches to graph visualization. They are all based on various perception qualities of human.
 The Radial Dendrograms~\cite{Radial_dendrogram} algorithm is used for results of cluster analysis visualization.
@@ -90,7 +100,7 @@ our application generalizes these concepts by allowing arbitrary warps of the de
 \subsection{Bioinformatics}
 \label{sec:bioinformatics}
 
-''In the last few decades, advances in molecular biology and the equipment available for research in this field have allowed the increasingly rapid sequencing of large portions of the genomes of several species.
+In the last few decades, advances in molecular biology and the equipment available for research in this field have allowed the increasingly rapid sequencing of large portions of the genomes of several species.
 In fact, to date, several bacterial genomes, as well as those of some simple eukaryotes (e.g., Saccharomyces cerevisiae, or baker's yeast) have been sequenced in full.
 The Human Genome Project, designed to sequence all 24 of the human chromosomes, is also progressing. Popular sequence databases, such as GenBank and EMBL, have been growing at exponential rates.
 This deluge of information has necessitated the careful storage, organization and indexing of sequence information. Information science has been applied to biology to produce the field called Bioinformatics.
@@ -99,15 +109,18 @@ This deluge of information has necessitated the careful storage, organization an
 The simplest tasks used in bioinformatics concern the creation and maintenance of databases of biological information.
 Nucleic acid sequences (and the protein sequences derived from them) comprise the majority of such databases. While the storage and or organization of millions of nucleotides is far from trivial,
 designing a database and developing an interface whereby researchers can both access existing information and submit new entries is only the beginning.
-The most pressing tasks in bioinformatics involve the analysis of sequence information''~\cite{Biology}
+The most pressing tasks in bioinformatics involve the analysis of sequence information.~\cite{Biology}
+Here we can find short introduction and history of Bioinformatics:
 
-
-Here we can find short introduction and history of Bioinformatics: ,,Bioinformatics is the application of information technology to the field of molecular biology.
+\begin{quotation}
+``Bioinformatics is the application of information technology to the field of molecular biology.
 The term bioinformatics was coined by Paulien Hogeweg in 1978 for the study of informatic processes in biotic systems.
 Bioinformatics now entails the creation and advancement of databases, algorithms, computational and statistical techniques, and theory to solve formal and practical problems arising from the management and analysis of biological data.
 Over the past few decades rapid developments in genomic and other molecular research technologies and developments in information technologies have combined to produce a tremendous amount of information related to molecular biology.
 It is the name given to these mathematical and computing approaches used to glean understanding of biological processes.
-Common activities in bioinformatics include mapping and analyzing DNA and protein sequences, aligning different DNA and protein sequences to compare them and creating and viewing 3-D models of protein structures.''~\cite{Bioinformatic}
+Common activities in bioinformatics include mapping and analyzing DNA and protein sequences, aligning different DNA and protein sequences to compare them and creating and viewing 3D models of protein structures.''~\cite{Bioinformatic}
+\end{quotation}
+
 More resources about Bioinformatic are available here~\cite{Bioinformatic_resources}.
 The primary goal of bioinformatics is to increase our understanding of biological processes.
 However, its focus on developing and applying computationally intensive techniques (e.g., data mining, machine learning algorithms, and visualization) to achieve this goal sets it apart from other approaches.
@@ -139,10 +152,11 @@ Suggested edits are reviewed by the ontology editors and implemented where appro
 \subsection{Clustering}
 \label{sec:clustering}
 
-,,Data clustering (or just clustering), also called cluster analysis, segmentation analysis, taxonomy analysis, or unsupervised classification,
+\begin{quotation}
+``Data clustering (or just clustering), also called cluster analysis, segmentation analysis, taxonomy analysis, or unsupervised classification,
 is a method of creating groups of objects, or clusters, in such a way that objects in one cluster are very similar and objects in different clusters are quite distinct.
 Data clustering is often confused with classification, in which objects are assigned to predefined classes. In data clustering, the classes are also to be defined.''~\cite{data_clustering_book}
-
+\end{quotation}
 
 Clustering algorithms can be applied in many fields. For instance:
 

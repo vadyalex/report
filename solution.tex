@@ -1,15 +1,19 @@
+\newpage
 \section{Visualization Approach}
 \label{sec:solution}
 
-\subsection{Clustering Visualization -- First Attempt}
+\subsection{Clustering Visualization --- First Attempt}
 \label{sec:probe}
 
 As was discussed before in Section~\ref{sec:dataset_description} cluster analysis result graph is a binary tree.
 
-,,A binary tree is a connected acyclic graph such that the degree of each vertex is no more than 3.
+\begin{quotation}
+``A binary tree is a connected acyclic graph such that the degree of each vertex is no more than 3.
 A rooted binary tree is such a graph that has one of its vertices of degree no more than 2 singled out as the root.
 With the root thus chosen, each vertex will have a uniquely defined parent, and up to two children; however, so far there is insufficient information to distinguish a left or right child.
 If we drop the connectedness requirement, allowing multiple connected component in the graph, we call such a structure a forest''~\cite{BINARY_TREE}
+\end{quotation}
+
 A simple binary tree is shown in Figure~\ref{fig:simple_binary_tree}
 
 \begin{figure}[h!]
@@ -52,34 +56,44 @@ That means it is very deep binary tree, not wide as it is common for cluster ana
 \end{figure}
 
 
-Additionally to visualization issue it has performance issue -- without any measurement it was seen for an eye that program does not allow smooth interaction.
-Low performance issue was in the nature of the JUNG visualization library. It uses very complex hierarchical structure with many utility classes for each visualized object. Flexible architecture has a cost and the cost is high memory consumption.
-Also JUNG uses Java 2D~\cite{JAVA_2D} which by itself is `heavyweight' because it's part of the Java AWT -- Abstract Windows Toolkit.
+Additionally to visualization issue it has performance issue ---
+without any measurement it was seen for an eye that program does not allow smooth interaction.
+Low performance issue was in the nature of the JUNG visualization library.
+It uses very complex hierarchical structure with many utility classes for each visualized object.
+Flexible architecture has a cost and the cost is high memory consumption.
+Also JUNG uses Java 2D~\cite{JAVA_2D} which by itself is `heavyweight' because it's part of the Java AWT --- Abstract Windows Toolkit.
 
-
-,,The Abstract Window Toolkit (AWT) is Java's original platform-independent windowing, graphics, and user-interface widget toolkit.
+\begin{quotation}
+``The Abstract Window Toolkit (AWT) is Java's original platform-independent windowing, graphics, and user-interface widget toolkit.
 The AWT is now part of the Java Foundation Classes (JFC) the standard API for providing a graphical user interface (GUI) for a Java program.
 When Sun Microsystems first released Java in 1995, AWT widgets provided a thin level of abstraction over the underlying native user interface.
 For example, creating an AWT check box would cause AWT directly to call the underlying native subroutine that created a check box.''~\cite{JAVA_AWT}
+\end{quotation}
+
 This technology is outdated and replaced by Swing.
 
-
-,,Swing is the primary Java GUI widget toolkit. It is part of Sun Microsystems' Java Foundation Classes (JFC) an API for providing a graphical user interface (GUI) for Java programs.
+\begin{quotation}
+``Swing is the primary Java GUI widget toolkit. It is part of Sun Microsystems' Java Foundation Classes (JFC)
+an API for providing a graphical user interface (GUI) for Java programs.
 Swing was developed to provide a more sophisticated set of GUI components than the earlier Abstract Window Toolkit.
 Swing provides a native look and feel that emulates the look and feel of several platforms,
 and also supports a pluggable look and feel that allows applications to have a look and feel unrelated to the underlying platform.''~\cite{JAVA_SWING}
+\end{quotation}
 
-
-,,Since early versions of Java, a portion of the Abstract Window Toolkit (AWT) has provided platform-independent APIs for user interface components.
+\begin{quotation}
+``Since early versions of Java, a portion of the Abstract Window Toolkit (AWT) has provided platform-independent APIs for user interface components.
 In AWT, each component is rendered and controlled by a native peer component specific to the underlying windowing system.
 By contrast, Swing components are often described as lightweight because they do not require allocation of native resources in the operating system's windowing toolkit.
-The AWT components are referred to as heavyweight components.''~\cite{JAVA_SWING} More detail information on comparison can be found here.~\cite{AWT_VS_SWING}
+The AWT components are referred to as heavyweight components.''~\cite{JAVA_SWING}
+\end{quotation}
+
+More detail information on comparison can be found here.~\cite{AWT_VS_SWING}
 
 
 Figure~\ref{fig:cluster_jogl_impl} shows improved JUNG radial algorithm and our own visualization implementation using JOGL will be discussed in Section~\ref{sec:opengl}..
 
 The root of the cluster graph has fixed position in the center of the ring. The layout places all leafs evenly on the outer ring based on the distance from root.
-Each node is placed on the concentric ring corresponding to its distance to the root node -- level. Each node is radially centered over children.
+Each node is placed on the concentric ring corresponding to its distance to the root node --- level. Each node is radially centered over children.
 The number of concentric rings is exactly equal to the number of levels of the graph.
 
 
@@ -140,6 +154,7 @@ For example, the root node of the GO DAG has access to all nodes of the DAG, thi
 In such cases, clutter cannot be avoided. Therefore, users can choose the option to disable the visualization of edges if needed to reduce information overloading.
 More screen shots can be found in the Appendix~D.
 
+\newpage
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.33, angle=90]{pictures/complete_solution_overview.png}
