@@ -2,6 +2,10 @@
 \section{Visualization Approach}
 \label{sec:solution}
 
+Current section covers the visualization approach we have developed to achieve our goals. Following sections give overview of the research work made,
+and introduce two separate visualization methods for each of the input data graphs, Gene Ontology and Cluster.
+
+
 \subsection{Clustering Visualization --- First Attempt}
 \label{sec:probe}
 
@@ -61,7 +65,7 @@ without any measurement it was seen for an eye that program does not allow smoot
 Low performance issue was in the nature of the JUNG visualization library.
 It uses very complex hierarchical structure with many utility classes for each visualized object.
 Flexible architecture has a cost and the cost is high memory consumption.
-Also JUNG uses Java 2D~\cite{JAVA_2D} which by itself is `heavyweight' because it's part of the Java AWT --- Abstract Windows Toolkit.
+Also JUNG uses Java 2D~\cite{JAVA_2D} which by itself is `heavyweight' because it is a part of the Java AWT --- Abstract Windows Toolkit.
 
 \begin{quotation}
 ``The Abstract Window Toolkit (AWT) is Java's original platform-independent windowing, graphics, and user-interface widget toolkit.

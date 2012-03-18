@@ -1,5 +1,9 @@
 \newpage
 \section{Data Extraction}
+
+One of the main goals in the topic is data mapping algorithm of the graphs. Current section covers the nature and structure of the input data. Explains how does the sub-graph extraction algorithm work.
+
+\subsection{Algorithm Overview}
 \label{sec:algorithm}
 First step that program supposed to do is to load data and to compute connected components. Data is stored in GML file format. More detail information about this format and other common graph file formats is given in Section~\ref{sec:algorithm}.
 
@@ -77,11 +81,11 @@ Here is the explanation of that program algorithm uses sample graphs:
 \label{fig:step_3}
 \end{figure}
 
-\item On this step program finds sub tree and caches. This sub tree is highlighted in cluster analysis tree.
+\item On this step program finds sub tree and caches. This sub tree is highlighted in Gene Ontology graph.
 
-\item The program searches corresponded leaves in cluster analysis result tree by label, as showed in Figure~\ref{fig:step_4}.
+\item The program searches corresponded leafs in cluster analysis result tree by label, as showed in Figure~\ref{fig:step_4}.
 
-\item For any item the program finds root connected to all leaves and extracts corresponding sub trees (Figure~\ref{fig:step_5}).
+\item For any item the program finds root connected to all leafs and extracts corresponding sub trees (Figure~\ref{fig:step_5}).
 \end{enumerate}
 
 \begin{figure}[h!]

@@ -1,6 +1,11 @@
 \section{Implementation}
 \label{sec:implementation}
 
+Current section covers technical details of the implementations of the tool. It covers module abstractions of the system, overview of the tools that were used during the development and
+short discussions about the reasons as well.
+
+\subsection{Programming Language and Tools}
+
 Main language and platform for developing thesis is Java. Java is a programming language and computing
 platform first released by Sun Microsystems in 1995. It is the underlying technology that powers state-of-the-art
 programs including utilities, games, and business applications. Java runs on more than 850 million personal computers worldwide,
@@ -189,20 +194,34 @@ JUNG library is widely used in differ amount of projects. Here is a list of proj
 
 \end{enumerate}
 
-There are a lot more graph visualization frameworks for Java: Piccolo~\cite{Piccolo}, The Visualization Toolkit (VTK)~\cite{VTK}, The InfoVis Toolkit~\cite{InfoVis_Toolkit}, Improvise~\cite{Improvise}. All of them can be used as for storing and visualizing graphs and networks.
+There are a lot more graph visualization frameworks for Java: Piccolo~\cite{Piccolo}, The Visualization Toolkit (VTK)~\cite{VTK}, The InfoVis Toolkit~\cite{InfoVis_Toolkit},
+Improvise~\cite{Improvise}. All of them can be used as for storing and visualizing graphs and networks.
 
 
-In the scope of current thesis JUNG graph library was used to store graph structures.
+During initial topic research I have analyzed libraries mentioned above and in the scope of current thesis JUNG graph library was used to store graph structures.
+The list of applications used JUNG is impressive.
+
+JUNG library showed high advantages over other libraries after analyzing its source code, internal structure and design.
+One of the main benefits of the JUNG graph library is its simplicity --- the library provides sophisticated interface to manipulate graph data and is flexible for future extensions.
+
+In the current work I have extended the graph storage entity with name attribute for vertices and provided additional functionality. Also I have introduced new IO layer
+to load data from file into internal JUNG graph data storage. Corresponded graph file format will be covered in the following sections.
 
 \subsection{GML Graph File Format}
- GML, the Graph Modeling Language, is our proposal for a portable file format for graphs. GML's key features are portability, simple syntax, extensibility and flexibility. A GML file consists of a hierarchical key-value lists. Graphs can be annotated with arbitrary data structures. The idea for a common file format was born at the GD'95; this proposal is the outcome of many discussions. GML is the standard file format in the Graphlet~cite{Graphlet} graph editor system. It has been overtaken and adapted by several other systems for drawing graphs.~\cite{GML}
+ GML, the Graph Modeling Language, is our proposal for a portable file format for graphs. GML's key features are portability, simple syntax, extensibility and flexibility.
+ A GML file consists of a hierarchical key-value lists. Graphs can be annotated with arbitrary data structures.
+ The idea for a common file format was born at the GD'95; this proposal is the outcome of many discussions.
+ GML is the standard file format in the Graphlet~cite{Graphlet} graph editor system.
+ It has been overtaken and adapted by several other systems for drawing graphs.~\cite{GML}
 
 
-GML format is platform independent, and easy to implement. Furthermore, it has the capability to represent arbitrary data structures, since advanced programs have the need to attach their specific data to nodes and edges. GML is flexible enough that a specific order of declarations is not needed, and that any non-essential data may be omitted. Simple graph is shown in the Listing~\ref{sample_graph_gml}
+GML format is platform independent, and easy to implement.
+Furthermore, it has the capability to represent arbitrary data structures, since advanced programs have the need to attach their specific data to nodes and edges.
+GML is flexible enough that a specific order of declarations is not needed, and that any non-essential data may be omitted. Simple graph is shown in the Listing~\ref{sample_graph_gml}
 
 \begin{center}
     \renewcommand{\thelstlisting}{\thesection.\arabic{lstlisting}}
-	\lstinputlisting[language=xml, tabsize=2, caption={GML description of sample graph}, captionpos=b, label={sample_graph_gml}]{graphs/SampleGraph.gml}
+	\lstinputlisting[language=xml, tabsize=1, caption={GML description of sample graph}, captionpos=b, label={sample_graph_gml}]{graphs/SampleGraph.gml}
 \end{center}
 
 Figure~\ref{fig:sample_graph_yed_vis} shows manual visualization of the sample graph using yEd~\cite{yed} graph visualization tool.
@@ -237,6 +256,8 @@ Applications supporting GML~\cite{GML_wiki}
 
 \subsection{Other Graph File Formats}
 
+We choose to use GML because it is powerful enough for our needs and easy to implement. The next section covers several different graph file format we tried during the research.
+
 \subsubsection{GraphML}
 GraphML is a comprehensive and easy-to-use file format for graphs. It consists of a language core to describe the structural properties of a graph and a flexible extension mechanism to add application-specific data.~\cite{GraphML} Its main features include support of:
 \begin{itemize}
@@ -263,32 +284,32 @@ And a corresponded graphml file is shown in Listing~\ref{simple_graphml_file}
 
 \begin{center}
 \renewcommand{\thelstlisting}{\thesection.\arabic{lstlisting}}
-\begin{lstlisting} [language=xml, tabsize=2, caption={Simple graphml file}, captionpos=b, label=simple_graphml_file]
+\begin{lstlisting} [language=xml, tabsize=1, caption={Simple graphml file}, captionpos=b, label=simple_graphml_file]
 <graphml>
-  <graph id=''G'' edgedefault=''undirected''>
-    <node id=''n0''/>
-    <node id=''n1''/>
-    <node id=''n2''/>
-    <node id=''n3''/>
-    <node id=''n4''/>
-    <node id=''n5''/>
-    <node id=''n6''/>
-    <node id=''n7''/>
-    <node id=''n8''/>
-    <node id=''n9''/>
-    <node id=''n10''/>
-    <edge source=''n0'' target=''n2''/>
-    <edge source=''n1'' target=''n2''/>
-    <edge source=''n2'' target=''n3''/>
-    <edge source=''n3'' target=''n5''/>
-    <edge source=''n3'' target=''n4''/>
-    <edge source=''n4'' target=''n6''/>
-    <edge source=''n6'' target=''n5''/>
-    <edge source=''n5'' target=''n7''/>
-    <edge source=''n6'' target=''n8''/>
-    <edge source=''n8'' target=''n7''/>
-    <edge source=''n8'' target=''n9''/>
-    <edge source=''n8'' target=''n10''/>
+  <graph id="G" edgedefault="undirected">
+    <node id="n0"/>
+    <node id="n1"/>
+    <node id="n2"/>
+    <node id="n3"/>
+    <node id="n4"/>
+    <node id="n5"/>
+    <node id="n6"/>
+    <node id="n7"/>
+    <node id="n8"/>
+    <node id="n9"/>
+    <node id="n10"/>
+    <edge source="n0" target="n2"/>
+    <edge source="n1" target="n2"/>
+    <edge source="n2" target="n3"/>
+    <edge source="n3" target="n5"/>
+    <edge source="n3" target="n4"/>
+    <edge source="n4" target="n6"/>
+    <edge source="n6" target="n5"/>
+    <edge source="n5" target="n7"/>
+    <edge source="n6" target="n8"/>
+    <edge source="n8" target="n7"/>
+    <edge source="n8" target="n9"/>
+    <edge source="n8" target="n10"/>
   </graph>
 </graphml>
 \end{lstlisting}
@@ -307,7 +328,7 @@ A double-hyphen (-\ -) is used to show relations between the nodes.''~\cite{DOT}
 
 \begin{center}
 \renewcommand{\thelstlisting}{\thesection.\arabic{lstlisting}}
-\begin{lstlisting} [language=C, tabsize=2, caption={DOT file format: undirected graph}, captionpos=b]
+\begin{lstlisting} [language=C, tabsize=1, caption={DOT file format: undirected graph}, captionpos=b]
 graph graphname {
      a - - b - - c;
      b - - d;
@@ -315,11 +336,12 @@ graph graphname {
 \end{lstlisting}
 \end{center}
 
-Similar to undirected graphs, DOT can describe directed graphs, such as flowcharts and dependency trees. The syntax is the same as for undirected graphs, except the digraph keyword is used to begin the graph, and an arrow ($->$) is used to show relationships between nodes.~\cite{DOT}
+Similar to undirected graphs, DOT can describe directed graphs, such as flowcharts and dependency trees.
+The syntax is the same as for undirected graphs, except the digraph keyword is used to begin the graph, and an arrow ($->$) is used to show relationships between nodes.~\cite{DOT}
 
 \begin{center}
 \renewcommand{\thelstlisting}{\thesection.\arabic{lstlisting}}
-\begin{lstlisting} [language=C, tabsize=2, caption={DOT file format: directed graph}, captionpos=b]
+\begin{lstlisting} [language=C, tabsize=1, caption={DOT file format: directed graph}, captionpos=b]
 graph graphname {
      a -> b -> c;
      b -> d;
@@ -341,25 +363,25 @@ DGML is an XML-based file format for directed graphs. Here is what a simple dire
 
 \begin{center}
 \renewcommand{\thelstlisting}{\thesection.\arabic{lstlisting}}
-\begin{lstlisting} [language=XML, tabsize=2, caption={DGML file format}, captionpos=b]
-<?xml version='1.0' encoding='utf-8'?>
-<DirectedGraph xmlns=''http://schemas.microsoft.com/vs/2009/dgml''>
-  <Nodes>
-    <Node Id=''a'' Label=''a'' Size=''10'' />
-    <Node Id=''b'' Background=''#FF008080'' Label=''b'' />
-    <Node Id=''c'' Label=''c'' Start=''2010-06-10'' />
-  </Nodes>
-  <Links>
-    <Link Source=''a'' Target=''b'' />
-    <Link Source=''a'' Target=''c'' />
-  </Links>
-  <Properties>
-    <Property Id=''Background'' Label=''Background'' DataType=''Brush'' />
-    <Property Id=''Label'' Label=''Label'' DataType=''String'' />
-    <Property Id=''Size'' DataType=''String'' />
-    <Property Id=''Start'' DataType=''DateTime'' />
-  </Properties>
-</DirectedGraph>
+\begin{lstlisting} [language=xml, tabsize=1, caption={DGML file format}, captionpos=b]
+<?xml version="1.0" encoding="utf-8"?>
+<directedGraph>
+  <nodes>
+    <node id="a" label="a" size="10"/>
+    <node id="b" background="#FF008080" label="b"/>
+    <node id="c" label="c" start="2010-06-10"/>
+  </nodes>
+  <links>
+    <link source="a" target="b"/>
+    <link source="a" target="c"/>
+  </links>
+  <properties>
+    <property id="background" datatype="Brush"/>
+    <property id="label" datatype="String"/>
+    <property id="size" datatype="String"/>
+    <property id="start" datatype="DateTime"/>
+  </properties>
+</directedGraph>
 \end{lstlisting}
 \end{center}
 
@@ -401,7 +423,9 @@ The feature set includes nested transformations, clipping paths, alpha masks, fi
 
 \subsection{OpenGL Visualization Standard}
 \label{sec:opengl}
-OpenGL is a software interface to graphics hardware. This interface consists of about 120 distinct commands, which you use to specify the objects and operations needed to produce interactive three-dimensional applications. OpenGL is designed to work efficiently even if the computer that displays the graphics you create isn't the computer that runs your graphics program. 
+OpenGL is a software interface to graphics hardware. This interface consists of about 120 distinct commands,
+which you use to specify the objects and operations needed to produce interactive three-dimensional applications.
+OpenGL is designed to work efficiently even if the computer that displays the graphics you create is not the computer that runs your graphics program.
 
 \begin{quotation}
 ``OpenGL is designed as a streamlined, hardware-independent interface to be implemented on many different hardware platforms.
@@ -422,7 +446,7 @@ alike to enable commercial quality games to be written in Java. LWJGL provides d
 high performance cross platform libraries such as OpenGL and OpenAL (Open Audio Library) allowing for state of the art
 3D games and 3D sound. Additionally LWJGL provides access to controllers such as Gamepads, Steering wheel and Joysticks.
 All in a simple and straight forward API.
-LWJGL is available under a BSD license, which means it's open source and freely available at no charge.''~\cite{LWJGL}
+LWJGL is available under a BSD license, which means it is open source and freely available at no charge.''~\cite{LWJGL}
 \end{quotation}
 
 
@@ -448,7 +472,14 @@ Because most of the code is auto generated.''~\cite{JOGL}
 
 \subsection{Program Architecture}
 
-An overview on the tool's architecture is given in Figure~\ref{fig:modules}. The implementation is divided into several modules specialized for various tasks. The \textsf{IO} module implements data loading from gml files. The data is stored in extended gml file format, which contains additional properties for nodes, such as the node label. The \textsf{Graph Core} module extends the JUNG graph model~\cite{JUNG} in order to fit it to our requirements. The implementation of Swing GUI and OpenGL user interactions is realized by the \textsf{User Interaction} module. The \textsf{Graph Visualization} module and its submodules contain all code for the whole visualization process, including our own layout implementation, primitive drawing abstraction, and program state machine. One of the most important modules of \tool\ is of course \textsf{Subgraph Extraction} that contains the implementation of the subtree calculation algorithm.
+An overview on the tool's architecture is given in Figure~\ref{fig:modules}. The implementation is divided into several modules specialized for various tasks.
+The \textsf{IO} module implements data loading from gml files. The data is stored in extended gml file format,
+which contains additional properties for nodes, such as the node label.
+The \textsf{Graph Core} module extends the JUNG graph model~\cite{JUNG} in order to fit it to our requirements.
+The implementation of Swing GUI and OpenGL user interactions is realized by the \textsf{User Interaction} module.
+The \textsf{Graph Visualization} module and its submodules contain all code for the whole visualization process,
+including our own layout implementation, primitive drawing abstraction, and program state machine.
+One of the most important modules of \tool\ is of course \textsf{Subgraph Extraction} that contains the implementation of the subtree calculation algorithm.
 
 \begin{figure}[h!]
 \centering
@@ -489,7 +520,7 @@ Graph elements do not implement visualization shape, for that purpose there is \
 A flyweight is an object that minimizes memory use by sharing as much data as possible with other similar objects;
 it is a way to use objects in large numbers when a simple repeated representation would use an unacceptable amount of memory.
 The term is named after the boxing weight class.
-Often some parts of the object state can be shared and it's common to put them in external data structures and pass them to
+Often some parts of the object state can be shared and it is common to put them in external data structures and pass them to
 the flyweight objects temporarily when they are used.''~\cite{FLYWEIGHT}
 \end{quotation}
 

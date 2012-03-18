@@ -13,7 +13,7 @@ Figure~\ref{fig:go_connections_yEd} shows how extremely connected the graph is, 
 
 The high connectivity between elements in the source graph makes it very complicated to explore. Provided visualization approach has several goals.
 The first goal is to reduce amount of connections between vertices by showing edges only for ``current'' sub-graph.
-It allows to see where the sub-graph is aligned in the whole graph and, in the same time, helps to track it's inner structure.
+It allows to see where the sub-graph is aligned in the whole graph and, in the same time, helps to track its inner structure.
 Second goal is an ability to switch from working with genes of the GO graph to discovering relations between GO and Cluster graphs.
 For this purpose there are two view modes for GO graph:
 
@@ -22,9 +22,9 @@ For this purpose there are two view modes for GO graph:
    \item zoomed view --- visualizes only on three levels at the same time in order to focus on genes inside;
 \end{itemize}
 
-The last but not least goal is to explicitly show nodes and leaves. Each level is divided into two sections where leaves are red colored on the left and node genes are on the right and having white color.
-Color schema can be changes through the settings menu but not leaves-nodes location.
-This feature gives further insight into the topology of a specific layer by gaining information about the distribution of leaves and nodes on a particular layer.
+The last but not least goal is to explicitly show nodes and leafs. Each level is divided into two sections where leafs are red colored on the left and node genes are on the right and having white color.
+Color schema can be changes through the settings menu but not leafs-nodes location.
+This feature gives further insight into the topology of a specific layer by gaining information about the distribution of leafs and nodes on a particular layer.
 
 There are two layout implementations based on the goals discussed before. First GO layout is ``Levels Layout'' and is shown in Figure~\ref{fig:go_levels_layout}.
 Genes are ordered by layers depending on their graph-theoretic distance from the root.
@@ -37,12 +37,12 @@ Genes are ordered by layers depending on their graph-theoretic distance from the
 \end{figure}
 
 Figure~\ref{fig:go_levels_layout_zoomed} displays the situation when the user zooms in the view.
-Although the resulting visualization looks like bar charts, the number of leaves cannot be precisely compared between different layers since
-the area the red node pixels (leaves) cover is not proportional to the total number of leaves in each layer.
+Although the resulting visualization looks like bar charts, the number of leafs cannot be precisely compared between different layers since
+the area the red node pixels (leafs) cover is not proportional to the total number of leafs in each layer.
 However, it is proportional to the sum of nodes in that particular layer. In other words, the covered area depends on the specific layer density.
 There are unconnected components in the Gene Ontology graph.
 Unconnected nodes are placed in the top layer number --- zero. There is an option to show-hide unconnected components from the main menu.
-The spatial arrangement of the node pixels within a layer, except the placing of leaves and nodes are in specific regions, is random.
+The spatial arrangement of the node pixels within a layer, except the placing of leafs and nodes are in specific regions, is random.
 
 \begin{figure}[h!]
 \centering
@@ -54,8 +54,8 @@ The spatial arrangement of the node pixels within a layer, except the placing of
 Second layering approach ``Leaves Bottom Layout''
 (Figure~\ref{fig:go_leaves_bottom_layout}) is similar to the first one in terms of placing the nodes into corresponding layers based on the distance
 from the source node and random distribution of the node pixels within each layer.
-However, all leaves are placed into one single layer together with unconnected nodes at the bottom of the GO view, i. e., in the layer with the highest number.
-Unconnected nodes can be filtered out if necessary. This approach gives insight into the distribution of nodes among different layers without the distraction of the leaves,
+However, all leafs are placed into one single layer together with unconnected nodes at the bottom of the GO view, i. e., in the layer with the highest number.
+Unconnected nodes can be filtered out if necessary. This approach gives insight into the distribution of nodes among different layers without the distraction of the leafs,
 thus enriching the perception of the graph topology.
 
 \begin{figure}[h!]

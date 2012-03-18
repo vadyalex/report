@@ -1,6 +1,8 @@
 \section{Introduction}
 \label{sec:introduction}
 
+The current chapter covers the root of the problem and goals we are trying to accomplish.
+
 \subsection{Motivation}
 \label{sec:motivation}
 
@@ -13,7 +15,7 @@ To help analyzing this data the following approaches are desired: visualizing th
 The result of this work is a base of the research paper --- \textsf{Ilir Jusufi, Andreas Kerren, Vladyslav Aleksakhin, and Falk Schreiber. Visualization of Mappings between the Gene Ontology and Cluster Trees. Conference on Visualization and Data Analysis 2012 (EI-107) Part of IS&T/SPIE Electronic Imaging 2012 (Jan 22-26, 2012) VDA 2012 Dates: January 23-25, 2012.}
 
 \subsection{Thesis Collaboration}
-This project is the result of collaboration between ISOVIS research group (Head: Prof. Dr. Andreas Kerren~\cite{Kerren}) of Linn\ae us University at V\"axj\"o, Sweden, and Plant Bioinformatics Group (Head: Prof. Dr. Falk Schreiber~\cite{Schreiber}) of Leibniz Institute of Plant Genetics and Crop Plant Research (IPK), Germany.
+This project is the result of collaboration between ISOVIS research group (Head: Prof. Dr. Andreas Kerren~\cite{Kerren}) of Linnaeus University at V\"axj\"o, Sweden, and Plant Bioinformatics Group (Head: Prof. Dr. Falk Schreiber~\cite{Schreiber}) of Leibniz Institute of Plant Genetics and Crop Plant Research (IPK), Germany.
 
 
 ISOVIS research group is focused on the exploration analysis and visualization of large information data in Software Engineering, Geography, or Biology. There are several different techniques for information visualization, one of them is widely used in the research is Human-Centered Visualization. This kind of visualization combines different research areas: Information Visualization, Scientific Visualization, Human-Computer Interaction, Data Mining, Information Design, Graph Drawing, and Computer Graphics.
@@ -33,11 +35,14 @@ A subsequent step is to use the data for the simulation of metabolic and regulat
 \subsection{Thesis Outline}
 \label{sec:structure}
 
-Section~\ref{sec:introduction} explains the problem, thesis purpose and collaboration. Section~\ref{sec:background} presents the results of the related work, where relevant research efforts in the fields of Bioinformatic, Information Visualization and Bio Visualization were explored in connection to the thesis work. Section~\ref{sec:algorithm} covers the following topics: visualization complexity and describes the goals, description of the input data and mapping between graphs. Section~\ref{sec:solution} describes attempt to the visualization solution, the solution for Cluster Ananlysis tree and the visualization solution for Gene Ontology visualization technique. One of the biggest section in the report is Section~\ref{sec:implementation} that determines the requirements, use cases, and proposes the architecture for thesis application.
+Following Section~\ref{sec:background} presents the results of the related work, where relevant research efforts in the fields of Bioinformatic, Information Visualization and Bio Visualization were explored in connection to the thesis work. Section~\ref{sec:algorithm} covers the following topics: visualization complexity and describes the goals, description of the input data and mapping between graphs. Section~\ref{sec:solution} describes attempt to the visualization solution, the solution for Cluster Ananlysis tree and the visualization solution for Gene Ontology visualization technique. One of the biggest section in the report is Section~\ref{sec:implementation} that determines the requirements, use cases, and proposes the architecture for thesis application.
 Additionally in Section~\ref{sec:solution} describes the input data format overview, overview of the different graph file formats, implementation details, architecture of the system, used libraries, project management tools. Technical details of the visualization algorithms are explained in Sections~\ref{sec:cluster} and~\ref{sec:go}. Last part of the report is Section~\ref{sec:conclusion} that describes problems and future work.
 
 \newpage
 \section{Background}
+
+Following chapter covers the data domain we are developing for.
+
 \label{sec:background}
 
 
@@ -82,19 +87,27 @@ The Radial Dendrograms~\cite{Radial_dendrogram} algorithm is used for results of
 
 Dendrogram~\cite{Dendrogram} plot is one of the visualization algorithm for hierarchical structures. It illustrating the outcome of decision tree-type clustering in statistics.
 Most commonly, dendrograms are drawn in a Cartesian layout, as an upright tree. However, this layout does not make good use of space, it is sparse towards the root and crowded towards the leaf nodes.
-The spacing between nodes at different levels in the hierarchy is not uniform, which is due to the shrinking number of nodes from bottom to top. For this reason, long, wide-spanning connecting lines are needed to merge nodes at higher levels.
+The spacing between nodes at different levels in the hierarchy is not uniform, which is due to the shrinking number of nodes from bottom to top.
+For this reason, long, wide-spanning connecting lines are needed to merge nodes at higher levels.
 A better layout in this respect is a polar or a radial layout, where leaf nodes are located on the outer ring and a root is located in the center, as a focal point.
 A more uniform node spacing results are leading to a better utilization of space and resulting to a better illustration of the class relationships.
-Recently, Barlow and Neville~\cite{Barlow_Neville} presented an empirical user study for tree layouts (with less than 200 leaves) in which they compare some of the major schemes: the organizational chart (a standard drawing of a tree),
-the tree ring (basically a pie chart of circular segments), the icicle plot (the cartesian version of the tree ring), and the tree map. According to the measured performance within a group of 15 users,
-the three former methods yielded similar results where the icicle plot has a slight advantage. However, given larger number of leaves in our case (1000 and more) and the fact that the tree ring is the most compact of the three winning configurations,
-a radial layout seemed to be the most favorable one for our purpose. Radial graph layouts that illustrate hierarchical relationships are very popular, and for the special application of dendrograms.
-We know only one other application that uses a radial layout. The recent one by Kreussler and Schumann~\cite{Kreussler_Schumann} that mentioned before, users often would like to focus on certain portions of the display,
+Recently, Barlow and Neville~\cite{Barlow_Neville} presented an empirical user study for tree layouts (with less than 200 leafs)
+in which they compare some of the major schemes: the organizational chart (a standard drawing of a tree),
+the tree ring (basically a pie chart of circular segments), the icicle plot (the cartesian version of the tree ring), and the tree map.
+According to the measured performance within a group of 15 users,
+the three former methods yielded similar results where the icicle plot has a slight advantage.
+However, given larger number of leafs in our case (1000 and more) and the fact that the tree ring is the most compact of the three winning configurations,
+a radial layout seemed to be the most favorable one for our purpose. Radial graph layouts that illustrate hierarchical relationships are very popular,
+and for the special application of dendrograms.
+We know only one other application that uses a radial layout. The recent one by Kreussler and Schumann~\cite{Kreussler_Schumann} that mentioned before,
+users often would like to focus on certain portions of the display,
 while compressing others, without losing context. Fisheye lenses and hyperbolic zooming were proposed to provide these capabilities.
-In the context of tree rings Yang, Ward and Rundensteiner~\cite{Yang_Ward} proposed a system in which users may either perform a polar zoom (i.e. expand the width of one or more adjacent rings while reducing others) or
-a radial zoom (i.e. expand the arc angle of some adjacent segments while reducing others). More over, users can perform these operations by pinning down one ring or arc segment and dragging another.
-A limiting factor here is that users cannot perform both operations simultaneously that can be awkward in certain instances. To address this shortcoming
-our application generalizes these concepts by allowing arbitrary warps of the dendrogram domain, i.e. we allow radial and polar zooms simultaneously.
+In the context of tree rings Yang, Ward and Rundensteiner~\cite{Yang_Ward}
+proposed a system in which users may either perform a polar zoom (i.e. expand the width of one or more adjacent rings while reducing others) or
+a radial zoom (i.e. expand the arc angle of some adjacent segments while reducing others). More over, users can perform these operations by
+pinning down one ring or arc segment and dragging another.
+A limiting factor here is that users cannot perform both operations simultaneously that can be awkward in certain instances.
+To address this shortcoming our application generalizes these concepts by allowing arbitrary warps of the dendrogram domain, i.e. we allow radial and polar zooms simultaneously.
 
 
 \subsection{Bioinformatics}
