@@ -25,6 +25,31 @@
   nohead
 }
 
+\makeatletter
+\renewcommand{\subsection}{
+    \@startsection
+    {subsection}
+    {2}
+    {\z@}
+    {-3.5ex \@plus -1ex \@minus -.2ex}
+    {2.3ex \@plus.2ex}
+    {\normalfont\normalsize\bfseries}
+}
+\makeatother
+
+\makeatletter
+\renewcommand{\subsubsection}{
+    \@startsection
+    {subsubsection}
+    {3}
+    {\z@}
+    {-3.5ex \@plus -1ex \@minus -.2ex}
+    {2.3ex \@plus.2ex}
+    {\normalfont\normalsize\bfseries}
+}
+\makeatother
+
+
 \newcommand*{\mywebref}[3]{
 	\bibitem{#1} #2 is available on the web \url{#3}. Last access in December 2011.
 }
