@@ -49,23 +49,20 @@ Following chapter covers the data domain we are developing for.
 \subsection{Information Visualization}
 \label{sec:infovis}
 
-The field of computer-based information visualization draws on ideas from several intellectual traditions: computer science, psychology, semiotics, graphic design, cartography, and art.
+\begin{quotation}
+``The field of computer-based information visualization draws on ideas from several intellectual traditions:
+computer science, psychology, semiotics, graphic design, cartography, and art.
 The two main threads of computer science relevant for visualization are computer graphics and human-computer interaction.
 The areas of cognitive and perceptual psychology offer important scientific guidance on how humans perceive visual information.
-A related conceptual framework from the humanities is semiotics, the study of symbols and how they are convey meaning.
-Design, as the name suggests, is about the process of creating artifacts well- suited for their intended purpose.
+A related conceptual framework from the humanities is semiotics, the study of symbols and how they convey meaning.
+Design, as the name suggests, is about the process of creating artifacts well-suited for their intended purpose.
 Cartographers have a long history of creating visual representations that are carefully chosen abstractions of the real world.
-Finally, artists have refined methods for conveying visual meaning in sub-disciplines ranging from painting to cinematography.
+Finally, artists have refined methods for conveying visual meaning in subdisciplines ranging from painting to cinematography.''~\cite{InfoVis}
+\end{quotation}
 
-Information visualization has gradually emerged over the past fifteen years as a distinct field with its own research agenda.
-The distillation of results from areas with other goals into specific prescriptive advice helping us to design and evaluate visualization systems is nontrivial.
-Although these traditions have much to offer, effective synthesis of such knowledge into a useful methodology.
+In information visualization tries to present abstract concepts and relationships that do not necessarily have a counterpart in the physical world using the graphical models. 
 
-The standard argument for visualization is that exploiting visual processing can help people explore or explain data. We have an active field of study because the design challenges are significant and not fully understood. Questions about visual encoding are even more central to information visualization than to scientific visualization.
-The subfield names grew out of an accident of history, and have some slightly unfortunate connotations when juxtaposed:
-information visualization is not unscientific, and scientific visualization is not uninformative.
-The distinction between these two is still not agreed on by all, but the definition used here is that information visualization hinges on finding a spatial mapping of data that is not inherently spatial,
-whereas scientific visualization uses a spatial layout that is implicit in the data.
+Application of information visualization transform and represent source data of any format (binary, textual, etc.) in such a visual form that allows human interaction. Using the interactive visualization program the data can be analyzed by exploration rather than using pure mathematical algorithms. Users the visualization program can understand the structure and connections in the data by observing the immediate effects of their interaction. 
 
 \begin{figure}[h!]
 \centering
@@ -75,54 +72,50 @@ whereas scientific visualization uses a spatial layout that is implicit in the d
 \end{figure}
 
 \begin{quotation}
-``Graph drawing or Graph layout, as a branch of graph theory, applies topology and geometry to derive two-dimensional representations of graphs.
-A drawing of a graph is basically a pictorial representation of an embedding of the graph in the plane (generally, with edge intersections allowed),
-usually aimed at a convenient visualization of certain properties of the graph in question or of the object modeled by the graph.
-Graph drawing is motivated by applications such as Very-large-scale (VLSI)~\cite{VLSI} integration circuit design, social network analysis,
-cartography, and bioinformatics, many of which make use of information visualization.''~\cite{Graph_drawing}
+``Graph drawing is an area of mathematics and computer science combining methods from geometric graph theory and information visualization to derive two-dimensional depictions of graphs arising from applications such as social network analysis, cartography, and bioinformatics.''~\cite{Graph_drawing}
 \end{quotation}
 
-There are many methods and approaches to graph visualization. They are all based on various perception qualities of human.
-The Radial Dendrograms~\cite{Radial_dendrogram} algorithm is used for results of cluster analysis visualization.
+Graph drawing algorithms are varies by the type of graphs they try to represent. There are large amount of available algorithms, some of the are general purpose visualization algorithms -- to visualize any type of the graph, and the other are focused for the specific kind of graph.
 
-Dendrogram~\cite{Dendrogram} plot is one of the visualization algorithm for hierarchical structures. It illustrating the outcome of decision tree-type clustering in statistics.
-Most commonly, dendrograms are drawn in a Cartesian layout, as an upright tree. However, this layout does not make good use of space, it is sparse towards the root and crowded towards the leaf nodes.
-The spacing between nodes at different levels in the hierarchy is not uniform, which is due to the shrinking number of nodes from bottom to top.
-For this reason, long, wide-spanning connecting lines are needed to merge nodes at higher levels.
-A better layout in this respect is a polar or a radial layout, where leaf nodes are located on the outer ring and a root is located in the center, as a focal point.
-A more uniform node spacing results are leading to a better utilization of space and resulting to a better illustration of the class relationships.
-Recently, Barlow and Neville~\cite{Barlow_Neville} presented an empirical user study for tree layouts (with less than 200 leafs)
-in which they compare some of the major schemes: the organizational chart (a standard drawing of a tree),
-the tree ring (basically a pie chart of circular segments), the icicle plot (the cartesian version of the tree ring), and the tree map.
-According to the measured performance within a group of 15 users,
-the three former methods yielded similar results where the icicle plot has a slight advantage.
-However, given larger number of leafs in our case (1000 and more) and the fact that the tree ring is the most compact of the three winning configurations,
-a radial layout seemed to be the most favorable one for our purpose. Radial graph layouts that illustrate hierarchical relationships are very popular,
-and for the special application of dendrograms.
-We know only one other application that uses a radial layout. The recent one by Kreussler and Schumann~\cite{Kreussler_Schumann} that mentioned before,
-users often would like to focus on certain portions of the display,
-while compressing others, without losing context. Fisheye lenses and hyperbolic zooming were proposed to provide these capabilities.
-In the context of tree rings Yang, Ward and Rundensteiner~\cite{Yang_Ward}
-proposed a system in which users may either perform a polar zoom (i.e. expand the width of one or more adjacent rings while reducing others) or
-a radial zoom (i.e. expand the arc angle of some adjacent segments while reducing others). More over, users can perform these operations by
-pinning down one ring or arc segment and dragging another.
-A limiting factor here is that users cannot perform both operations simultaneously that can be awkward in certain instances.
-To address this shortcoming our application generalizes these concepts by allowing arbitrary warps of the dendrogram domain, i.e. we allow radial and polar zooms simultaneously.
+In the current work we introduced two new visualization approaches based on the specific properties of the provided data. Visualization approaches will be covered in the corresponded sections. But it is worth to mention that Gene Ontology graph visualization idea is based on the Layer Graph Drawing method.
+
+\begin{quotation}
+``Layered graph drawing methods are best suited for directed acyclic graphs or graphs that are nearly acyclic, such as the graphs of dependencies between modules or functions in a software system. In these methods, the nodes of the graph are arranged into horizontal layers using methods such as the Coffman–Graham algorithm, in such a way that most edges go downwards from one layer to the next; after this step, the nodes within each layer are arranged in order to minimize crossings.''~\cite{Layered_graph_drawing}
+\end{quotation}
+
+
+Cluster Tree are usually represented using the dendrogram plot. The dendrogram plot is one of the visualization algorithm for hierarchical structures. It illustrating the outcome of decision tree-type clustering in statistics, in computational biology to illustrate the clustering of genes or samples~\cite{Dendrogram}
+
+There are many methods and approaches to graph visualization. They are all based on various perception qualities of human.
+The Radial Dendrograms~\cite{Radial_dendrogram} algorithm is circular layout.
+
+\begin{quotation}
+``Circular layout methods place the vertices of the graph on a circle, choosing carefully the ordering of the vertices around the circle to reduce crossings and place adjacent vertices close to each other. Edges may be drawn either as chords of the circle or as arcs inside or outside of the circle. In some cases, multiple circles may be used.''~\cite{Circular_layout}
+\end{quotation}
+
 
 
 \subsection{Bioinformatics}
 \label{sec:bioinformatics}
 
-In the last few decades, advances in molecular biology and the equipment available for research in this field have allowed the increasingly rapid sequencing of large portions of the genomes of several species.
+Last years advances in molecular biology and the equipment available for research in this field have allowed the increasingly rapid sequencing of large portions of the genomes of several species.
 In fact, to date, several bacterial genomes, as well as those of some simple eukaryotes (e.g., Saccharomyces cerevisiae, or baker's yeast) have been sequenced in full.
-The Human Genome Project, designed to sequence all 24 of the human chromosomes, is also progressing. Popular sequence databases, such as GenBank and EMBL, have been growing at exponential rates.
-This deluge of information has necessitated the careful storage, organization and indexing of sequence information. Information science has been applied to biology to produce the field called Bioinformatics.
+The Human Genome Project, designed to understand all twenty four genomes of the human chromosomes, is also in progress. Popular sequence databases, for example Gene Ontology project, have been growing tremendously.
+This huge amount of information requires the careful storage, organization and indexing of sequence information. Information science has been applied to biology to produce the field called -- Bioinformatics.
+
+
+The primary goal of bioinformatics is to increase our understanding of biological processes.
+
+
+Major research efforts in the field include sequence alignment, gene finding, genome assembly, protein structure alignment, protein structure prediction, prediction of gene expression and protein-protein interactions, genome-wide association studies and the modeling of evolution.
 
 
 The simplest tasks used in bioinformatics concern the creation and maintenance of databases of biological information.
 Nucleic acid sequences (and the protein sequences derived from them) comprise the majority of such databases. While the storage and or organization of millions of nucleotides is far from trivial,
 designing a database and developing an interface whereby researchers can both access existing information and submit new entries is only the beginning.
 The most pressing tasks in bioinformatics involve the analysis of sequence information.~\cite{Biology}
+
+
 Here we can find short introduction and history of Bioinformatics:
 
 \begin{quotation}
@@ -135,9 +128,6 @@ Common activities in bioinformatics include mapping and analyzing DNA and protei
 \end{quotation}
 
 More resources about Bioinformatic are available here~\cite{Bioinformatic_resources}.
-The primary goal of bioinformatics is to increase our understanding of biological processes.
-However, its focus on developing and applying computationally intensive techniques (e.g., data mining, machine learning algorithms, and visualization) to achieve this goal sets it apart from other approaches.
-Major research efforts in the field include sequence alignment, gene finding, genome assembly, protein structure alignment, protein structure prediction, prediction of gene expression and protein-protein interactions, genome-wide association studies and the modeling of evolution.
 
 \subsection{Gene Ontology}
 \label{sec:gene_ontology}
@@ -149,9 +139,18 @@ The aims of the Gene Ontology project are threefold. Firstly, to maintain and fu
 secondly, to annotate genes and gene products, and assimilate and disseminate annotation data,
 and thirdly, to provide tools to facilitate access to all aspects of the data provided by the Gene Ontology project.
 The GO is part of a larger classification effort, the Open Biomedical Ontologies (OBO)~\cite{OBO}.
-The Gene Ontology project provides an ontology of defined terms representing gene product properties.
-The ontology covers three domains. First is cellular component and the parts of a cell or its extracellular environment.
+
+\begin{quotation}
+``The Gene Ontology project provides an ontology of defined terms representing gene product properties.
+The ontology covers three domains.
+
+
+First is cellular component and the parts of a cell or its extracellular environment.
+
+
 Second is molecular function and the elemental activities of a gene product at the molecular level, such as binding or catalysis and biological process.
+
+
 Finally the third are operations or sets of molecular events with a defined beginning and end, pertinent to the functioning of integrated living units: cells, tissues, organs, and organisms. Each GO term within the ontology has a term name, which may be a word or string of words;
 a unique alphanumeric identifier; a definition with cited sources; and a name space indicating the domain to which it belongs.
 Terms may also have synonyms, which are classed as being exactly equivalent to the term name, broader, narrower, or related; references to equivalent concepts in other databases;
@@ -159,8 +158,8 @@ and comments on term meaning or usage. The GO ontology is structured as a direct
 and includes terms applicable to prokaryotes and eukaryotes, single and multicellular organisms.
 The GO ontology is not static, therefore additions, corrections and alterations are suggested by and solicited from members of the research and annotation communities, as well as by those directly involved in the GO project.
 For example, an annotator may request a specific term to represent a metabolic pathway, or a section of the ontology may be revised with the help of community experts.
-Suggested edits are reviewed by the ontology editors and implemented where appropriate.
-
+Suggested edits are reviewed by the ontology editors and implemented where appropriate.''\cite{Gene_Ontology}
+\end{quotation}
 
 \subsection{Clustering}
 \label{sec:clustering}

@@ -286,30 +286,30 @@ And a corresponded graphml file is shown in Listing~\ref{simple_graphml_file}
 \renewcommand{\thelstlisting}{\thesection.\arabic{lstlisting}}
 \begin{lstlisting} [language=xml, tabsize=1, caption={Simple graphml file}, captionpos=b, label=simple_graphml_file]
 <graphml>
-  <graph id="G" edgedefault="undirected">
-    <node id="n0"/>
-    <node id="n1"/>
-    <node id="n2"/>
-    <node id="n3"/>
-    <node id="n4"/>
-    <node id="n5"/>
-    <node id="n6"/>
-    <node id="n7"/>
-    <node id="n8"/>
-    <node id="n9"/>
-    <node id="n10"/>
-    <edge source="n0" target="n2"/>
-    <edge source="n1" target="n2"/>
-    <edge source="n2" target="n3"/>
-    <edge source="n3" target="n5"/>
-    <edge source="n3" target="n4"/>
-    <edge source="n4" target="n6"/>
-    <edge source="n6" target="n5"/>
-    <edge source="n5" target="n7"/>
-    <edge source="n6" target="n8"/>
-    <edge source="n8" target="n7"/>
-    <edge source="n8" target="n9"/>
-    <edge source="n8" target="n10"/>
+  <graph id="SampleGraph" edgedefault="undirected">
+    <node id="node0"/>
+    <node id="node1"/>
+    <node id="node2"/>
+    <node id="node3"/>
+    <node id="node4"/>
+    <node id="node5"/>
+    <node id="node6"/>
+    <node id="node7"/>
+    <node id="node8"/>
+    <node id="node9"/>
+    <node id="node10"/>
+    <edge source="node0" target="node2"/>
+    <edge source="node1" target="node2"/>
+    <edge source="node2" target="node3"/>
+    <edge source="node3" target="node5"/>
+    <edge source="node3" target="node4"/>
+    <edge source="node4" target="node6"/>
+    <edge source="node6" target="node5"/>
+    <edge source="node5" target="node7"/>
+    <edge source="node6" target="node8"/>
+    <edge source="node8" target="node7"/>
+    <edge source="node8" target="node9"/>
+    <edge source="node8" target="node10"/>
   </graph>
 </graphml>
 \end{lstlisting}
@@ -367,13 +367,13 @@ DGML is an XML-based file format for directed graphs. Here is what a simple dire
 <?xml version="1.0" encoding="utf-8"?>
 <directedGraph>
   <nodes>
-    <node id="a" label="a" size="10"/>
-    <node id="b" background="#FF008080" label="b"/>
-    <node id="c" label="c" start="2010-06-10"/>
+    <node id="1" label="a" size="10"/>
+    <node id="2" label="b" background="#FF008080"/>
+    <node id="3" label="c" start="2010-06-10"/>
   </nodes>
   <links>
-    <link source="a" target="b"/>
-    <link source="a" target="c"/>
+    <link source="1" target="2"/>
+    <link source="2" target="3"/>
   </links>
   <properties>
     <property id="background" datatype="Brush"/>
