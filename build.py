@@ -13,9 +13,9 @@ if sys.platform.startswith('darwin'):
 
 	subprocess.Popen(OPEN_COMMAND, shell=True, stdout=subprocess.PIPE).wait()
 
-elseif sys.platform.startswith('linux'):
+elif sys.platform.startswith('linux'):
 
-	COMPILE_COMMAND = "latex2pdf -o report.pdf report.tex"
+	COMPILE_COMMAND = "/usr/bin/pdflatex -interaction=nonstopmode report.tex"
 
 	process = subprocess.Popen(COMPILE_COMMAND, shell=True, stdout=subprocess.PIPE)
 	for line in process.stdout:
