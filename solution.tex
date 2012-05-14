@@ -142,21 +142,32 @@ There are too many elements in the scene and it is impossible to identify separa
 \subsection{Complete Solution Overview}
 \label{sec:complete_solution_overview}
 
-Biologists usually browse the data set randomly, or have a specific GO term in mind.
-For that purpose it is possible either search for specific gene in a list that is shown in the dialog box called from the menu, or directly click on a particular node in the GO view.
-A mouse-over action on a node will display the name of that node with the help of a tool-tip. This helps the user to browse the GO and to select a node for further exploration.
-The GO view displays the nodes as single pixels as already explained earlier. It is pretty hard to perceive a single selected pixel by using color coding only.
-To make this task easier there is a green circle around the selected node in the GO view, as seen in the third layer of the GO view in Figure~\ref{fig:complete_solution_overview}.
-This feature also makes it easier to identify the layer the currently selected node belongs to.
-After the node has been selected by clicking, the sub-graph consisting of all reachable nodes will be calculated.
-These related nodes, as explained in Subsection~\ref{sec:go}, will be highlighted in yellow in the both views.
-Optionally, the edges of the sub-graph will be shown too.
-At the same time, the corresponding cluster sub-tree will be highlighted with the same color in the Cluster Tree view reflecting the selection made in the GO view.
-In this way, the user can easily identify the mapping between both views by comparing the highlighted elements.
+Biologists usually browse the data set randomly or they have a specific GO term in mind to analyze.
+
+
+For that purpose the tool provides the list of Gene Ontology genes in the alphabet ordered. It is called -- Gene dialog, available from the menu.It is possible to search for specific gene over the list, search provides auto-complete functionality similar to Spotlight~\cite{Spotlight} in Mac OS series of Operation System. Or it is possible to directly click on a particular node in the GO view. Gene dialog also tracks corresponded manual selected node and vice versa -- selected term in the Gene list is highlighted in the Gene Ontology view.
+
+
+A mouse-over action of the user on a node will display the name of that node with the help of a tool-tip technique. This helps the user to browse the GO and to select a node for further exploration. Extended information is shown in the status bar: it provides the name of the currently selected term of the each view, GO and Cluster Tree, and the name of the currently highlighted.
+
+
+The GO view displays the nodes as single pixels as already explained earlier. It is pretty hard to perceive a single selected pixel by using color coding only. To make this task easier there is a green circle around the selected node in the GO view, as seen in the third layer of the GO view in Figure~\ref{fig:complete_solution_overview}. This feature also makes it easier to identify the layer the currently selected node belongs to.
+
+
+After the node has been selected by left-mouse clicking, the sub-graph consisting of all reachable nodes will be calculated. These related nodes, as explained in Subsection~\ref{sec:go}, will be highlighted in yellow in the both views.
+
+
+There is an optional menu to show the edges of the sub-graph for the Gene Ontology view. At the same time, the corresponding cluster sub-tree will be highlighted with the same color in the Cluster Tree view reflecting the selection made in the GO view. In this way, the user can easily identify the mapping between both views by comparing the highlighted elements.
+
+
 Note that the closer the selected node is to the GO root, the larger the number of nodes can be accessed from that particular node.
-For example, the root node of the GO DAG has access to all nodes of the DAG, this means that if the root node pixel is clicked, the complete DAG is selected.
-In such cases, clutter cannot be avoided. Therefore, users can choose the option to disable the visualization of edges if needed to reduce information overloading.
-More screen shots can be found in the Appendix~D.
+For example, the root node of the GO DAG has access to all nodes of the DAG, this means that if the root node is clicked, the complete DAG will be selected.
+
+
+In such cases, edge overlapping can not be avoided. Therefore, user of the tool can choose the option to disable the visualization of edges of the Gene Ontology graph if needed to reduce information overflow.
+
+
+More screen shots of the complete solution in the different states can be found in the Appendix~D.
 
 \newpage
 \begin{figure}[h!]
