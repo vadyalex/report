@@ -29,13 +29,16 @@ Therefore we integrate, process and analyze data from different areas of genome,
 The emphasis is on the linkage of experimental data about expression profiles and metabolite patterns with metabolic and regulatory networks.
 The data and complex connections are modeled using graphs. We are developing graph (network) analysis and interactive visualization methods to discover network properties and to make the data easily accessible to the user.
 A subsequent step is to use the data for the simulation of metabolic and regulatory networks.''~\cite{PBG}
+
+Current work fulfills goals of the ISOVIS research group stated above and provides the useful tool for the researchers of the Plant Bioinformatics Group in their everyday work.
+
 \end{quotation}
 
 
 \subsection{Thesis Outline}
 \label{sec:structure}
 
-Following Section~\ref{sec:background} presents the results of the related work, where relevant research efforts in the fields of Bioinformatic, Information Visualization and Bio Visualization were explored in connection to the thesis work. Section~\ref{sec:algorithm} covers the following topics: visualization complexity and describes the goals, description of the input data and mapping between graphs. Section~\ref{sec:solution} describes attempt to the visualization solution, the solution for Cluster Ananlysis tree and the visualization solution for Gene Ontology visualization technique. One of the biggest section in the report is Section~\ref{sec:implementation} that determines the requirements, use cases, and proposes the architecture for thesis application.
+Following Section~\ref{sec:background} presents the results of the related work, where relevant research efforts in the fields of Bioinformatic, Information Visualization and Bio-Visualization were explored in connection to the thesis work. Section~\ref{sec:algorithm} covers the following topics: visualization complexity and describes the goals, description of the input data and mapping between graphs. Section~\ref{sec:solution} describes attempt to the visualization solution, the solution for Cluster Ananlysis tree and the visualization solution for Gene Ontology visualization technique. One of the biggest section in the report is Section~\ref{sec:implementation} that determines the requirements, use cases, and proposes the architecture for thesis application.
 Additionally in Section~\ref{sec:solution} describes the input data format overview, overview of the different graph file formats, implementation details, architecture of the system, used libraries, project management tools. Technical details of the visualization algorithms are explained in Sections~\ref{sec:cluster} and~\ref{sec:go}. Last part of the report is Section~\ref{sec:conclusion} that describes problems and future work.
 
 \newpage
@@ -57,10 +60,10 @@ The areas of cognitive and perceptual psychology offer important scientific guid
 A related conceptual framework from the humanities is semiotics, the study of symbols and how they convey meaning.
 Design, as the name suggests, is about the process of creating artifacts well-suited for their intended purpose.
 Cartographers have a long history of creating visual representations that are carefully chosen abstractions of the real world.
-Finally, artists have refined methods for conveying visual meaning in subdisciplines ranging from painting to cinematography.''~\cite{InfoVis}
+Finally, artists have refined methods for conveying visual meaning in sub-disciplines ranging from painting to cinematography.''~\cite{InfoVis}
 \end{quotation}
 
-In information visualization tries to present abstract concepts and relationships that do not necessarily have a counterpart in the physical world using the graphical models. 
+Information visualization tries to present abstract concepts and relationships that do not necessarily have a counterpart in the physical world using the graphical models. 
 
 Application of information visualization transform and represent source data of any format (binary, textual, etc.) in such a visual form that allows human interaction. Using the interactive visualization program the data can be analyzed by exploration rather than using pure mathematical algorithms. Users the visualization program can understand the structure and connections in the data by observing the immediate effects of their interaction. 
 
@@ -75,7 +78,7 @@ Application of information visualization transform and represent source data of 
 ``Graph drawing is an area of mathematics and computer science combining methods from geometric graph theory and information visualization to derive two-dimensional depictions of graphs arising from applications such as social network analysis, cartography, and bioinformatics.''~\cite{Graph_drawing}
 \end{quotation}
 
-Graph drawing algorithms are varies by the type of graphs they try to represent. There are large amount of available algorithms, some of the are general purpose visualization algorithms -- to visualize any type of the graph, and the other are focused for the specific kind of graph.
+Graph drawing algorithms varies by the type of graphs they try to represent. There are large amount of available algorithms, some of the are general purpose visualization algorithms -- to visualize any type of the graph, and the other are focused for the specific kind of graph.
 
 In the current work we introduced two new visualization approaches based on the specific properties of the provided data. Visualization approaches will be covered in the corresponded sections. But it is worth to mention that Gene Ontology graph visualization idea is based on the Layer Graph Drawing method.
 
@@ -127,7 +130,9 @@ It is the name given to these mathematical and computing approaches used to glea
 Common activities in bioinformatics include mapping and analyzing DNA and protein sequences, aligning different DNA and protein sequences to compare them and creating and viewing 3D models of protein structures.''~\cite{Bioinformatic}
 \end{quotation}
 
-More resources about Bioinformatic are available here~\cite{Bioinformatic_resources}.
+The developed tool helps to reach the goals of the Bioinformatics stated above through analyzing the Gene Ontology data and corresponded mappings.
+
+More resources about Bioinformatic are available in~\cite{Bioinformatic_resources}.
 
 \subsection{Gene Ontology}
 \label{sec:gene_ontology}
@@ -137,8 +142,9 @@ Gene Ontology~\cite{GO_website} project is one of the first-rate international p
 The Gene Ontology, or GO, is a major bioinformatics initiative to unify the representation of gene and gene product attributes across all species.
 The aims of the Gene Ontology project are threefold. Firstly, to maintain and further develop its controlled vocabulary of gene and gene product attributes,
 secondly, to annotate genes and gene products, and assimilate and disseminate annotation data,
-and thirdly, to provide tools to facilitate access to all aspects of the data provided by the Gene Ontology project.
-The GO is part of a larger classification effort, the Open Biomedical Ontologies (OBO)~\cite{OBO}.
+and thirdly, to provide tools to facilitate access to all aspects of the data provided by the Gene Ontology project. The GO is part of a larger classification effort, the Open Biomedical Ontologies (OBO)~\cite{OBO}.
+
+In the current work one of the input data is Gene Ontology graph. The Gene Ontology is used by researchers of the Plant Bioinformatics Group to run clustering algorithm. Different goals use different algorithms as the result provides different clustering trees. GO helps to gather and share information withing researchers. Here is description from the project web-site:
 
 \begin{quotation}
 ``The Gene Ontology project provides an ontology of defined terms representing gene product properties.
@@ -165,19 +171,25 @@ Suggested edits are reviewed by the ontology editors and implemented where appro
 \label{sec:clustering}
 
 \begin{quotation}
-``Data clustering (or just clustering), also called cluster analysis, segmentation analysis, taxonomy analysis, or unsupervised classification,
-is a method of creating groups of objects, or clusters, in such a way that objects in one cluster are very similar and objects in different clusters are quite distinct.
+
+As was mentioned in the previous section different clustering algorithm could be applied to the GO.
+
+``Data clustering (or just clustering), also called cluster analysis, segmentation analysis, taxonomy analysis, or unsupervised classification, is a method of creating groups of objects, or clusters, in such a way that objects in one cluster are very similar and objects in different clusters are quite distinct.
+
+
 Data clustering is often confused with classification, in which objects are assigned to predefined classes. In data clustering, the classes are also to be defined.''~\cite{data_clustering_book}
 \end{quotation}
 
-Clustering algorithms can be applied in many fields. For instance:
+Clustering algorithms help to classify genes and analyze mappings between genes in the Gene Ontology graph. 
+
+
+Other than in Bioinformatics and biology clustering algorithms can be applied in many other fields. For instance:
 
 \begin{itemize}
 \item Marketing: finding groups of customers with similar behavior given a large database of customer data that contains their properties and past buying records;
-\item Biology: classification of plants and animals given their features;
 \item Libraries: book ordering;
 \item Insurance: identifying groups of motor insurance policy holders with a high average claim cost, identifying frauds;
 \item City-planning: identifying groups of houses according to their house type, value and geographical location;
 \item Earthquake studies: clustering observed earthquake epicenters in order to identify dangerous zones;
-\item WWW: document classification clustering web log data to discover groups of similar access patterns.
+\item Internet: document classification clustering web log data to discover groups of similar access patterns.
 \end{itemize}

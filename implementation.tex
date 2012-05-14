@@ -76,7 +76,7 @@ Each revision is associated with a time stamp and the person making the change. 
 restored, and with some types of files, merged.''~\cite{REVISION_CONTROL}
 \end{quotation}
 
-During thesis development was used Git version control system.
+During thesis development Git version control system was used.
 
 \begin{quotation}
 ``Git is a distributed revision control system with an emphasis on speed.
@@ -256,7 +256,7 @@ Applications supporting GML~\cite{GML_wiki}
 
 \subsection{Other Graph File Formats}
 
-We choose to use GML because it is powerful enough for our needs and easy to implement. The next section covers several different graph file format we tried during the research.
+We choose to use GML because it is powerful enough for our needs and easy to implement. The next section covers several different graph file format we tried during the research. They are explained in descending order of interest.
 
 \subsubsection{GraphML}
 GraphML is a comprehensive and easy-to-use file format for graphs. It consists of a language core to describe the structural properties of a graph and a flexible extension mechanism to add application-specific data.~\cite{GraphML} Its main features include support of:
@@ -314,6 +314,8 @@ And a corresponded graphml file is shown in Listing~\ref{simple_graphml_file}
 </graphml>
 \end{lstlisting}
 \end{center}
+
+GraphML support is implemented in the tool -- there is corresponded parsers to load graph from the GraphML file.
 
 \subsubsection{DOT Graph File Format}
 DOT is a plain text graph description language. It is a simple way of describing graphs in human readable form.
@@ -401,9 +403,10 @@ As the research area matured, it became apparent that a standard exchange format
 was needed and that this format should provide a mechanism to help articulate semantics.''~\cite{GXL}.
 \end{quotation}
 
+GXL is considered as possible solution to transport graph data from different graph file formats
+
 \subsubsection{SVG}
-SVG is open graphical data storage format. Has been in development since 1999 by a group of companies within the W3C.
-SVG drew on experience from the designs of two older formats: Precision Graphics Markup Language (PGML) developed from Adobe's PostScript and Vector Markup Language (VML) developed from Microsoft's RTF. Which were submitted to W3C in 1998.
+SVG is open graphical data storage format. Has been in development since 1999 by a group of companies within the W3C. SVG drew on experience from the designs of two older formats: Precision Graphics Markup Language (PGML) developed from Adobe's PostScript and Vector Markup Language (VML) developed from Microsoft's RTF. Which were submitted to W3C in 1998.
 
 
 SVG allows three types of graphic objects:
@@ -421,8 +424,16 @@ Text can be in any XML name space suitable to the application, which enhances se
 The feature set includes nested transformations, clipping paths, alpha masks, filter effects, template objects and extensibility..''~\cite{SVG}
 \end{quotation}
 
+As described above current information storage format is not meant to store graphs but is considered as possible data exchange storage format for the export functionality -- export graph visualization in the file to view it in any modern browser.
+
 \subsection{OpenGL Visualization Standard}
 \label{sec:opengl}
+During first attempts to visualize data using available libraries the performance became a bottleneck. Without any measurement methods it was obvious that Java3D API used in the most of the libraries does not allow smooth intersections and real-time computations.
+
+
+As possible solutions we introduces our own abstraction for visualization using OpenGL and underlying hardware acceleration.
+
+
 OpenGL is a software interface to graphics hardware. This interface consists of about 120 distinct commands,
 which you use to specify the objects and operations needed to produce interactive three-dimensional applications.
 OpenGL is designed to work efficiently even if the computer that displays the graphics you create is not the computer that runs your graphics program.
@@ -437,6 +448,8 @@ or molecules. With OpenGL, you must build up your desired model from a small set
 lines, and polygons.''~\cite{THE_RED_BOOK}
 \end{quotation}
 
+Since OpenGL is not bound to actual hardware but it is implemented as native C library and coupled to the Operation System it is run on. To avoid direct calls from the Java program to native API (Java Native Interface) we used wrapper.
+
 There are many wrappers over OpenGL for developing on different programming languages.
 One of the favorite in the Java community are JOGL and LWJGL.
 
@@ -450,7 +463,7 @@ LWJGL is available under a BSD license, which means it is open source and freely
 \end{quotation}
 
 
-In the thesis used JOGL wrapper library over OpenGL. Java OpenGL (JOGL) is a wrapper library that allows OpenGL to be used in the Java programming.
+In the thesis used JOGL wrapper library over OpenGL. Java OpenGL (JOGL) is a wrapper library that allows OpenGL to be used in more Java way. Here is the overview of the JOGL project:
 
 \begin{quotation}
 ``The base OpenGL C API and associated operation system API, are accessed in JOGL via Java Native Interface (JNI) calls.
