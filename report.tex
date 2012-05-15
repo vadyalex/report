@@ -60,6 +60,13 @@
 	\end{LARGE}
 }
 
+\newcommand*{\mysection}[2]{
+  \newpage
+  \section{#1}
+  \label{#2}
+  \setcounter{figure}{0}
+}
+
 \newcommand*{\myappendix}[1]{	
 	\addtocounter{section}{1}
 
@@ -69,7 +76,7 @@
 	\renewcommand{\thesection}{\Alph{section}}
 	\renewcommand{\thefigure}{\thesection.\arabic{figure}}
 
-	\setcounter{figure}{1}
+	\setcounter{figure}{0}
 }
 
 \renewcommand{\thefigure}{\thesection.\arabic{figure}}
@@ -89,16 +96,15 @@
 \newpage
 \tableofcontents
 
-\newpage
 \setcounter{page}{1}
 \pagenumbering{arabic}
+
 \input{introduction}
 
 \input{algorithm.tex}
 
 \input{solution.tex}
 
-\newpage
 \input{implementation.tex}
 
 \input{conclusion.tex}
