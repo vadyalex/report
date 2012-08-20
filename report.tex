@@ -13,6 +13,7 @@
 \usepackage{url}
 \usepackage{color}
 \usepackage{listings}
+\usepackage{pdfpages}
 
 \geometry{
   oneside,
@@ -85,7 +86,7 @@
 
 \pagenumbering{roman}
 
-\input{title.tex}
+\includepdf{cover_front.pdf}
 
 \newpage
 \input{abstract.tex}
@@ -125,5 +126,7 @@
 
 \newpage
 \input{appendix_D.tex}
+
+\includepdf{cover_back.pdf}
 
 \end{document}
